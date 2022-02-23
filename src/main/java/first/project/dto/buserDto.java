@@ -1,17 +1,39 @@
 package first.project.dto;
 
+import javax.validation.constraints.NotBlank;
+//import javax.validation.constraints.Pattern;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+
 public class buserDto {
-	String userid;			//¾ÆÀÌµğ
-	String userpw;			//ºñ¹Ğ¹øÈ£
-	String username;		//ÀÌ¸§
-	String userphone;		//ÀüÈ­¹øÈ£
-	String useremail;		//ÀÌ¸ŞÀÏ
-	String userbtype;		//Ç÷¾×Çü
-	String userbirth;		//»ı³â¿ùÀÏ
-	String useraddr;		//ÁÖ¼Ò
-	int bcount;				//ÇåÇ÷È½¼ö
-	int point;				//Æ÷ÀÎÆ®
+
+   @NotBlank(message="ì•„ì´ë””ëŠ” í•„ìˆ˜ ì…ë ¥ ê°’ì…ë‹ˆë‹¤.")
+   private String userid;
+
+   @NotBlank(message="ë¹„ë°€ë²ˆí˜¸ëŠ” í•„ìˆ˜ ì…ë ¥ ê°’ì…ë‹ˆë‹¤.")
+   private String userpw;
+
+   private String username;
+
+   private String userphone;
+
+
+   private String useremail;
+
+   private String userbtype;
+
+   private String userbirth;
+
+   private String useraddr;
+
+   private int bcount;
+   private int point;
 }

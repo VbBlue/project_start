@@ -4,5 +4,42 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="first.project.dao.LoginDao">
 
-	
+
+
+
+
+	<select id="login" parameterType="first.project.dto.buserDto" resultType="first.project.dto.buserDto">
+		select * from buser where userid=#{userid} and userpw=#{userpw}
+	</select>
+
+
+	<select id="findid" parameterType="first.project.dto.buserDto" resultType="first.project.dto.buserDto">
+		select userid from buser where username=#{username} and useremail=#{useremail}
+
+	</select>
+
+	<select id="findpw" parameterType="first.project.dto.buserDto" resultType="first.project.dto.buserDto">
+		SELECT * FROM buser WHERE username=#{username} AND userid=#{userid}
+	</select>
+
+	<select id="idcheck" parameterType="String" resultType="first.project.dto.buserDto">
+		select userid from 	buser where userid =#{userid}
+	</select>
+
+
+	<insert id="insertMem" parameterType="first.project.dto.buserDto">
+		insert into buser values
+		(#{userid}, #{userpw}, #{username}, #{userphone}, #{useremail},
+		 #{userbtype}, #{userbirth}, #{useraddr}, #{bcount}, #{point})
+	</insert>
+
+
+	<update id="updateMem" parameterType="first.project.dto.buserDto">
+		update buser set
+		password=#{password},
+		name=#{name}, birth = #{birth},address=#{address}
+		where id=#{id}
+	</update>
+
+
 </mapper>

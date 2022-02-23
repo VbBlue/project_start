@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class MainController {
-	
+
 	@GetMapping("/")
 	public String indexform() {
 		return "index";
@@ -13,26 +13,27 @@ public class MainController {
 
 	@GetMapping("signupform")
 	public String signupform() {
-		return "signup";
+		return "signup/signup";
 	}
-	
+
 	@GetMapping("loginform")
 	public String loginform() {
-		return "login";
+		return "login/login";
 	}
-	
+
 	@GetMapping("boardform")
 	public String boardform() {
-		return "board";
+		return "board/board";
 	}
-	
+
 	@GetMapping("mapform")
 	public String mapform() {
-		return "map";
+		return "res/map";
 	}
-	
+
 	@GetMapping("mypageform")
 	public String mypageform() {
-		return "mypage";
+		return "mypage/mypage";
 	}
+
 }
