@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="">
 <!-- To declare your language - read more here: https://www.w3.org/International/questions/qa-html-language-declarations -->
@@ -56,6 +57,9 @@
     </nav>
   </header>
 </div>
+=======
+<%@ include file="./includes/header.jsp" %>
+>>>>>>> branch 'master' of https://github.com/shshshrj/project_start.git
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
@@ -106,6 +110,7 @@
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
+<<<<<<< HEAD
 <div class="wrapper row4">
   <footer id="footer" class="hoc clear"> 
     <!-- ################################################################################################ -->
@@ -154,3 +159,6 @@
 <script src="layout/scripts/jquery.mobilemenu.js"></script>
 </body>
 </html>
+=======
+<%@ include file="./includes/footer.jsp" %>
+>>>>>>> branch 'master' of https://github.com/shshshrj/project_start.git
