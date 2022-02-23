@@ -7,7 +7,7 @@
   <section class="hoc container clear"> 
     <div class="center btmspace-80">
       <h6 class="heading underline font-x2">게시판</h6>
-      <h1>여기에 만들면 됨 form 하고 등등</h1>
+      <p>여기에 만들면 됨 form 하고 등등</p>
     </div>
   </section>
 </div>
