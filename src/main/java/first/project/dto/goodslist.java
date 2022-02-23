@@ -1,14 +1,17 @@
 package first.project.dto;
 
-import java.sql.Date;
+import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.Data;
 
 @Data
 public class goodslist {
-	String goods;			//ï¿½ï¿½ï¿½Ç°
-	String userid;			//ï¿½ï¿½ï¿½ï¿½Ú¾ï¿½ï¿½Ìµï¿½
-	Date goodsdate;		//ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ï¿½
-	String bhname;			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½
-	int goodsnum;			//ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£ (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)	
+	String goods;			//±â³äÇ°
+	String userid;			//»ç¿ëÀÚ¾ÆÀÌµð
+	Date goodsdate;		//´çÃ·ÀÏÀÚ
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	String bhname;			//ÇåÇ÷ÀÇÁýÀÌ¸§
+	int goodsnum;			//´çÃ·³»¿ª¹øÈ£ (½ÃÄö½º)	
 }

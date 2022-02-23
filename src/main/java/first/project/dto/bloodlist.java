@@ -2,13 +2,16 @@ package first.project.dto;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import lombok.Data;
 
 @Data
-public class bloodlist { //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-	String bhname;		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½
-	String userid;		//ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
-	Date bhdate;		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Â¥
-	String bhselect;		//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
-	int bhlistnum;		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
+public class bloodlist { //ÇåÇ÷³»¿ª
+	String bhname;		//ÇåÇ÷ÀÇÁý ÀÌ¸§
+	String userid;		//»ç¿ëÀÚ ¾ÆÀÌµð
+	Date bhdate;		//ÇåÇ÷ÇÑ ³¯Â¥
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	String bhselect;		//ÇåÇ÷ Á¾·ù
+	int bhlistnum;		//ÇåÇ÷³»¿ª ¹øÈ£ (½ÃÄö½º)
 }
