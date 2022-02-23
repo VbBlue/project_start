@@ -1,15 +1,22 @@
 package first.project.dto;
 
+import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import lombok.Data;
 
 @Data
-public class reservation {  //¿¹¾à³»¿ª
-	String bhname;			//ÇåÇ÷ÀÇÁý ÀÌ¸§
-	String username;		//»ç¿ëÀÚ ÀÌ¸§
-	String resdate;			//¿¹¾à³¯Â¥
-	String restime;			//¿¹¾à½Ã°£
-	String goods;			//±â³äÇ°
-	String bhselect;		//ÇåÇ÷Á¾·ù (ÀüÇ÷ //ÀÏ¹ÝÇåÇ÷ )
-	int resnum;				//¿¹¾à³»¿ª ¹øÈ£ (½ÃÄö½º)
-	String resstate;		//¿¹¾à»óÅÂ
+public class reservation {  //ï¿½ï¿½ï¿½à³»ï¿½ï¿½
+	String bhname;			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½
+	String userid;			//ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½
+	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	Date resdate;			//ï¿½ï¿½ï¿½à³¯Â¥
+	
+	String restime;			//ï¿½ï¿½ï¿½ï¿½Ã°ï¿½
+	String goods;			//ï¿½ï¿½ï¿½Ç°
+	String bhselect;		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½ //ï¿½Ï¹ï¿½ï¿½ï¿½ï¿½ï¿½ )
+	int resnum;				//ï¿½ï¿½ï¿½à³»ï¿½ï¿½ ï¿½ï¿½È£ (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
+	String resstate;		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 }

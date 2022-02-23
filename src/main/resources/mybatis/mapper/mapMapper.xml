@@ -3,6 +3,23 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="first.project.dao.MapDao">
-
+	<select id="buserinfo" parameterType="String" resultType="first.project.dto.buserDto">
+		select * from buser where userid = #{id}
+	</select>	
 	
+	<insert id="reservation" parameterType="first.project.dto.reservation">
+		insert into reservation values(#{bhname},#{userid},#{resdate},#{restime},#{goods},#{bhselect},reservation_seq.nextval,#{resstate})
+	</insert>
+	
+	<select id="resselect" parameterType="String" resultType="first.project.dto.reservation">
+		select * from reservation where userid = #{id}
+	</select>
+	
+	<update id="updateUserPhone" parameterType="map">
+		update buser set userphone = #{userphone} where userid = #{userid}
+	</update>
+	
+	<update id="updateUserBtype" parameterType="map">
+		update buser set userbtype = #{userbtype} where userid = #{userid}
+	</update>
 </mapper>
