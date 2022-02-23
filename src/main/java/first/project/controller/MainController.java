@@ -31,13 +31,9 @@ import first.project.service.MypageService;
 
 @Controller
 public class MainController {
-<<<<<<< HEAD
-
-=======
 	@Autowired
 	MypageService m_service;
-	
->>>>>>> branch 'master' of https://github.com/shshshrj/project_start.git
+
 	@GetMapping("/")
 	public String indexform() {
 		return "index";
@@ -59,31 +55,28 @@ public class MainController {
 	}
 
 	@GetMapping("mapform")
-<<<<<<< HEAD
-	public String mapform() {
-=======
 	public String mapform(Model m) {
-		
+
 		List<bloodhouse> bh_list = new ArrayList<bloodhouse>();
-		
+
 		try {
-            
+
             String urlStr = "https://api.odcloud.kr/api/15050728/v1/uddi:090a49f9-241c-4738-a3b4-bcff01d0062b_201711011009?page=1&perPage=200&serviceKey=TUfKwHlNTObSFJi9MUmOuy65HOB6W2S%2FcDhIbyI4ExrHpugJ2DZxO0e1RQtefwagX9JkVyBFlel9XMdE3nucLg%3D%3D";
             URL url = new URL(urlStr);
-            
+
             String line = "";
             String result = "";
-            
+
             BufferedReader br;
             br = new BufferedReader(new InputStreamReader(url.openStream()));
             while ((line = br.readLine()) != null) {
                 result = result.concat(line);
-            }            
-            
+            }
+
             JSONParser parser = new JSONParser();
             JSONObject obj = (JSONObject)parser.parse(result);
             JSONArray parse_listArr = (JSONArray)obj.get("data");
-            
+
             for (int i=0;i< parse_listArr.size();i++) {
             	bloodhouse bh = new bloodhouse();
                 JSONObject bhouse = (JSONObject) parse_listArr.get(i);
@@ -92,23 +85,18 @@ public class MainController {
                 bh.setBhone((String)bhouse.get("혈액원"));
                 bh.setBhlocation((String)bhouse.get("주소지"));
                 bh_list.add(bh);
-                
+
             }
             br.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
-		
+
 		m.addAttribute("bh_list",bh_list);
->>>>>>> branch 'master' of https://github.com/shshshrj/project_start.git
 		return "res/map";
 	}
 
 	@GetMapping("mypageform")
-<<<<<<< HEAD
-	public String mypageform() {
-		return "mypage/mypage";
-=======
 	public String mypageform(HttpSession session, Model m) throws ParseException {
 		buserDto user = (buserDto)session.getAttribute("user");
 		if(session.getAttribute("user") != null) {
@@ -127,7 +115,6 @@ public class MainController {
 			return "mypage/mypage";
 		}
 		return "redirect:/";
->>>>>>> branch 'master' of https://github.com/shshshrj/project_start.git
 	}
 
 }
