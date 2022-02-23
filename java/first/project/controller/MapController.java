@@ -25,7 +25,7 @@ public class MapController {
 	
 	@RequestMapping("/resform")
 	public String resform(buserDto buser , String name, String location, Model m) {
-		String id = "yjh";
+		String id = "qqqq";
 		bloodhouse bh = new bloodhouse();
 		buser = service.buserinfo(id);
 		
