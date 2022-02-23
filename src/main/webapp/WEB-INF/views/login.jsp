@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="">
 <!-- To declare your language - read more here: https://www.w3.org/International/questions/qa-html-language-declarations -->
@@ -33,8 +33,8 @@
 <div class="wrapper row2">
   <section class="hoc container clear"> 
     <div class="center btmspace-80">
-      <h6 class="heading underline font-x2">·Î±×ÀÎ</h6>
-      <h1>¿©±â¿¡ ¸¸µé¸é µÊ form ÇÏ°í µîµî</h1>
+      <h6 class="heading underline font-x2">ë¡œê·¸ì¸</h6>
+      <h1>ì—¬ê¸°ì— ë§Œë“¤ë©´ ë¨ form í•˜ê³  ë“±ë“±</h1>
     </div>
   </section>
 </div>

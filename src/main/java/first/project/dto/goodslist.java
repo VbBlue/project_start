@@ -1,12 +1,14 @@
 package first.project.dto;
 
+import java.sql.Date;
+
 import lombok.Data;
 
 @Data
 public class goodslist {
-	String goods;			//±â³äÇ°
-	String userid;			//»ç¿ëÀÚ¾ÆÀÌµğ
-	String goodsdate;		//´çÃ·ÀÏÀÚ
-	String bhname;			//ÇåÇ÷ÀÇÁıÀÌ¸§
-	int goodsnum;			//´çÃ·³»¿ª¹øÈ£ (½ÃÄö½º)	
+	String goods;			//ï¿½ï¿½ï¿½Ç°
+	String userid;			//ï¿½ï¿½ï¿½ï¿½Ú¾ï¿½ï¿½Ìµï¿½
+	Date goodsdate;		//ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ï¿½
+	String bhname;			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½
+	int goodsnum;			//ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£ (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)	
 }

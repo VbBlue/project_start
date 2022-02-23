@@ -4,14 +4,33 @@ import lombok.Data;
 
 @Data
 public class buserDto {
-	String userid;			//¾ÆÀÌµð
-	String userpw;			//ºñ¹Ð¹øÈ£
-	String username;		//ÀÌ¸§
-	String userphone;		//ÀüÈ­¹øÈ£
-	String useremail;		//ÀÌ¸ÞÀÏ
-	String userbtype;		//Ç÷¾×Çü
-	String userbirth;		//»ý³â¿ùÀÏ
-	String useraddr;		//ÁÖ¼Ò
-	int bcount;				//ÇåÇ÷È½¼ö
-	int point;				//Æ÷ÀÎÆ®
+	String userid;			//ï¿½ï¿½ï¿½Ìµï¿½
+	String userpw;			//ï¿½ï¿½Ð¹ï¿½È£
+	String username;		//ï¿½Ì¸ï¿½
+	String userphone;		//ï¿½ï¿½È­ï¿½ï¿½È£
+	String useremail;		//ï¿½Ì¸ï¿½ï¿½ï¿½
+	String userbtype;		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	String userbirth;		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	String useraddr;		//ï¿½Ö¼ï¿½
+	int bcount;				//ï¿½ï¿½ï¿½ï¿½È½ï¿½ï¿½
+	int point;				//ï¿½ï¿½ï¿½ï¿½Æ®
+	public buserDto(String userid, String userpw, String username, String userphone, String useremail, String userbtype,
+			String userbirth, String useraddr, int bcount, int point) {
+		super();
+		this.userid = userid;
+		this.userpw = userpw;
+		this.username = username;
+		this.userphone = userphone;
+		this.useremail = useremail;
+		this.userbtype = userbtype;
+		this.userbirth = userbirth;
+		this.useraddr = useraddr;
+		this.bcount = bcount;
+		this.point = point;
+	}
+	public buserDto() {
+	}
+	
+	
+	
 }

@@ -61,11 +61,23 @@
 <div class="wrapper row2">
   <section class="hoc container clear"> 
     <div class="center btmspace-80">
-      <h6 class="heading underline font-x2">회원가입</h6>
-      <h1>여기에 만들면 됨 form 하고 등등</h1>
+      <h6 class="heading underline font-x2">개인정보변경</h6>
+      <form action="/mem_update" method="post">
+      	<input value="${user.userid}" name="userid">
+      	<input value="${user.userpw}" name="userpw">
+      	<input value="${user.username}" name="username">
+      	<input value="${user.userphone}" name="userphone">
+      	<input value="${user.useremail}" name="useremail">
+      	<input value="${user.userbtype}" name="userbtype">
+      	<input value="${user.userbirth}" name="userbirth">
+      	<input value="${user.useraddr}" name="useraddr">
+      	<input type="hidden" value="${user.bcount}" name="bcount">
+      	<input type="hidden" value="${user.point}" name="point">
+      	<input type="submit" value="개인정보변경">
+      </form>
     </div>
   </section>
-</div>
+   </div>
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <div class="wrapper row4">
@@ -77,7 +89,6 @@
         <li><i class="fas fa-phone"></i> 뭘 넣죠?</li>
         <li><i class="far fa-envelope"></i> 조원 이름?</li>
       </ul>
-     
     </div>
     <div class="one_quarter">
       <h6 class="heading">넣어도 되고 지워도 되고</h6>
@@ -90,8 +101,6 @@
         </li>
       </ul>
     </div>
-    
-    
     <!-- ################################################################################################ -->
   </footer>
 </div>

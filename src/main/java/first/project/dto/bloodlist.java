@@ -1,12 +1,14 @@
 package first.project.dto;
 
+import java.util.Date;
+
 import lombok.Data;
 
 @Data
-public class bloodlist { //ÇåÇ÷³»¿ª
-	String bhname;		//ÇåÇ÷ÀÇÁý ÀÌ¸§
-	String userid;		//»ç¿ëÀÚ ¾ÆÀÌµð
-	String bhdate;		//ÇåÇ÷ÇÑ ³¯Â¥
-	String bhselect;		//ÇåÇ÷ Á¾·ù
-	int bhlistnum;		//ÇåÇ÷³»¿ª ¹øÈ£ (½ÃÄö½º)
+public class bloodlist { //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	String bhname;		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½
+	String userid;		//ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
+	Date bhdate;		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Â¥
+	String bhselect;		//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	int bhlistnum;		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 }

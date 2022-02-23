@@ -61,11 +61,21 @@
 <div class="wrapper row2">
   <section class="hoc container clear"> 
     <div class="center btmspace-80">
-      <h6 class="heading underline font-x2">회원가입</h6>
-      <h1>여기에 만들면 됨 form 하고 등등</h1>
+      <h6 class="heading underline font-x2">개인정보변경</h6>
+      <form action="/reservation_update" method="post">
+      	<input value="${res.bhname}" name="bhname">
+      	<input value="${res.userid}" name="userid">
+      	<input value="${res.resdate}" name="resdate">
+      	<input value="${res.restime}" name="restime">
+      	<input value="${res.goods}" name="goods">
+      	<input value="${res.bhselect}" name="bhselect">
+      	<input value="${res.resnum}" name="resnum">
+      	<input value="${res.resstate}" name="resstate">
+      	<input type="submit" value="예약변경">
+      </form>
     </div>
   </section>
-</div>
+   </div>
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <div class="wrapper row4">
@@ -77,7 +87,6 @@
         <li><i class="fas fa-phone"></i> 뭘 넣죠?</li>
         <li><i class="far fa-envelope"></i> 조원 이름?</li>
       </ul>
-     
     </div>
     <div class="one_quarter">
       <h6 class="heading">넣어도 되고 지워도 되고</h6>
@@ -90,8 +99,6 @@
         </li>
       </ul>
     </div>
-    
-    
     <!-- ################################################################################################ -->
   </footer>
 </div>

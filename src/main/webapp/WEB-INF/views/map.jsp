@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="">
 <!-- To declare your language - read more here: https://www.w3.org/International/questions/qa-html-language-declarations -->
@@ -18,7 +18,7 @@
     <div class="fl_left"> 
       <!-- ################################################################################################ -->
       <ul class="nospace">
-        <li><i class="fas fa-phone rgtspace-5"></i> ÀÌ¹ÌÁö ¹Ù²Ù°í¾ÆÀÌµð?</li>
+        <li><i class="fas fa-phone rgtspace-5"></i> ì´ë¯¸ì§€ ë°”ê¾¸ê³ ì•„ì´ë””?</li>
       </ul>
       <!-- ################################################################################################ -->
     </div>
@@ -40,7 +40,7 @@
   <header id="header" class="hoc clear">
     <div id="logo" class="fl_left"> 
       <!-- ################################################################################################ -->
-      <h1><a href="/">ÇåÇ÷ÀÇ Áý</a></h1>
+      <h1><a href="/">í—Œí˜ˆì˜ ì§‘</a></h1>
       <!-- ################################################################################################ -->
     </div>
     <nav id="mainav" class="fl_right"> 
@@ -48,9 +48,9 @@
       <ul class="clear">
         <li class="active"><a href="/">Home</a></li>
         
-        <li><a href="boardform">°Ô½ÃÆÇ</a></li>
-        <li><a href="mapform">¿¹¾àÆäÀÌÁö</a></li>
-        <li><a href="mypageform">¸¶ÀÌÆäÀÌÁö</a></li>
+        <li><a href="boardform">ê²Œì‹œíŒ</a></li>
+        <li><a href="mapform">ì˜ˆì•½íŽ˜ì´ì§€</a></li>
+        <li><a href="mypageform">ë§ˆì´íŽ˜ì´ì§€</a></li>
       </ul>
       <!-- ################################################################################################ -->
     </nav>
@@ -61,8 +61,8 @@
 <div class="wrapper row2">
   <section class="hoc container clear"> 
     <div class="center btmspace-80">
-      <h6 class="heading underline font-x2">¿¹¾àÇÏ±â</h6>
-      <h1>¿©±â¿¡ ¸¸µé¸é µÊ form ÇÏ°í µîµî</h1>
+      <h6 class="heading underline font-x2">ì˜ˆì•½í•˜ê¸°</h6>
+      <h1>ì—¬ê¸°ì— ë§Œë“¤ë©´ ë¨ form í•˜ê³  ë“±ë“±</h1>
     </div>
   </section>
 </div>
@@ -72,20 +72,20 @@
   <footer id="footer" class="hoc clear"> 
     <!-- ################################################################################################ -->
     <div class="one_quarter first">
-      <h6 class="heading">2Á¶</h6>
+      <h6 class="heading">2ì¡°</h6>
       <ul class="nospace linklist contact btmspace-30">
-        <li><i class="fas fa-phone"></i> ¹» ³ÖÁÒ?</li>
-        <li><i class="far fa-envelope"></i> Á¶¿ø ÀÌ¸§?</li>
+        <li><i class="fas fa-phone"></i> ë­˜ ë„£ì£ ?</li>
+        <li><i class="far fa-envelope"></i> ì¡°ì› ì´ë¦„?</li>
       </ul>
      
     </div>
     <div class="one_quarter">
-      <h6 class="heading">³Ö¾îµµ µÇ°í Áö¿öµµ µÇ°í</h6>
+      <h6 class="heading">ë„£ì–´ë„ ë˜ê³  ì§€ì›Œë„ ë˜ê³ </h6>
       <ul class="nospace linklist">
         <li>
           <article>
             <p class="nospace btmspace-10"><a href="#">???</a></p>
-            <time class="block font-xs" datetime="2045-04-06">¿Ï¼º³¯Â¥?</time>
+            <time class="block font-xs" datetime="2045-04-06">ì™„ì„±ë‚ ì§œ?</time>
           </article>
         </li>
       </ul>
