@@ -1,7 +1,9 @@
 package first.project.controller;
 
-import javax.validation.Valid;
+import java.net.http.HttpRequest;
 
+import javax.servlet.http.HttpSession;
+import javax.validation.Valid;import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,10 +14,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
+
 import first.project.dto.buserDto;
 import first.project.email.EmailService;
 import first.project.email.EmailVO;
 import first.project.service.LoginService;
+import oracle.jdbc.internal.XSSessionNamespace;
 
 
 @Controller
@@ -37,7 +42,7 @@ public class LoginController {
 
 
 	@PostMapping("login")
-	public String login(@ModelAttribute("command") @Valid buserDto dto, BindingResult error, Model m) {
+	public String login( @ModelAttribute("command") @Valid buserDto dto, BindingResult error, Model m) {
 
 		buserDto resultDto = service.login(dto);
 		if(resultDto == null) {

@@ -1,22 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../includes/header.jsp" %>
-<<<<<<< HEAD
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
 <div class="wrapper row2">
   <section class="hoc container clear">
-    <div class="center btmspace-80">
-      <h6 class="heading underline font-x2">마이페이지</h6>
-      <h1>여기에 만들면 됨 form 하고 등등</h1>
-    </div>
-  </section>
-</div>
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-=======
-<div class="wrapper row2">
-  <section class="hoc container clear"> 
     <div class="center btmspace-80">
       <h6 class="heading underline font-x2">마이페이지</h6>
       <!-- 마이페이지 내용(테이블) -->
@@ -54,7 +40,7 @@
 		var Dday = "${lastDay['Dday']}";
 		var bhselect = "${lastDay['bhselect']}"
 		$("#Dday").html("현재날짜 - 지난 헌혈일: " + Dday + "<br>지난 헌혈타입: " + bhselect);
-		
+
 		$.getJSON("reserv_stat", {"userid":"${user.userid}"}, function(data) {
 			$("#reserve_stat").empty();
 			if(data != null) {
@@ -87,5 +73,4 @@
 	});//ready
 </script>
   </div>
->>>>>>> branch 'master' of https://github.com/shshshrj/project_start.git
 <%@ include file="../includes/footer.jsp" %>

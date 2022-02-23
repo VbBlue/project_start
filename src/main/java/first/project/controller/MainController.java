@@ -100,18 +100,19 @@ public class MainController {
 	public String mypageform(HttpSession session, Model m) throws ParseException {
 		buserDto user = (buserDto)session.getAttribute("user");
 		if(session.getAttribute("user") != null) {
-			bloodlist list = m_service.last_bhdate(user.getUserid());
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
-			Date date = list.getBhdate();
-			Date now = new Date();
-			String today = sdf.format(now);
-			Date format1 = new SimpleDateFormat("yyyyMMdd").parse(today);
-			Long Dday = (format1.getTime() - date.getTime())/(1000*60*60*24);
-			String bhselect = list.getBhselect();
-			Map<String, Object> lastDay = new HashMap<>();
-			lastDay.put("Dday", Dday);
-			lastDay.put("bhselect", bhselect);
-			m.addAttribute("lastDay", lastDay);
+			System.out.println(user.getUserpw());
+//			bloodlist list = m_service.last_bhdate(user.getUserid());
+//			SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+//			Date date = list.getBhdate();
+//			Date now = new Date();
+//			String today = sdf.format(now);
+//			Date format1 = new SimpleDateFormat("yyyyMMdd").parse(today);
+//			Long Dday = (format1.getTime() - date.getTime())/(1000*60*60*24);
+//			String bhselect = list.getBhselect();
+//			Map<String, Object> lastDay = new HashMap<>();
+//			lastDay.put("Dday", Dday);
+//			lastDay.put("bhselect", bhselect);
+//			m.addAttribute("lastDay", lastDay);
 			return "mypage/mypage";
 		}
 		return "redirect:/";
