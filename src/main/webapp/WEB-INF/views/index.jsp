@@ -1,61 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!DOCTYPE html>
-<html lang="">
-<!-- To declare your language - read more here: https://www.w3.org/International/questions/qa-html-language-declarations -->
-<head>
-<title>Gleblu</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
-</head>
-<body id="top">
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<div class="wrapper row0">
-  <div id="topbar" class="hoc clear">
-    <div class="fl_left"> 
-      <!-- ################################################################################################ -->
-      <ul class="nospace">
-        <li><i class="fas fa-phone rgtspace-5"></i> ÀÌ¹ÌÁö ¹Ù²Ù°í¾ÆÀÌµð?</li>
-      </ul>
-      <!-- ################################################################################################ -->
-    </div>
-    <div class="fl_right"> 
-      <!-- ################################################################################################ -->
-      <ul class="nospace">
-        <li><a href="/"><i class="fas fa-home"></i></a></li>
-        <li><a href="loginform" title="Login"><i class="fas fa-sign-in-alt"></i></a></li>
-        <li><a href="signupform" title="Sign Up"><i class="fas fa-edit"></i></a></li>
-      </ul>
-      <!-- ################################################################################################ -->
-    </div>
-  </div>
-</div>
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<div class="wrapper row1">
-  <header id="header" class="hoc clear">
-    <div id="logo" class="fl_left"> 
-      <!-- ################################################################################################ -->
-      <h1><a href="/">ÇåÇ÷ÀÇ Áý</a></h1>
-      <!-- ################################################################################################ -->
-    </div>
-    <nav id="mainav" class="fl_right"> 
-      <!-- ################################################################################################ -->
-      <ul class="clear">
-        <li class="active"><a href="/">Home</a></li>
-        
-        <li><a href="boardform">°Ô½ÃÆÇ</a></li>
-        <li><a href="mapform">¿¹¾àÆäÀÌÁö</a></li>
-        <li><a href="mypageform">¸¶ÀÌÆäÀÌÁö</a></li>
-      </ul>
-      <!-- ################################################################################################ -->
-    </nav>
-  </header>
-</div>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ include file="./includes/header.jsp" %>
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
@@ -63,11 +8,11 @@
   <div id="pageintro" class="hoc clear"> 
     <!-- ################################################################################################ -->
     <article>
-      <h3 class="heading">ÇåÇ÷ÀÇ Áý</h3>
-      <p>±Û ³²±â°í ½ÍÀ¸¸é? µÚ¿¡ ¹è°æÀº ÀÌ¹ÌÁö?? or »ö»ó¹Ù²Ù±â ±Û¾¾Ã¼´Â Èì.... »ý°¢Á»</p>
+      <h3 class="heading">í—Œí˜ˆì˜ ì§‘</h3>
+      <p>ê¸€ ë‚¨ê¸°ê³  ì‹¶ìœ¼ë©´? ë’¤ì— ë°°ê²½ì€ ì´ë¯¸ì§€?? or ìƒ‰ìƒë°”ê¾¸ê¸° ê¸€ì”¨ì²´ëŠ” í .... ìƒê°ì¢€</p>
       <footer>
         <ul class="nospace inline pushright">
-          <li><a class="btn" href="mapform">¿¹¾àÇÏ±â</a></li>
+          <li><a class="btn" href="mapform">ì˜ˆì•½í•˜ê¸°</a></li>
         </ul>
       </footer>
     </article>
@@ -83,7 +28,7 @@
     <ul class="nospace group">
       <li class="one_third first">
         <article><a href="#"><i class="fas fa-hand-peace"></i></a>
-          <h6 class="heading underline">ÀÌ Ä­ ´Ã·Á¼­ ? ±×·¡ÇÁ º¸¿©ÁÖ°í</h6>
+          <h6 class="heading underline">ì´ ì¹¸ ëŠ˜ë ¤ì„œ ? ê·¸ëž˜í”„ ë³´ì—¬ì£¼ê³ </h6>
         </article>
       </li>
     </ul>
@@ -97,7 +42,7 @@
   <section class="hoc container clear"> 
     <!-- ################################################################################################ -->
     <div class="center btmspace-80">
-      <h6 class="heading underline font-x2">°Ô½ÃÆÇ</h6>
+      <h6 class="heading underline font-x2">ê²Œì‹œíŒ</h6>
     </div>
     
     <!-- ################################################################################################ -->
@@ -106,51 +51,4 @@
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
-<div class="wrapper row4">
-  <footer id="footer" class="hoc clear"> 
-    <!-- ################################################################################################ -->
-    <div class="one_quarter first">
-      <h6 class="heading">2Á¶</h6>
-      <ul class="nospace linklist contact btmspace-30">
-        <li><i class="fas fa-phone"></i> ¹» ³ÖÁÒ?</li>
-        <li><i class="far fa-envelope"></i> Á¶¿ø ÀÌ¸§?</li>
-      </ul>
-     
-    </div>
-    <div class="one_quarter">
-      <h6 class="heading">³Ö¾îµµ µÇ°í Áö¿öµµ µÇ°í</h6>
-      <ul class="nospace linklist">
-        <li>
-          <article>
-            <p class="nospace btmspace-10"><a href="#">???</a></p>
-            <time class="block font-xs" datetime="2045-04-06">¿Ï¼º³¯Â¥?</time>
-          </article>
-        </li>
-      </ul>
-    </div>
-    
-    
-    <!-- ################################################################################################ -->
-  </footer>
-</div>
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<div class="wrapper row5">
-  <div id="copyright" class="hoc clear"> 
-    <!-- ################################################################################################ -->
-    <p class="fl_left">Copyright &copy; 2018 - All Rights Reserved - <a href="#">Domain Name</a></p>
-    
-    <!-- ################################################################################################ -->
-  </div>
-</div>
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<a id="backtotop" href="#top"><i class="fas fa-chevron-up"></i></a>
-<!-- JAVASCRIPTS -->
-<script src="layout/scripts/jquery.min.js"></script>
-<script src="layout/scripts/jquery.backtotop.js"></script>
-<script src="layout/scripts/jquery.mobilemenu.js"></script>
-</body>
-</html>
+<%@ include file="./includes/footer.jsp" %>
