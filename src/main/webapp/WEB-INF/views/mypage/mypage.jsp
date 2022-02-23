@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../includes/header.jsp" %>
 <div class="wrapper row2">
-  <section class="hoc container clear"> 
+  <section class="hoc container clear">
     <div class="center btmspace-80">
       <h6 class="heading underline font-x2">마이페이지</h6>
       <!-- 마이페이지 내용(테이블) -->
@@ -40,7 +40,7 @@
 		var Dday = "${lastDay['Dday']}";
 		var bhselect = "${lastDay['bhselect']}"
 		$("#Dday").html("현재날짜 - 지난 헌혈일: " + Dday + "<br>지난 헌혈타입: " + bhselect);
-		
+
 		$.getJSON("reserv_stat", {"userid":"${user.userid}"}, function(data) {
 			$("#reserve_stat").empty();
 			if(data != null) {
