@@ -1,5 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html lang="">
@@ -61,42 +61,26 @@
 <div class="wrapper row2">
   <section class="hoc container clear"> 
     <div class="center btmspace-80">
-      <h6 class="heading underline font-x2">게시판</h6>
+      <h6 class="heading underline font-x2">글 작성</h6>
+     <form action="insert" method="post">
      <table id="board_table">
      	<thead>
      		<tr>
-     			<th>번호</th>
      			<th>제목</th>
-     			<th>작성자</th>
-     			<th>날짜</th>
-     			<th>조회수</th>
+     			<th><input type="text" name="boardname" id="boardname" size="50"></th>
      		</tr>
      	</thead>
-        <tbody>
-         <c:forEach items="${listBoard}" var="list">
-      	  <tr>
-      	  	  <td><a href="boardView?no=${list.boardnum }">${list.boardnum}</a></td>
-	      	  <td>${list.boardname}</td>
-	     	  <td>${list.empid}</td>
-	      	  <td>${list.boarddate}</td>
-	      	  <td>${list.boardview}</td>                                              
-     	  </tr>
-      	  </c:forEach>
-        </tbody>
+     	<tbody>
+     		<tr>
+				<th>내용</th>
+     			<th><input type="text" name="inboard" id="inboard" size="50"></th>
+    		</tr>
+     	</tbody>
      </table>
      <hr/>
-     <button id="Crt_button"><a href="boardCreate">글쓰기</a></button>	
-     
-     <div id="board_number">
-     		<a href="#"><</a>
-     		<a href="1">1</a>
-     		<a href="2">2</a>
-     		<a href="3">3</a>
-			<a href="4">4</a>
-     		<a href="5">5</a>
-     		<a href="#">></a>
-     </div>
-   
+    	<button style="float: right" onclick="submit">작성</button> 	
+     	<button style="float: right" onclick="history.back()">취소</button>	
+     </form>
     </div>
   </section>
 </div>

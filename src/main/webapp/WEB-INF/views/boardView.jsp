@@ -61,42 +61,37 @@
 <div class="wrapper row2">
   <section class="hoc container clear"> 
     <div class="center btmspace-80">
-      <h6 class="heading underline font-x2">게시판</h6>
+      <h6 class="heading underline font-x2">글 작성</h6>
+     <form method="post">
      <table id="board_table">
      	<thead>
      		<tr>
-     			<th>번호</th>
-     			<th>제목</th>
-     			<th>작성자</th>
-     			<th>날짜</th>
-     			<th>조회수</th>
+     			<th>번호</th><td>${dept.boardnum }</td>
+     		</tr>
+     		<tr>
+     			<th>제목</th><td>${dept.boardname }</td>
+     		</tr>
+     		<tr>
+     			<th>작성자</th><td>${dept.empid }</td>
+     		</tr>
+     		<tr>
+     			<th>날짜</th><td>${dept.boarddate }</td>
+     		</tr>
+     		<tr>
+     			<th>조회수</th><td>${dept.boardview }</td>
+     		</tr>
+     		<tr>
+     			<th>내용</th><td>${dept.inboard }</td>
      		</tr>
      	</thead>
-        <tbody>
-         <c:forEach items="${listBoard}" var="list">
-      	  <tr>
-      	  	  <td><a href="boardView?no=${list.boardnum }">${list.boardnum}</a></td>
-	      	  <td>${list.boardname}</td>
-	     	  <td>${list.empid}</td>
-	      	  <td>${list.boarddate}</td>
-	      	  <td>${list.boardview}</td>                                              
-     	  </tr>
-      	  </c:forEach>
-        </tbody>
+     	<tbody>
+     		
+     	</tbody>
      </table>
      <hr/>
-     <button id="Crt_button"><a href="boardCreate">글쓰기</a></button>	
-     
-     <div id="board_number">
-     		<a href="#"><</a>
-     		<a href="1">1</a>
-     		<a href="2">2</a>
-     		<a href="3">3</a>
-			<a href="4">4</a>
-     		<a href="5">5</a>
-     		<a href="#">></a>
-     </div>
-   
+    	<a href="boardUpdate?no=${dept.boardnum }" role="button" class="btn btn-outline-info">수정</a>
+     	<a href="boardDelete?no=${dept.boardnum }" role="button" class="btn btn-outline-info">삭제</a>
+     </form>
     </div>
   </section>
 </div>

@@ -21,8 +21,8 @@ public class MainController {
 		return "login";
 	}
 	
-	@GetMapping("boardform")
-	public String boardform() {
+	@GetMapping("board")
+	public String board() {
 		return "board";
 	}
 	
