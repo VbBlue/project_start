@@ -12,6 +12,25 @@ File: Layout CSS
 @import url("fontawesome-free/css/fontawesome-all.min.css");
 @import url("framework.css");
 
+
+/*게시판*/
+#board_table{
+	color:black;
+}
+#board_number{
+	display: inline-block;
+}
+#Crt_button{
+	float: right;
+}
+
+/*버튼*/
+#board_number{
+	background-color: black;
+	
+}
+
+
 /* Rows
 --------------------------------------------------------------------------------------------------------------- */
 .row0, .row0 a{}
@@ -491,3 +510,4 @@ table a, #comments a{background-color:inherit;}
 	.font-x2{font-size:1.6rem;}
 	.font-x3{font-size:1.8rem;}
 }
+

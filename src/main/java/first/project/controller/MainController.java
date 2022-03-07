@@ -64,6 +64,7 @@ public class MainController {
 	@GetMapping("boardform")
 	public String boardform() {
 		return "board/board";
+
 	}
 
 	@GetMapping("mapform")
@@ -92,10 +93,10 @@ public class MainController {
             for (int i=0;i< parse_listArr.size();i++) {
             	bloodhouse bh = new bloodhouse();
                 JSONObject bhouse = (JSONObject) parse_listArr.get(i);
-                bh.setBhphone((String)bhouse.get("전화번호"));
-                bh.setBhname((String)bhouse.get("헌혈의 집"));
-                bh.setBhone((String)bhouse.get("혈액원"));
-                bh.setBhlocation((String)bhouse.get("주소지"));
+                bh.setBhphone((String)bhouse.get("�쟾�솕踰덊샇"));
+                bh.setBhname((String)bhouse.get("�뿄�삁�쓽 吏�"));
+                bh.setBhone((String)bhouse.get("�삁�븸�썝"));
+                bh.setBhlocation((String)bhouse.get("二쇱냼吏�"));
                 bh_list.add(bh);
 
             }

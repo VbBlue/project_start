@@ -3,6 +3,29 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="first.project.dao.BoardDao">
-
+	<select id="listBoard" resultType="first.project.dto.boardDto">
+  	SELECT * FROM board ORDER BY boardnum DESC
+	</select>
+	
+	<insert id="insertBoard" parameterType="first.project.dto.boardDto">
+	INSERT INTO board VALUES (#{boardname}, TO_CHAR(SYSDATE, 'YYYY-MM-DD'), '테스트', #{inboard}, 0, (SELECT MAX(boardnum+1)FROM board))
+	</insert>
+	
+	<select id="viewBoard" resultType="first.project.dto.boardDto">
+		select * from board where boardnum = #{boardnum}
+	</select>
+	
+	<update id="update">
+		update board set boardname=#{boardname}, boarddate=TO_CHAR(SYSDATE, 'YYYY-MM-DD'), inboard=#{inboard} where boardnum=#{boardnum}
+	</update>
+	
+	<update id="updateView">
+		update board set boardview = boardview+1 where boardnum = #{boardnum}
+	</update>
+	
+	<delete id="deleteBoard">
+		delete from board where boardnum=#{boardnum}
+	</delete>
+	
 	
 </mapper>
