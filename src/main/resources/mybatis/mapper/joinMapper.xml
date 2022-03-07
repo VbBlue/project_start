@@ -3,6 +3,21 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="first.project.dao.JoinDao">
-
+	
+	<insert id="empsignup" parameterType="first.project.dto.empDto">
+		insert into emp values(#{empid}, #{emppw}, #{empname}, #{empphone}, #{empemail}, #{empbirth}, #{bhname})
+	</insert>
+	
+	<insert id="usersignup" parameterType="first.project.dto.buserDto">
+		insert into buser values(#{userid}, #{userpw}, #{username}, #{userphone}, #{useremail}, #{userbtype}, #{userbirth}, #{useraddr}, #{bcount}, #{point})
+	</insert>
+	
+	<select id="empidcheck" parameterType="String" resultType="int">
+		select count(empid) from emp where empid=#{empid}
+	</select>
+	
+	<select id="useridcheck" parameterType="String" resultType="int">
+		select count(userid) from buser where userid=#{userid}
+	</select>
 	
 </mapper>

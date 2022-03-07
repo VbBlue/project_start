@@ -1,14 +1,26 @@
 package first.project.dto;
 
+import java.util.Date;
+
+import javax.validation.constraints.Pattern;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import lombok.Data;
 
 @Data
 public class empDto {
-	String empid;		//¾ÆÀÌµð
-	String emppw;		//ºñ¹Ð¹øÈ£
-	String empname;		//ÀÌ¸§
-	String empphone;	//ÀüÈ­¹øÈ£
-	String empemail;	//ÀÌ¸ÞÀÏ
-	String empbirth;	//»ý³â¿ùÀÏ
-	String bhname;		//ÇåÇ÷ÀÇÁý ÀÌ¸§
+	String empid;		//ï¿½ï¿½ï¿½Ìµï¿½
+	String emppw;		//ï¿½ï¿½Ð¹ï¿½È£
+	String empname;		//ï¿½Ì¸ï¿½
+	
+	@Pattern(regexp = "^\\d{3}-\\d{4}-\\d{4}$")
+	String empphone;	//ï¿½ï¿½È­ï¿½ï¿½È£
+	
+	String empemail;	//ï¿½Ì¸ï¿½ï¿½ï¿½
+	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	Date empbirth;	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	
+	String bhname;		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½
 }

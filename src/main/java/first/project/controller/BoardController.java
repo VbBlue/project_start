@@ -24,7 +24,7 @@ public class BoardController {
 	public String boardPrint(Model m) {
 		List<boardDto> list = service.depts();
 		m.addAttribute("listBoard", list);
-		return "board";
+		return "board/board";
 	}
 	
 	//매핑
@@ -37,7 +37,7 @@ public class BoardController {
 	public String insertBoard(boardDto dept, Model m) {
 		int i = service.insertBoard(dept);
 		m.addAttribute("i", i);
-		return "insert";
+		return "board/insert";
 	}
 	
 	//상세보기
@@ -46,7 +46,7 @@ public class BoardController {
 		service.updateView(no);
 		boardDto dept = service.viewBoard(no);		
 		m.addAttribute("dept", dept);
-		return "boardView";
+		return "board/boardView";
 	}
 	
 	//수정 페이지
@@ -54,21 +54,21 @@ public class BoardController {
 	public String boardUpdate(Model m, int no) throws Exception{
 		boardDto dept = service.viewBoard(no);
 		m.addAttribute("dept", dept);
-		return "boardUpdate";
+		return "board/boardUpdate";
 	}
 	
 	//수정
 	@RequestMapping("update")
 	public String update(boardDto dept) throws Exception{
 		service.update(dept);
-		return "update";
+		return "board/update";
 	}
 	
 	//삭제
 	@RequestMapping("boardDelete")
 	public String boardDelete(int no) throws Exception{
 		service.deleteBoard(no);
-		return "delete";
+		return "board/delete";
 	}
 	
 }

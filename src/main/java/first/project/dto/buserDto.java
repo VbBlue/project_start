@@ -1,17 +1,47 @@
 package first.project.dto;
 
+//import javax.validation.constraints.Pattern;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import java.util.Date;
+
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class buserDto {
-	String userid;			//¾ÆÀÌµð
-	String userpw;			//ºñ¹Ð¹øÈ£
-	String username;		//ÀÌ¸§
-	String userphone;		//ÀüÈ­¹øÈ£
-	String useremail;		//ÀÌ¸ÞÀÏ
-	String userbtype;		//Ç÷¾×Çü
-	String userbirth;		//»ý³â¿ùÀÏ
-	String useraddr;		//ÁÖ¼Ò
-	int bcount;				//ÇåÇ÷È½¼ö
-	int point;				//Æ÷ÀÎÆ®
+	@Size(min=2, max=15)
+	@Pattern(regexp = "[a-zA-Z0-9]*")
+	private String userid;			//ï¿½ï¿½ï¿½Ìµï¿½
+
+	@Size(min=8, max=15)
+	@Pattern(regexp = "[a-zA-Z0-9]*")
+	private String userpw;			//ï¿½ï¿½Ð¹ï¿½È£
+
+	@Size(min=2, max=4)
+	@Pattern(regexp = "[ê°€-íž£]*")
+	private String username;		//ï¿½Ì¸ï¿½
+
+
+	@Pattern(regexp = "^010-?([0-9]{4})-?([0-9]{4})$", message = "010-xxxx-xxxx")
+	private String userphone;		//ï¿½ï¿½È­ï¿½ï¿½È£
+
+	private String useremail;		//ï¿½Ì¸ï¿½ï¿½ï¿½
+	private String userbtype;		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+
+//	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private String userbirth;		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+
+	private String useraddr;		//ï¿½Ö¼ï¿½
+	private int bcount;				//ï¿½ï¿½ï¿½ï¿½È½ï¿½ï¿½
+	private int point;				//ï¿½ï¿½ï¿½ï¿½Æ®
 }

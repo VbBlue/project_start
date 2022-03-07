@@ -4,5 +4,56 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="first.project.dao.MypageDao">
 
+	<update id="updatebuser" parameterType="first.project.dto.buserDto">
+		update buser
+		set userpw = #{userpw}, userphone = #{userphone}, useremail = #{useremail}, userbtype = #{userbtype}, userbirth = #{userbirth}, useraddr = #{useraddr}
+		where userid = #{userid}
+	</update>
 	
+	<update id="updateReservation" parameterType="first.project.dto.reservation">
+		update reservation
+		set resdate = #{resdate}, restime = #{restime}, goods = #{goods}, bhselect = #{bhselect}
+		where resnum = #{resnum}
+	</update>
+
+	<select id="bloodlist" resultType="first.project.dto.bloodlist" parameterType="Map">
+		<![CDATA[
+		select rownum, bhname, userid, bhdate, bhselect, bhlistnum 
+		from (select * from bloodlist where userid = #{userid} order by bhdate desc) 
+		where bhdate >= #{cal1} and bhdate <= #{cal2}
+		]]>
+	</select>
+	
+	<select id="goodslist" resultType="first.project.dto.goodslist" parameterType="Map">
+		<![CDATA[
+		select rownum, goods, userid, goodsdate, bhname, goodsnum
+		from (select * from goodslist where userid = #{userid} order by goodsdate desc) 
+		where goodsdate >= #{cal1} and goodsdate <= #{cal2}
+		and rownum >= #{startRow} and rownum <= #{endRow}
+		]]>
+	</select>
+	
+	<select id="goodslist_count" resultType="int" parameterType="Map">
+		<![CDATA[
+		select count(*) from goodslist where goodsdate >= #{cal1} and goodsdate <= #{cal2}
+		]]>
+	</select>
+	
+	<select id="last_bhdate" parameterType="String" resultType="first.project.dto.bloodlist">
+		select bhdate, bhselect from bloodlist where userid = #{userid} and bhdate = (select max(bhdate) from bloodlist where userid = #{userid})
+	</select>
+	
+	<delete id="deleteuser" parameterType="String">
+		delete from buser where userid = #{userid}
+	</delete>
+	
+	<delete id="deleteReservation" parameterType="first.project.dto.reservation">
+		delete from reservation where userid = #{userid} AND resnum = #{resnum}
+	</delete>
+	
+	<select id="reserv_stat" parameterType="String" resultType="first.project.dto.reservation">
+		select * from reservation 
+		where userid = #{userid} AND resstate = '예약중'
+		OR userid = #{userid} AND resstate = '예약완료'
+	</select>
 </mapper>
