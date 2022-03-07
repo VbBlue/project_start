@@ -135,6 +135,7 @@ File: Layout CSS
 #comments .comcont{display:block; margin:0; padding:0;}
 #comments .comcont p{margin:10px 5px 10px 0; padding:0;}
 
+
 #comments form{display:block; width:100%;}
 #comments input, #comments textarea{width:100%; padding:10px; border:1px solid;}
 #comments textarea{overflow:auto;}

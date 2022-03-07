@@ -1,5 +1,6 @@
 package first.project.dao;
 
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -20,4 +21,10 @@ public interface MapDao {
 	int updateUserPhone(Map<String, Object> m);
 	
 	int updateUserBtype(Map<String, Object> m);
+	
+	int res_userid_count(String userid);
+	
+	int selectage(String userid);
+	
+	List<String> bhlike_select(String userid);
 }

@@ -36,28 +36,28 @@
 					<div class="resform">
 						<label>전화번호</label>
 						<input type="text" value="${buser.userphone }"
-								name="userphone" id="userphone"
+								name="userphone" id="userphone" maxlength="13"
 								style="border: none; background-color: transparent;" placeholder="010-xxxx-xxxx">
-						<small  id="userphone" style="color: red;">
+						<small  id="userphone_error" style="color: red;">
 						</small>
 					</div>
 					<div class="resform">
 						<label>나이</label>
-						<input type="text" value="28" name="userage" id="userage" readonly
+						<input type="text" value="${userage}" name="userage" id="userage" readonly
 								style="border: none; background-color: transparent;">
 					</div>
 					<div class="resform">
 						<label>혈액형</label>
 						<input type="text" value="${buser.userbtype }" name="userbtype" id="userbtype"
 								style="border: none; background-color: transparent;">
-						<small id="userbtype" style="color: red;">
+						<small id="userbtype_error" style="color: red;">
 						</small>
 					</div>
 					<div class="resform">
 						<label>예약날짜</label>
-						<input type="date" name="resdate" id="resdate"
+						<input type="date" name="resdate" id="resdate" min="" onchange="setMinValue()"
 								style="border: none; background-color: transparent;">
-						<small id="resdate" style="color: red;">
+						<small id="resdate_error" style="color: red;">
 						</small>
 					</div>
 					<div class="resform">
@@ -72,21 +72,21 @@
 							<label class="btn btn-outline-danger" for="restime4">14:00</label>
 							<input type="radio" class="btn-check" name="restime" id="restime5" value="15:00" autocomplete="off">
 							<label class="btn btn-outline-danger" for="restime5">15:00</label><br>
-						<small id="restime" style="color: red;">
+						<small id="restime_error" style="color: red;">
 						</small>
 					</div>
 					<div class="resform">
 						<label>기념품</label>
 							<input type="radio" class="goods" id='goods' name='goods' value="영화예매권">영화예매권
 							<input type="radio" class="goods" id='goods' name='goods' value="베라 기프티콘">베스킨라빈스 기프티콘<br>
-						<small id="goods" style="color: red;">
+						<small id="goods_error" style="color: red;">
 						</small>
 					</div>
 					<div class="resform">
 						<label>피선택</label>
 							<input type="radio" class="bhselect" id='bhselect' name='bhselect' value="전혈">전혈
 							<input type="radio" class="bhselect" id='bhselect' name='bhselect' value="일반헌혈">일반헌혈<br>
-						<small id="bhselect" style="color: red;">
+						<small id="bhselect_error" style="color: red;">
 						</small>
 					</div>
 					<div class="resform">
@@ -105,47 +105,76 @@
 <!-- JAVASCRIPTS -->
 
 <script>
+var today = new Date();
+var year = today.getFullYear();
+var month = ('0' + (today.getMonth() + 1)).slice(-2);
+var day = ('0' + today.getDate()).slice(-2);
+var dateString = year + '-' + month  + '-' + day;
+
+var dateElement = document.getElementById('resdate');
+dateElement.setAttribute("min", dateString);
+function setMinValue() {
+    if(dateElement.value <= dateString) {
+        alert('당일예약은 불가능 합니다.');
+        dateElement.value = dateString;
+    }
+}
 $(function(){
 	var firstphone = $("input#userphone").val();
 	var firstbtype = $("input#userbtype").val();
 	var btypepattern = false;
 	var phonepattern = false;
+	var btypechange = false;
+	var phonechange = false;
+	
+	$(document).on("keyup", "#userphone", function()
+			{ $(this).val(
+					$(this).val()
+					.replace(/[^0-9]/g, "")
+					.replace(/(^010)([0-9]{4})+([0-9]{4})$/,"$1-$2-$3")
+					.replace("--", "-") ); 
+			});
 	
 	$("input#userphone").keyup(function(){
-		$("small#userphone").empty();
-		let phoneJ = /^010-([0-9]{4})-([0-9]{4})$/;
-		let userphone = $("input#userphone").val();
-		if (phoneJ.test(userphone)){
+		$("small#userphone_error").empty();
+		var userphone = $("input#userphone").val();
+		var phcheck = /(^010)([0-9]{4})+([0-9]{4})$/;
+		if (phcheck.test(userphone)){
 			if(userphone == firstphone){
 				phonepattern = false;
-				$("small#userphone").append("");
+				phonechange = false;
+				$("small#userphone_error").append("");
 			}
 			else{
 				phonepattern = false;
-				$("small#userphone").append("전화번호가 변경되었습니다.");
+				phonechange = true;
+				$("small#userphone_error").append("전화번호가 변경되었습니다.");
 			}
 		}
 		else{
 			phonepattern = true;
-			$("small#userphone").append("010-xxxx-xxxx");
+			phonechange = false;
+			$("small#userphone_error").append("010-xxxx-xxxx");
 		}
-	}) //$("#userphone").keyup(function() 종료
+	})	//$("#userphone").keyup(function() 종료 */
+	
+	
 	
 	$("input#userbtype").keyup(function(){
-		$("small#userbtype").empty();
+		$("small#userbtype_error").empty();
 		let userbtype = $("input#userbtype").val();
 		if((userbtype.toLowerCase() !="a") && (userbtype.toLowerCase() !="b") && (userbtype.toLowerCase() !="o") && (userbtype.toLowerCase() !="ab")){
 			btypepattern = true;
-			$("small#userbtype").append("A,B,O,AB 중에 선택해주세요");
+			$("small#userbtype_error").append("A,B,O,AB 중에 선택해주세요");
 		}
 		else{
 			if(userbtype.toLowerCase() == firstbtype.toLowerCase()){
 				btypepattern = false;
-				$("small#userbtype").append("");
+				$("small#userbtype_error").append("");
 			}
 			else{
 				btypepattern = false;
-				$("small#userbtype").append("혈액형이 변경되었습니다.");
+				$("small#userbtype_error").append("혈액형이 변경되었습니다.");
 			}
 		}
 	}) //$("#userbtype").keyup(function() 종료
@@ -158,47 +187,62 @@ $(function(){
 		let goods = $(".goods").is(":checked");
 		let bhselect = $(".bhselect").is(":checked");
 		
-		$("small#userphone").empty();
-		$("small#userbtype").empty();
-		$("small#resdate").empty();
-		$("small#restime").empty();
-		$("small#goods").empty();
-		$("small#bhselect").empty();
+		$("small#userphone_error").empty();
+		$("small#userbtype_error").empty();
+		$("small#resdate_error").empty();
+		$("small#restime_error").empty();
+		$("small#goods_error").empty();
+		$("small#bhselect_error").empty();
 		if (!userphone){
 			$("input#userphone").focus();
-			$("small#userphone").append("전화번호를 입력해주세요.");
+			$("small#userphone_error").append("전화번호를 입력해주세요.");
 			return false;
 		}
 		if (phonepattern){
 			$("input#userphone").focus();
-			$("small#userphone").append("010-xxxx-xxxx");
+			$("small#userphone_error").append("010-xxxx-xxxx");
 			return false;
 		}
+		
 		if (!userbtype){
 			$("input#userbtype").focus();
-			$("small#userbtype").append("혈액형을 입력해주세요.");
+			$("small#userbtype_error").append("혈액형을 입력해주세요.");
 			return false;
 		}
 		if (btypepattern){
 			$("input#userbtype").focus();
-			$("small#userbtype").append("A,B,O,AB 중에 선택해주세요");
+			$("small#userbtype_error").append("A,B,O,AB 중에 선택해주세요");
 			return false;
 		}
 		if (!resdate){
-			$("small#resdate").append("날짜를 선택해주세요.");
+			$("small#resdate_error").append("날짜를 선택해주세요.");
 			return false;
 		}
 		if (!restime){
-			$("small#restime").append("시간를 선택해주세요.");
+			$("small#restime_error").append("시간를 선택해주세요.");
 			return false;
 		}
 		if (!goods){
-			$("small#goods").append("기념품를 선택해주세요.");
+			$("small#goods_error").append("기념품를 선택해주세요.");
 			return false;
 		}
 		if (!bhselect){
-			$("small#bhselect").append("헌혈종류을 선택해주세요.");
+			$("small#bhselect_error").append("헌혈종류을 선택해주세요.");
 			return false;
+		}
+		
+		if(phonechange){
+			$.ajax({url:"/res/phoneup", data:"userphone="+userphone, method:"get"}
+			).done(function(){
+				alert("비밀번호가 변경되었습니다.");
+			})
+		}
+		
+		if(btypechange){
+			$.ajax({url:"/res/btypeup", data:"userbtype="+userbtype, method:"get"}
+			).done(function(){
+				alert("혈액형이 변경되었습니다.");
+			})
 		}
 	})//$("#reservation").click(function() 종료
 });

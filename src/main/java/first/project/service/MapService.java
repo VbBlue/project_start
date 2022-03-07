@@ -1,6 +1,7 @@
 package first.project.service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,10 +35,22 @@ public class MapService {
 		return dao.updateUserPhone(m);
 	}
 	
+	public List<String> bhlike_select(String userid){
+		return dao.bhlike_select(userid);
+	}
+	
 	public int updateUserBtype(String userbtype, String userid) {
 		Map<String, Object> m = new HashMap<String, Object>();
 		m.put("userbtype", userbtype);
 		m.put("userid", userid);
 		return dao.updateUserBtype(m);
+	}
+	
+	public int selectage(String userid) {
+		return dao.selectage(userid);
+	}
+	
+	public int res_userid_count(String userid) {
+		return dao.res_userid_count(userid);
 	}
 }
