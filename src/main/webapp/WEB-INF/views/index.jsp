@@ -15,7 +15,7 @@
   </div>
 </div>
 <div class="wrapper row2">
-  <section id="introblocks" class="hoc container clear"> 
+  <section id="introblocks" class="hoc container clear">
     <ul class="nospace group">
       <li class="one_third first">
         <article><a href="#"><i class="fas fa-hand-peace"></i></a>
@@ -26,11 +26,11 @@
   </section>
 </div>
 <div class="wrapper row2">
+<<<<<<< HEAD
   <section class="hoc container clear"> 
     <div class="center btmspace-80">
       <h6 class="heading underline font-x2">게시판</h6>
     </div>
-
   </section>
 </div>
 <%@ include file="./includes/footer.jsp" %>

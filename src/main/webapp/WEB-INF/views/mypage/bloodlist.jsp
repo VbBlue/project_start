@@ -95,7 +95,7 @@
   		var year = new Date();
   		var last_year = year.getFullYear()-1;
   		var this_year = year.getFullYear();
-  		$("#recent_year").trigger("click");
+
   		$("#last_year").click(function() {
   			$("#cal1").val(new Date(last_year, 0, 2).toISOString().split("T")[0]);
   			$("#cal2").val(new Date(this_year, 0).toISOString().split("T")[0]);

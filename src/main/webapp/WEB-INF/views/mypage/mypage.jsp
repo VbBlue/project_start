@@ -2,13 +2,21 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../includes/header.jsp" %>
 <div class="wrapper row2">
-  <section class="hoc container clear"> 
+  <section class="hoc container clear">
     <div class="center btmspace-80">
       <h6 class="heading underline font-x2">마이페이지</h6>
       <!-- 마이페이지 내용(테이블) -->
+      <div>
+      	<ul>
+      		<li><input type='button' value='개인정보변경' id='mem_update'></li>
+      		<li><input type='button' value='헌혈내역' id='bloodlist'></li>
+      		<li><input type='button' value='당첨내역' id='goodslist'></li>
+      		<li><input type='button' value='회원탈퇴' id='mem_delete'></li>
+      	</ul>
+      </div>
 			<table style='text-align:left;'>
 				<tr>
-					<td><input type='button' value='개인정보변경' id='mem_update'></td>
+					<td></td>
 				</tr>
 				<tr>
 					<td><span id="Dday"></span><td>
@@ -17,7 +25,7 @@
 					<td id="blood_cycle"><td>
 				</tr>
 				<tr>
-					<td><input type='button' value='헌혈내역' id='bloodlist'>
+					<td>
 				</tr>
 				<tr id="reserve_stat"></tr>
 				<tr>
@@ -25,10 +33,10 @@
 					<td><input type='button' value='게임하기'></td>
 				</tr>
 				<tr>
-					<td><input type='button' value='당첨내역' id='goodslist'></td>
+					<td></td>
 				</tr>
 				<tr>
-					<td><input type='button' value='회원탈퇴' id='mem_delete'></td>
+					<td></td>
 				</tr>
 			</table>
     </div>
@@ -40,11 +48,16 @@
 		var Dday = "${lastDay['Dday']}";
 		var bhselect = "${lastDay['bhselect']}"
 		$("#Dday").html("현재날짜 - 지난 헌혈일: " + Dday + "<br>지난 헌혈타입: " + bhselect);
-		
+
 		$.getJSON("reserv_stat", {"userid":"${user.userid}"}, function(data) {
 			$("#reserve_stat").empty();
 			if(data != null) {
-				$("#reserve_stat").append("<td>헌혈의집: "+data.bhname+"<br>예약날짜: "+data.resdate+"<br>예약시간: "+data.restime+"<br>기념품: "+data.goods+"<br>헌혈종류: "+data.bhselect+"<br>예약상태: "+data.resstate+"</td><td><input type='button' value='예약변경' id='change'</td><td><input type='button' value='예약취소' id='cancel'></td>");
+				var resdate = new Date(data.resdate);
+				var year = resdate.getFullYear();
+				var month = ('0' + (resdate.getMonth() + 1)).slice(-2);
+				var day = ('0' + resdate.getDate()).slice(-2);
+				var dateString = year + '-' + month  + '-' + day;
+				$("#reserve_stat").append("<td>헌혈의집: "+data.bhname+"<br>예약날짜: "+dateString+"<br>예약시간: "+data.restime+"<br>기념품: "+data.goods+"<br>헌혈종류: "+data.bhselect+"<br>예약상태: "+data.resstate+"</td><td><input type='button' value='예약변경' id='change'</td><td><input type='button' value='예약취소' id='cancel'></td>");
 				$('#change').click(function() {
 					location.href="/reservation_updateForm";
 				});//예약변경 클릭

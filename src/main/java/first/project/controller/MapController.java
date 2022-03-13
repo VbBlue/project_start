@@ -25,7 +25,7 @@ public class MapController {
 	
 	@RequestMapping("/resform")
 	public String resform(buserDto buser , String name, String location, Model m) {
-		String id = "red123";
+		String id = "red";
 		bloodhouse bh = new bloodhouse();
 		buser = service.buserinfo(id);
 		
@@ -41,7 +41,7 @@ public class MapController {
 	@RequestMapping("/reservation")
 	public String reservation(reservation dto,Model m, String bhlocation) {
 		
-		String userid = "yjh";
+		String userid = "red";
 		SimpleDateFormat format1;
 		format1 = new SimpleDateFormat("yyyy년 MM월 dd일 E요일");
 		String resdate = format1.format(dto.getResdate());

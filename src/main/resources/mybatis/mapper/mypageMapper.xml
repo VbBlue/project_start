@@ -53,7 +53,7 @@
 	
 	<select id="reserv_stat" parameterType="String" resultType="first.project.dto.reservation">
 		select * from reservation 
-		where userid = #{userid} AND resstate = '예약중'
+		where userid = #{userid} AND resstate = '대기중'
 		OR userid = #{userid} AND resstate = '예약완료'
 	</select>
 </mapper>
