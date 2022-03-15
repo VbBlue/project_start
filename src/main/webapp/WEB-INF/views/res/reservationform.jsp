@@ -110,7 +110,7 @@ $(function(){
 	var firstbtype = $("input#userbtype").val();
 	var btypepattern = false;
 	var phonepattern = false;
-	
+
 	$("input#userphone").keyup(function(){
 		$("small#userphone").empty();
 		let phoneJ = /^010-([0-9]{4})-([0-9]{4})$/;
@@ -130,7 +130,7 @@ $(function(){
 			$("small#userphone").append("010-xxxx-xxxx");
 		}
 	}) //$("#userphone").keyup(function() 종료
-	
+
 	$("input#userbtype").keyup(function(){
 		$("small#userbtype").empty();
 		let userbtype = $("input#userbtype").val();
@@ -149,7 +149,7 @@ $(function(){
 			}
 		}
 	}) //$("#userbtype").keyup(function() 종료
-	
+
 	 $("#reservation").click(function(){
 		let userphone = $("input#userphone").val();
 		let userbtype = $("input#userbtype").val();
@@ -157,7 +157,7 @@ $(function(){
 		let restime = $(".btn-check").is(":checked");
 		let goods = $(".goods").is(":checked");
 		let bhselect = $(".bhselect").is(":checked");
-		
+
 		$("small#userphone").empty();
 		$("small#userbtype").empty();
 		$("small#resdate").empty();

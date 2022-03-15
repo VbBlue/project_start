@@ -4,7 +4,7 @@
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <div class="wrapper row2">
-  <section class="hoc container clear"> 
+  <section class="hoc container clear">
     <div class="center btmspace-80">
       <h6 class="heading underline font-x2">사용자 회원가입</h6>
       <div>
@@ -122,7 +122,7 @@ $(function(){
 			})
 		}
 	}) //$("#userphone").keyup(function() 종료
-	
+
 	/* $("input#userid").keyup(function(){
 		$("#error_id").empty();
 		let userid = $("input#userid").val();
@@ -134,7 +134,7 @@ $(function(){
 			$("#error_id").append("아이디는 영문 대소문자, 숫자를 포함하여 5~12자리 사이로 입력")
 		}
 	}) */
-	
+
 	$("#userpw2").keyup(function(){
 		$("#error_pw2").empty();
 		let userpw1 = $("#userpw").val();
@@ -145,7 +145,7 @@ $(function(){
 			$("#error_pw2").append("비밀번호가 일치합니다.")
 		}
 	})
-	
+
 	$("#username").keyup(function(){
 		$("#error_name").empty();
 		let username = $("#username").val();
@@ -156,15 +156,15 @@ $(function(){
 			$("#error_name").append("이름은 한글만 입력 가능합니다.");
 		}
 	})
-	
+
 	$(document).on("keyup", "#userphone", function()
 			{ $(this).val(
 					$(this).val()
 					.replace(/[^0-9]/g, "")
 					.replace(/(^010)([0-9]{4})?([0-9]{4})$/,"$1-$2-$3")
-					.replace("--", "-") ); 
+					.replace("--", "-") );
 			});
-	
+
 	$("input#userphone").blur(function(){
 		$("#error_phone").empty();
 		var userphone = $("input#userphone").val();
@@ -179,5 +179,4 @@ $(function(){
 });
 
 </script>
-<!-- ################################################################################################ -->
 <%@ include file="../includes/footer.jsp" %>

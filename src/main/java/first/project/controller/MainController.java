@@ -49,6 +49,11 @@ public class MainController {
 		return "login/login";
 	}
 
+	@GetMapping("emploginform")
+	public String emploginform() {
+		return "login/emplogin";
+	}
+
 	@GetMapping("boardform")
 	public String boardform() {
 		return "board/board";
