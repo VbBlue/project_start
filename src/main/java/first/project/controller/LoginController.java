@@ -1,9 +1,6 @@
 package first.project.controller;
 
-import java.net.http.HttpRequest;
-
-import javax.servlet.http.HttpSession;
-import javax.validation.Valid;import org.apache.catalina.User;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,13 +12,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
-import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
+
 
 import first.project.dto.buserDto;
 import first.project.email.EmailService;
 import first.project.email.EmailVO;
 import first.project.service.LoginService;
-import oracle.jdbc.internal.XSSessionNamespace;
+
+
+//@RequestMapping 요청에 대해 어떤 Controller, 어떤 메소드가 처리할지를 맵핑하기 위한 어노테이션
 
 
 @Controller
@@ -42,9 +41,9 @@ public class LoginController {
 	}
 
 
+	// 회원 로그인 부분
 	@PostMapping("login")
 	public String login( @ModelAttribute("command") @Valid buserDto dto, BindingResult error, Model m) {
-
 		buserDto resultDto = service.login(dto);
 		if(resultDto == null) {
 			error.reject("nocode", "아이디와 비밀번호를 확인해주세요.");
@@ -83,6 +82,7 @@ public class LoginController {
 		return "login/findid";
 	}
 
+
 	// 아이디 찾기
 	@PostMapping("/findid")
 	public String findidResult(Model model, buserDto dto) {
@@ -91,6 +91,8 @@ public class LoginController {
 		model.addAttribute("findid", id);
 		return "login/findidResult";
 	}
+
+
 
 
 	@GetMapping("findpwform")
@@ -126,6 +128,9 @@ public class LoginController {
 	}
 
 	// 이메일 전송
+
+
+
 }
 
 

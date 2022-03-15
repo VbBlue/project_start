@@ -1,12 +1,9 @@
 package first.project.dao;
 
-
-
 import org.apache.ibatis.annotations.Mapper;
 
 
 import first.project.dto.buserDto;
-
 
 @Mapper
 public interface LoginDao {

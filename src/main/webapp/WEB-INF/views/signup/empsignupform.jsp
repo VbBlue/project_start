@@ -4,7 +4,7 @@
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <div class="wrapper row2">
-  <section class="hoc container clear"> 
+  <section class="hoc container clear">
     <div class="center btmspace-80">
       <h6 class="heading underline font-x2">관리자 회원가입</h6>
       <div>
@@ -30,15 +30,15 @@
 							<label for="emppw2" class="signup_label">비밀번호확인</label>
 							 <span>
 								<input type="password" id="emppw2" name="emppw2" class="sign_input_info" placeholder="비밀번호 확인">
-							</span> 
+							</span>
 							<span class="error_next_box" id="error_pw2" style="color: red;">
 							</span>
 						</div>
 						<div class="signup_etc_div">
-							<label for="empname" class="signup_label">이름</label> 
+							<label for="empname" class="signup_label">이름</label>
 							<span>
 								<input type="text" id="empname" name="empname" maxlength="4" class="sign_input_info" placeholder="이름 입력">
-							</span> 
+							</span>
 							<span class="error_next_box" id="error_name" style="color: red;">
 							</span>
 						</div>
@@ -46,21 +46,21 @@
 							<label for="empphone" class="signup_label">전화번호</label>
 							<span>
 								<input type="text" id="empphone" name="empphone" class="sign_input_info" placeholder="전화번호 입력 / 010-xxxx-xxxx">
-							</span> 
+							</span>
 							<span class="error_next_box" id="error_phone" style="color: red;"> </span>
 						</div>
 						<div class="signup_etc_div">
 							<label for="empemail" class="signup_label">이메일</label>
 							<span>
 								<input type="text" id="empemail" name="empemail" class="sign_input_info" placeholder="이메일 입력">
-							</span> 
+							</span>
 							<span class="error_next_box" id="error_email" style="color: red;">
 							</span>
 						</div>
 						<div class="signup_etc_div">
 							<label for="empbirth" class="signup_label">생년월일</label> <span>
 								<input type="text" id="empbirth" name="empbirth" maxlength="6" class="sign_input_info" placeholder="생년월일 / 주민번호 앞자리">
-							</span> 
+							</span>
 							<span class="error_next_box" id="error_birth" style="color: red;"> </span>
 						</div>
 						<div class="signup_etc_div">
@@ -91,7 +91,7 @@ $(function(){
 	var phonepattern = false;
 	var emailpattern = false;
 	var birthpattern = false;
-	
+
 	$("input#empid").keyup(function(){
 		$("#error_id").empty();
 		let empid = $("input#empid").val();
@@ -123,7 +123,7 @@ $(function(){
 			})
 		}
 	}) //$("#userphone").keyup(function() 종료
-			
+
 	$("input#emppw").keyup(function(){
 		$("#error_pw").empty();
 		var emppw = $("input#emppw").val();
@@ -143,8 +143,8 @@ $(function(){
 			}
 		}
 	})
-			
-	
+
+
 	$("#emppw2").keyup(function(){
 		$("#error_pw2").empty();
 		let emppw = $("#emppw").val();
@@ -157,7 +157,7 @@ $(function(){
 			$("#error_pw2").append("비밀번호가 일치합니다.")
 		}
 	})
-	
+
 	$("#empname").keyup(function(){
 		$("#error_name").empty();
 		let empname = $("#empname").val();
@@ -176,15 +176,15 @@ $(function(){
 			}
 		}
 	})
-	
+
 	$(document).on("keyup", "#empphone", function()
 			{ $(this).val(
 					$(this).val()
 					.replace(/[^0-9]/g, "")
 					.replace(/(^010)([0-9]{4})?([0-9]{4})$/,"$1-$2-$3")
-					.replace("--", "-") ); 
+					.replace("--", "-") );
 			});
-	
+
 	$("input#empphone").keyup(function(){
 		$("#error_phone").empty();
 		var empphone = $("input#empphone").val();
@@ -242,7 +242,7 @@ $(function(){
 			}
 		}
 	})
-	
+
 	$("#empsignup").click(function(){
 		let empid = $("input#empid").val();
 		let emppw = $("input#emppw").val();
@@ -252,7 +252,7 @@ $(function(){
 		let empemail = $("input#empemail").val();
 		let empbirth = $("#empbirth").val();
 		let bhname = $("#bhname").val();
-		
+
 		$("#error_id").empty();
 		$("#error_pw").empty();
 		$("#error_pw2").empty();
@@ -276,7 +276,7 @@ $(function(){
 			$("#error_id").append("중복된 아이디가 존재합니다.");
 			return false;
 		}
-		
+
 		if (!emppw){
 			$("input#emppw").focus();
 			$("#error_pw").append("비밀번호을 입력해주세요.");
@@ -338,12 +338,11 @@ $(function(){
 			return false;
 		}
 	})//$("#usersignup").click(function() 종료
-			
+
 	$("#findbh").click(function() {
 		window.open("/findbhform", "findid", "width=600px, height=600px");
 	});
 });
 
 </script>
-<!-- ################################################################################################ -->
 <%@ include file="../includes/footer.jsp" %>

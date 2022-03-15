@@ -9,22 +9,20 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 
-
-
 <script>
 function pwsearch() {
  	var frm = document.pwfindscreen;
 
 
-	if (frm.userid.value.length < 1) {
-			$("#userid").focus();
+	if (frm.empid.value.length < 1) {
+			$("#empid").focus();
 			alert("아이디를 입력해주세요");
 			return;
 		}
 
 
-	if (frm.username.value.length < 1) {
-			$("#username").focus();
+	if (frm.empname.value.length < 1) {
+			$("#empname").focus();
 			alert("이름을 입력해주세요");
 			return;
 		}
@@ -38,16 +36,16 @@ function pwsearch() {
 	}
 
 $(function(){
-	$("#userid").blur(function(){
-		if(! $("#userid").val()){
-			$("#uid").text(" 아이디를 입력해 주세요 ").css("color","red");
+	$("#empid").blur(function(){
+		if(! $("#empid").val()){
+			$("#eid").text(" 아이디를 입력해 주세요 ").css("color","red");
 			return false;
 		}
 	}); //blur
 
-	$("#username").blur(function(){
-		if(! $("#username").val()){
-			$("#uname").text(" 이름을 입력해 주세요 ").css("color","red");
+	$("#empname").blur(function(){
+		if(! $("#empname").val()){
+			$("#ename").text(" 이름을 입력해 주세요 ").css("color","red");
 			return false;
 		}
 	}); //blur
@@ -66,26 +64,25 @@ $(function(){
       <h6 class="heading underline font-x2" id="h6_login">비밀번호 찾기</h6>
 
 
-<form:form action="findpw" method="post" modelAttribute="command" name="pwfindscreen" >
+<form:form action="findemppw" method="post" modelAttribute="command" name="pwfindscreen" >
 <form:errors element="div"/>
 
 
-
 			<div class = "find_button">
-				<label for = "userid">아이디</label>
+				<label for = "empid">아이디</label>
 				<div class="find_button1">
-				<input type="text" name="userid" id="userid" placeholder = "아이디 입력">
+				<input type="text" name="empid" id="empid" placeholder = "아이디 입력">
 
 				</div>
-				<span id="uid"></span><br><br>
+				<span id="eid"></span><br><br>
 
 
 
 				<label for = "username">이름</label>
 				<div class="find_button1">
-				<input type="text" name="username" id="username"  placeholder = "이름 입력">
+				<input type="text" name="empname" id="empname"  placeholder = "이름 입력">
 				</div>
-				<span id = "uname"></span>
+				<span id = "ename"></span>
 			</div>
 
 			<br>
@@ -103,3 +100,5 @@ $(function(){
 </div>
 </section>
 </div>
+
+

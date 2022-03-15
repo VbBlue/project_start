@@ -11,12 +11,12 @@
 				<form action="../usersignup" method="post">
 					<div id="signup_menu">
 						<div class="signup_etc_div">
-							<label for="userid" class="signup_label">아이디</label> 
-							<span> 
+							<label for="userid" class="signup_label">아이디</label>
+							<span>
 							<input type="text"
 								id="userid" name="userid" maxlength="15" class="sign_input_info" placeholder="아이디 입력">
 							</span>
-						
+
 						<small class="error_next_box" id="error_id" style="color: red;">
 						</small>
 						</div >
@@ -56,12 +56,12 @@
 							<div class="signup_etc_div">
 								<label for="userbtype" class="signup_label">혈액형</label>
 								<span id="signup_bloodtype">
-									<div class="sign_btype-check"> 
-									<input type="radio" class="btype-check" id="userbtype_A" name="userbtype" value="A"> 
-									<label class="btn1" for="userbtype_A">A형</label> 
+									<div class="sign_btype-check">
+									<input type="radio" class="btype-check" id="userbtype_A" name="userbtype" value="A">
+									<label class="btn1" for="userbtype_A">A형</label>
 									</div>
 									<div class="sign_btype-check">
-									<input type="radio" class="btype-check" id="userbtype_O" name="userbtype" value="O"> 
+									<input type="radio" class="btype-check" id="userbtype_O" name="userbtype" value="O">
 									<label class="btn1" for="userbtype_O">O형</label>
 									</div>
 									<div class="sign_btype-check">
@@ -116,7 +116,7 @@ $(function(){
 	var phonepattern = false;
 	var emailpattern = false;
 	var birthpattern = false;
-	
+
 	$("input#userid").keyup(function(){
 		$("#error_id").empty();
 		let userid = $("input#userid").val();
@@ -148,28 +148,9 @@ $(function(){
 			})
 		}
 	}) //$("#userphone").keyup(function() 종료
-			
-	$("input#userpw").keyup(function(){
-		$("#error_pw").empty();
-		var userpw = $("input#userpw").val();
-		var pwcheck = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,15}$/;
-		if(userpw==""){
-			pwpattern = false;
-			$("#error_pw").append("비밀번호를 입력해주세요")
-		}
-		else{
-			if(pwcheck.test(userpw)){
-				pwpattern = false;
-				$("#error_pw").append("")
-			}
-			else{
-				pwpattern = true;
-				$("#error_pw").append("비밀번호는 문자, 숫자, 특수문자를 포함하여 작성해주세요(최소 8 최대 15)")
-			}
-		}
 	})
-			
-	
+
+
 	$("#userpw2").keyup(function(){
 		$("#error_pw2").empty();
 		let userpw1 = $("#userpw").val();
@@ -182,7 +163,7 @@ $(function(){
 			$("#error_pw2").append("비밀번호가 일치합니다.")
 		}
 	})
-	
+
 	$("#username").keyup(function(){
 		$("#error_name").empty();
 		let username = $("#username").val();
@@ -201,15 +182,15 @@ $(function(){
 			}
 		}
 	})
-	
+
 	$(document).on("keyup", "#userphone", function()
 			{ $(this).val(
 					$(this).val()
 					.replace(/[^0-9]/g, "")
 					.replace(/(^010)([0-9]{4})?([0-9]{4})$/,"$1-$2-$3")
-					.replace("--", "-") ); 
+					.replace("--", "-") );
 			});
-	
+
 	$("input#userphone").keyup(function(){
 		$("#error_phone").empty();
 		var userphone = $("input#userphone").val();
@@ -267,7 +248,7 @@ $(function(){
 			}
 		}
 	})
-	
+
 	$("#usersignup").click(function(){
 		let userid = $("input#userid").val();
 		let userpw = $("input#userpw").val();
@@ -279,7 +260,7 @@ $(function(){
 		let userbirth = $("#userbirth").val();
 		let useraddr1 = $("input.useraddr_front").val();
 		let useraddr2 = $("input.useraddr_back").val();
-		
+
 		$("#error_id").empty();
 		$("#error_pw").empty();
 		$("#error_pw2").empty();
@@ -299,13 +280,13 @@ $(function(){
 			$("#error_id").append("아이디는 영문 대소문자, 숫자를 포함하여 5~12자리 사이로 입력");
 			return false;
 		}
-		
+
 		if(idover){
 			$("input#userid").focus();
 			$("#error_id").append("중복된 아이디가 존재합니다.");
 			return false;
 		}
-		
+
 		if (!userpw){
 			$("input#userpw").focus();
 			$("#error_pw").append("비밀번호을 입력해주세요.");
@@ -378,8 +359,8 @@ $(function(){
 			return false;
 		}
 	})//$("#usersignup").click(function() 종료
-			
-	
+
+
 });
 
 function sample6_execDaumPostcode() {
@@ -416,7 +397,7 @@ function sample6_execDaumPostcode() {
                 }
                 // 조합된 참고항목을 해당 필드에 넣는다.
                 document.getElementById("sample6_extraAddress").value = extraAddr;
-            
+
             } else {
                 document.getElementById("sample6_extraAddress").value = '';
             }
@@ -431,5 +412,4 @@ function sample6_execDaumPostcode() {
 }; // 주소api
 
 </script>
-<!-- ################################################################################################ -->
 <%@ include file="../includes/footer.jsp" %>
