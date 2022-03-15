@@ -24,6 +24,7 @@ function idsearch() {
  frm.method = "post";
  frm.action = "findid"; //넘어간화면
  frm.submit();
+ 
  }
 
 </script>
@@ -53,41 +54,41 @@ $(function(){
 </script>
 
 <div class="wrapper row2">
-  <section class="hoc container clear">
-    <div class="center btmspace-80">
-      <h6 class="heading underline font-x2">아이디찾기</h6>
-<form:form action="findid" method="post" modelAttribute="command" name="idfindscreen" >
-<form:errors element="div"/>
+	<section class="hoc container clear">
+		<div class="center btmspace-80">
+			<h6 class="heading underline font-x2">아이디찾기</h6>
+			<form:form action="findid" method="post" modelAttribute="command"
+				name="idfindscreen">
+				<form:errors element="div" />
 
 
-		<section class = "form-search">
-			<div class = "findid">
-				<label>이름</label>
-				<input type="text" name="username" id="username" class = "btn-name" placeholder = "Please enter your NAME." >
-				<span id="uname"></span>
-			<br>
-			</div>
+				<section class="form-search">
+					<div class="findid">
+						<label>이름</label> <input type="text" name="username" id="username"
+							class="btn-name" placeholder="Please enter your NAME.">
+						<span id="uname"></span> <br>
+					</div>
 
 
-			<br>
-			<div class = "findemail">
-				<label>이메일</label>
-				<input type="email" name="useremail" id="useremail" class = "btn-email" placeholder = "Please enter your EMAIL.">
-				<span id="uemail"></span>
-			</div>
+					<br>
+					<div class="findemail">
+						<label>이메일</label> <input type="email" name="useremail"
+							id="useremail" class="btn-email"
+							placeholder="Please enter your EMAIL."> <span id="uemail"></span>
+					</div>
 
 
-			<br>
-		</section>
-	<div class ="btnSearch">
-<br>
-	<input type="button" name="enter" value="찾기"  onClick="idsearch()">
- 	<input type="button" name="cancel" value="취소" id="cancel">
- 	</div>
+					<br>
+				</section>
+				<div class="btnSearch">
+					<br> <input type="button" name="enter" value="찾기"
+						onClick="idsearch()"> <input type="button" name="cancel"
+						value="취소" id="cancel">
+				</div>
 
- </form:form>
-    </div>
-  </section>
+			</form:form>
+		</div>
+	</section>
 </div>
 
 <%-- <%@ include file="../includes/footer.jsp" %> --%>

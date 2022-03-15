@@ -1,8 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="./includes/header.jsp" %>
-<div class="wrapper bgded overlay" style="background-image:url('images/demo/backgrounds/01.png');">
-  <div id="pageintro" class="hoc clear"> 
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper bgded overlay">
+  <div id="pageintro" class="hoc clear" >
+    <!-- ################################################################################################ -->
     <article>
       <h3 class="heading">헌혈의 집</h3>
       <p>글 남기고 싶으면? 뒤에 배경은 이미지?? or 색상바꾸기 글씨체는 흠.... 생각좀</p>

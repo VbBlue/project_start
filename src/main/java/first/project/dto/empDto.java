@@ -24,18 +24,6 @@ public class empDto {
 	
 	String bhname;		//�������� �̸�
 
-	public empDto(String empid, String emppw, String empname,
-			@Pattern(regexp = "^\\d{3}-\\d{4}-\\d{4}$") String empphone, String empemail, String empbirth,
-			String bhname) {
-		super();
-		this.empid = empid;
-		this.emppw = emppw;
-		this.empname = empname;
-		this.empphone = empphone;
-		this.empemail = empemail;
-		this.empbirth = empbirth;
-		this.bhname = bhname;
-	}
 	
 	 
 }

@@ -4,73 +4,72 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.ui.Model;
 
 import first.project.dto.boardDto;
+import first.project.dto.empDto;
 import first.project.service.BoardService;
 
+@SessionAttributes("emp")
 @Controller
 public class BoardController {
 	
 	@Autowired
 	BoardService service;
 	
-	//리스트
-	@RequestMapping("boardform") 
-	public String boardPrint(Model m) {
-		List<boardDto> list = service.depts();
-		m.addAttribute("listBoard", list);
-		return "board/board";
+	@ModelAttribute("emp")
+	public empDto getDto() {
+		return new empDto();
 	}
 	
-	//매핑
-	@RequestMapping("boardCreate")
-	public void boardCreate(Model m) {
+	@PostMapping("boardinsert")
+	public String write(boardDto dto) {
+		service.boardinsert(dto);
+		return "redirect:boardform";
 	}
 	
-	//작성
-	@RequestMapping("insert")
-	public String insertBoard(boardDto dept, Model m) {
-		int i = service.insertBoard(dept);
-		m.addAttribute("i", i);
-		return "board/insert";
+	@GetMapping("/boardwrite")
+	public String writeForm(@ModelAttribute("emp") empDto dto) {
+		return "/board/write";
 	}
 	
-	//상세보기
-	@RequestMapping("boardView")
-	public String boardView(Model m, int no) throws Exception {
-		service.updateView(no);
-		boardDto dept = service.viewBoard(no);		
-		m.addAttribute("dept", dept);
-		return "board/boardView";
+	@RequestMapping("/contents{boardnum}")
+	public String content(@ModelAttribute("emp") empDto empdto,@PathVariable int boardnum, Model m) {
+		boardDto dto = service.boardOne(boardnum);
+		
+		m.addAttribute("dto", dto);
+		return "board/contents";
 	}
 	
-	//수정 페이지
-	@RequestMapping("boardUpdate")
-	public String boardUpdate(Model m, int no) throws Exception{
-		boardDto dept = service.viewBoard(no);
-		m.addAttribute("dept", dept);
-		return "board/boardUpdate";
+	@GetMapping("update{no}")
+	public String updateForm(@PathVariable int no, Model m ) {
+		boardDto dto = service.boardOne(no);
+		m.addAttribute("dto", dto);
+		return "board/updateForm";
+	}
+
+	@PutMapping("/update")
+	public String update(boardDto dto) {
+		service.updateBoard(dto);
+		return "redirect:boardform";
 	}
 	
-	//수정
-	@RequestMapping("update")
-	public String update(boardDto dept) throws Exception{
-		service.update(dept);
-		return "board/update";
+	@DeleteMapping("/board/delete")
+	@ResponseBody
+	public String delete(int boardnum) {
+		int i = service.deleteBoard(boardnum);
+		return ""+i;
 	}
-	
-	//삭제
-	@RequestMapping("boardDelete")
-	public String boardDelete(int no) throws Exception{
-		service.deleteBoard(no);
-		return "board/delete";
-	}
-	
 }
 
 

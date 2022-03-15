@@ -8,7 +8,7 @@
 <title>Gleblu</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+<link href="layout/styles/layout1.css" rel="stylesheet" type="text/css" media="all">
 <script src="layout/scripts/jquery.min.js"></script>
 <script src="layout/scripts/jquery.backtotop.js"></script>
 <script src="layout/scripts/jquery.mobilemenu.js"></script>
@@ -23,11 +23,9 @@
         <c:if test="${user.userid != null}">
 					<p>${user.userid}님이 로그인 하였습니다 ^___^ </p>
 					</c:if>
-
 		 <c:if test="${user.userid == null}">
 					<p>로그인 하지 않았습니다. </p>
 					</c:if>
-
       </ul>
       <!-- ################################################################################################ -->
     </div>

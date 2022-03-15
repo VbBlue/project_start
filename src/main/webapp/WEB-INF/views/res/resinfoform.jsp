@@ -14,48 +14,49 @@
 									<header>
 										<address>헌혈의 집 정보</address>
 									</header>
-									<div class="comcont">
-									<table>
-										<tr>
-											<td>헌혈의 집 이름 : </td>
-											<td>${bh.bhname} </td>
-										</tr>
-										<tr>
-											<td>헌혈의 집 위치 : </td>
-											<td>${bh.bhlocation}</td>
-										</tr>
-									</table>
+									<div class="res_bh_info_main" >
+										<div class="res_bh_in">
+											<div class="res_num">헌혈의 집 이름  </div>
+											<input type="text" value="${bh.bhname}" name="bhname" id="bhname" readonly="readonly" class="bh_info">
+										</div>
+										<div class="res_bh_in">
+											<div class="res_num">헌혈의 집 위치  </div>
+											<input type="text" value=" ${bh.bhlocation}" name="bhlocation" id="bhlocation" readonly="readonly" class="bh_info">
+										</div>
 									</div>
 								</article>
 							</li>
 						</ul>
 					</div>
-					<table>
-						<tr>
-							<td>이름</td>
-							<td>${buser.username }</td>
-						</tr>
-						<tr>
-							<td>혈액형</td>
-							<td>${buser.userbtype }형</td>
-						</tr>
-						<tr>
-							<td>날짜</td>
-							<td>${date}</td>
-						</tr>
-						<tr>
-							<td>시간</td>
-							<td>${res.restime}</td>
-						</tr>
-						<tr>
-							<td>기념품</td>
-							<td>${res.goods}</td>
-						</tr>
-						<tr>
-							<td>피선택</td>
-							<td>${res.bhselect}</td>
-						</tr>
-					</table>
+					<div>
+						<div>
+						<h3 class="heading underline font-xs">예약 정보</h3>
+						</div>
+							<div>
+							이름
+							${buser.username }
+							</div>
+							<div>
+							혈액형
+							${buser.userbtype }형
+							</div>
+							<div>
+							날짜
+							${date}
+							</div>
+							<div>
+							시간
+							${res.restime}
+							</div>
+							<div>
+							기념품
+							${res.goods}
+							</div>
+							<div>
+							피선택
+							${res.bhselect}
+							</div>
+					</div>
 					<a href="/">확인</a>
 			</div>
 		</section>

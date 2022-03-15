@@ -16,41 +16,32 @@ public class BoardService {
 	@Autowired
 	BoardDao dao;
 	
-	//게시물 리스트
-	public List<boardDto> depts() {
-		List<boardDto> list = dao.listBoard();
-		System.out.println(list.size());
-		return list;
+	public int boardinsert(boardDto dto) {
+		return dao.boardinsert(dto);
 	}
 	
-	//게시물 작성
-	public int insertBoard(boardDto dept) {
-		int i = 0;
-		try {
-				i = dao.insertBoard(dept);
-			} catch (DataAccessException e) {
-				System.out.println("실패");
-			}
-		return i;	
+	public List<boardDto> boardList(int start, int end){
+		Map<String, Object> m =new HashMap<String, Object>();
+		m.put("start", start);
+		m.put("end", end);
+		
+		return dao.boardList(m);
 	}
 	
-	//게시물 보기
-	public boardDto viewBoard(int n) {
-		return dao.viewBoard(n);
+	public int bcount() {
+		return dao.bcount();
 	}
 	
-	//게시물 업데이트
-	public void update(boardDto dept) {		
-		dao.update(dept);
+	public boardDto boardOne(int boardnum) {
+		return dao.boardOne(boardnum);
 	}
 	
-	
-	//게시물 삭제
-	public void deleteBoard(int no) {
-		dao.deleteBoard(no);
+	public int updateBoard(boardDto dto) {
+		return dao.updateBoard(dto);
 	}
 	
-	public int updateView(int no) throws Exception{
-		return dao.updateView(no);
+	public int deleteBoard(int boardnum) {
+		return dao.deleteBoard(boardnum);
 	}
+	
 }

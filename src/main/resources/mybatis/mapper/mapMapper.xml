@@ -22,4 +22,13 @@
 	<update id="updateUserBtype" parameterType="map">
 		update buser set userbtype = #{userbtype} where userid = #{userid}
 	</update>
+	
+	<select id="res_userid_count" parameterType="String" resultType="int">
+		select count(userid) from reservation where userid = #{userid}
+	</select>
+	
+	<select id="selectage" resultType="int" parameterType="String">
+		SELECT MONTHS_BETWEEN(TRUNC(SYSDATE,'YYYY'),TRUNC(TO_DATE(userbirth),'YYYY'))/12 +1 as userage FROM buser where userid = #{userid}
+	</select>
+	
 </mapper>

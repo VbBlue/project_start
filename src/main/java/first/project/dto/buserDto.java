@@ -4,7 +4,6 @@ package first.project.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import java.util.Date;
 
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -21,27 +20,26 @@ import lombok.NoArgsConstructor;
 public class buserDto {
 	@Size(min=2, max=15)
 	@Pattern(regexp = "[a-zA-Z0-9]*")
-	private String userid;			//���̵�
+	private String userid;		
 
 	@Size(min=8, max=15)
 	@Pattern(regexp = "[a-zA-Z0-9]*")
-	private String userpw;			//��й�ȣ
+	private String userpw;			
 
 	@Size(min=2, max=4)
 	@Pattern(regexp = "[가-힣]*")
-	private String username;		//�̸�
+	private String username;		
 
 
-	@Pattern(regexp = "^010-?([0-9]{4})-?([0-9]{4})$", message = "010-xxxx-xxxx")
-	private String userphone;		//��ȭ��ȣ
+	private String userphone;		
 
-	private String useremail;		//�̸���
-	private String userbtype;		//������
+	private String useremail;		
+	private String userbtype;		
 
-//	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private String userbirth;		//�������
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private String userbirth;		
 
-	private String useraddr;		//�ּ�
-	private int bcount;				//����Ƚ��
-	private int point;				//����Ʈ
+	private String useraddr;		
+	private int bcount;				
+	private int point;				
 }
