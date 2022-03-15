@@ -11,7 +11,9 @@
 	<section class="hoc container clear">
     	<div class="center btmspace-80">
       	<h6 class="heading underline font-x2">게시판</h6>
-     	<div align = "right"><a href="boardwrite">새글 등록</a></div>
+      	<c:if test="${emp.empid != null}">
+     		<div align = "right"><a href="boardwrite">새글 등록</a></div>
+     	</c:if>
 			<table>
 				<tr><th>제목</th><th>작성자</th><th>작성일</th><th>조회수</th></tr>
 				<c:if test="${count != 0}">

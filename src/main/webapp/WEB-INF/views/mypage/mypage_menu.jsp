@@ -15,6 +15,9 @@
 <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 	$(function() {
+		$('#mypage').click(function() {
+			location.href="/mypageform";
+		});
 		$('#mem_update').click(function() {
 			window.open("/pass_chk", "mem_update", "width=400px, height=400px");
 		});//개인정보변경 클릭

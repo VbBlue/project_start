@@ -37,7 +37,7 @@ public class JoinController {
 	@PostMapping("/empsignup")
 	public String empsignup(empDto dto) {
 		service.empsignup(dto);
-		return "login/login";
+		return "login/emplogin";
 	}
 	
 	@PostMapping("/usersignup")
