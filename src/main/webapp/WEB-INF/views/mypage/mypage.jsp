@@ -11,16 +11,56 @@
 	      	<div>
 	      		<h1>내 헌혈정보</h1>
 	      		<div class="contents">
-	      			<div class="title">혈액형</div><br><div class="content">${user.userbtype }형</div>
-					<div class="title">총 헌혈 횟수</div><br><div class="content" id="blist_count"></div>
-					<div class="title">최근 헌혈 일자</div><br><div class="content" id="last_bhdate"></div>
-					<div class="title">최근 이용한 헌혈의집</div><br><div class="content" id="last_bhname"></div>
-					<div class="title">다음 헌혈 가능일까지</div><br><div class="content" id="Dday"></div>
-					<div class="title">다음 헌혈 가능일</div><br><div class="content" id="bloodCycle"></div>
-	      			
+	      			<table class="my_info">
+	      				<tr>
+	      					<td>
+	      						<div>
+	      							<span class="title">혈액형</span><br>
+	      							<span class="content">${user.userbtype }형</span>
+	      						</div>
+	      					</td>
+	      					<td>
+	      						<div>
+		      						<span class="title">총 헌혈 횟수</span><br>
+		      						<span class="content" id="blist_count"></span>
+	      						</div>
+	      					</td>
+	      				</tr>
+	      				<tr>
+	      					<td>
+	      						<div>
+		      						<span class="title">최근 헌혈 일자</span><br>
+		      						<span class="content" id="last_bhdate"></span>
+	      						</div>
+	      					</td>
+	      					<td>
+	      						<div>
+		      						<span class="title">최근 이용한 헌혈의집</span><br>
+		      						<span class="content" id="last_bhname"></span>
+	      						</div>
+	      					</td>
+	      				</tr>
+	      				<tr>
+	      					<td>
+	      						<div>
+		      						<span class="title">다음 헌혈 가능일까지</span><br>
+		      						<span class="content" id="Dday"></span>
+	      						</div>
+	      					</td>
+	      					<td>
+	      						<div>
+		      						<span class="title">다음 헌혈 가능일</span><br>
+		      						<span class="content" id="bloodCycle"></span>
+	      						</div>
+	      					</td>
+	      				</tr>
+	      			</table>
+	      		</div>
+	      	</div>
+	      	<div>
 	      		<h1>헌혈 예약정보</h1>
 	      		<div class="contents res">
-	      			<div id="reserve_stat"></div>
+	      			<table id="reserve_stat"></table>
 	      			<div id="res_button"></div>
 	      		</div>
 
@@ -73,9 +113,9 @@
 				var day = ('0' + resdate.getDate()).slice(-2);
 				var dateString = year + '-' + month  + '-' + day;
 				//$("#reserve_stat").append("<td>헌혈의집: "+data.bhname+"<br>예약날짜: "+dateString+"<br>예약시간: "+data.restime+"<br>기념품: "+data.goods+"<br>헌혈종류: "+data.bhselect+"<br>예약상태: "+data.resstate+"</td><td><input type='button' value='예약변경' id='change'</td><td><input type='button' value='예약취소' id='cancel'></td>");
-				$("#reserve_stat").append("<div class='title'>헌혈의집</div><div class='content'>"+data.bhname+"</div><div class='title'>헌혈종류</div><div class='content'>"+data.bhselect+"</div>" +
-										  "<div class='title'>예약날짜</div><div class='content'>"+dateString+"</div><div class='title'>예약시간</div><div class='content'>"+data.restime+"</div>" +
-										  "<div class='title'>기념품</div><div class='content'>"+data.goods+"</div><div class='title'>예약상태</div><div class='content'>"+data.resstate+"</div>");
+				$("#reserve_stat").append("<tr><td><div><span class='title'>헌혈의집</span><span class='content'>"+data.bhname+"</span></div></td><td><div><span class='title'>헌혈종류</span><span class='content'>"+data.bhselect+"</span></div></td></tr>" +
+										  "<tr><td><div><span class='title'>예약날짜</span><span class='content'>"+dateString+"</span></div></td><td><div><span class='title'>예약시간</span><span class='content'>"+data.restime+"</span></div></td></tr>" +
+										  "<tr><td><div><span class='title'>기념품</span><span class='content'>"+data.goods+"</span></div></td><td><div><span class='title'>예약상태</span><span class='content'>"+data.resstate+"</span></div></td></tr>");
 
 				//$("#res_button").append("<div><input type='button' value='예약변경' id='change'><input type='button' value='예약취소' id='cancel'></div>");#
 				$("#res_button").append("<div class='btns'><input type='button' value='예약변경' id='change'><input type='button' value='예약취소' id='cancel'></div>");
