@@ -50,8 +50,8 @@
 									<input type="text" value="${userage}" name="userage" id="userage" readonly>
 								</div>
 								<div class="resform_left">
-									<label for="userbtype">혈액형</label> 
-									<input type="text" value="${buser.userbtype }" name="userbtype" id="userbtype"> 
+									<label for="userbtype">혈액형</label>
+									<input type="text" value="${buser.userbtype }" name="userbtype" id="userbtype">
 									<small id="userbtype_error" style="color: red;"> </small>
 								</div>
 								<div class="resform_left">
@@ -89,7 +89,7 @@
 								<div id="goods_in">
 									<div class="goods_in_in">
 										<input type="radio" class="goods" id='goods1' name='goods' value="영화예매권">
-										<label class="btn1" for="goods1">영화예매권</label> 
+										<label class="btn1" for="goods1">영화예매권</label>
 									</div>
 									<div class="goods_in_in">
 										<input type="radio" class="goods" id='goods2' name='goods' value="베라 기프티콘">
@@ -141,7 +141,7 @@
 			if (dateElement.value <= dateString) {
 				alert('당일예약은 불가능 합니다.');
 				dateElement.value = dateString;
-				dateElement.value =null; 
+				dateElement.value =null;
 			}
 		}
 		$(function() {

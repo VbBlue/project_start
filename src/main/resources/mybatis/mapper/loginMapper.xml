@@ -23,7 +23,7 @@
 	</select>
 
 	<select id="idcheck" parameterType="String" resultType="first.project.dto.buserDto">
-		select userid from 	buser where userid =#{userid}
+		select userid from 	buser where userid=#{userid}
 	</select>
 
 

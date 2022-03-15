@@ -8,7 +8,7 @@
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <div class="wrapper row2">
-	<section class="hoc container clear"> 
+	<section class="hoc container clear">
     	<div class="center btmspace-80">
       	<h6 class="heading underline font-x2">게시판</h6>
      	<div align = "right"><a href="boardwrite">새글 등록</a></div>

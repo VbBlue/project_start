@@ -6,7 +6,7 @@
     <div class="center btmspace-80">
       <!-- 마이페이지 내용(테이블) -->
 <%@ include file="../mypage/mypage_menu.jsp" %>
-		
+
 	      <div class="main">
 	      	<div>
 	      		<h1>내 헌혈정보</h1>
@@ -63,7 +63,7 @@
 	      			<table id="reserve_stat"></table>
 	      			<div id="res_button"></div>
 	      		</div>
-	      			
+
 	      	</div>
 <%-- 				<table style='text-align:left;'>
 					<tr>
@@ -113,10 +113,10 @@
 				var day = ('0' + resdate.getDate()).slice(-2);
 				var dateString = year + '-' + month  + '-' + day;
 				//$("#reserve_stat").append("<td>헌혈의집: "+data.bhname+"<br>예약날짜: "+dateString+"<br>예약시간: "+data.restime+"<br>기념품: "+data.goods+"<br>헌혈종류: "+data.bhselect+"<br>예약상태: "+data.resstate+"</td><td><input type='button' value='예약변경' id='change'</td><td><input type='button' value='예약취소' id='cancel'></td>");
-				$("#reserve_stat").append("<tr><td><div><span class='title'>헌혈의집</span><span class='content'>"+data.bhname+"</span></div></td><td><div><span class='title'>헌혈종류</span><span class='content'>"+data.bhselect+"</span></div></td></tr>" + 
-										  "<tr><td><div><span class='title'>예약날짜</span><span class='content'>"+dateString+"</span></div></td><td><div><span class='title'>예약시간</span><span class='content'>"+data.restime+"</span></div></td></tr>" + 
+				$("#reserve_stat").append("<tr><td><div><span class='title'>헌혈의집</span><span class='content'>"+data.bhname+"</span></div></td><td><div><span class='title'>헌혈종류</span><span class='content'>"+data.bhselect+"</span></div></td></tr>" +
+										  "<tr><td><div><span class='title'>예약날짜</span><span class='content'>"+dateString+"</span></div></td><td><div><span class='title'>예약시간</span><span class='content'>"+data.restime+"</span></div></td></tr>" +
 										  "<tr><td><div><span class='title'>기념품</span><span class='content'>"+data.goods+"</span></div></td><td><div><span class='title'>예약상태</span><span class='content'>"+data.resstate+"</span></div></td></tr>");
-				
+
 				//$("#res_button").append("<div><input type='button' value='예약변경' id='change'><input type='button' value='예약취소' id='cancel'></div>");#
 				$("#res_button").append("<div class='btns'><input type='button' value='예약변경' id='change'><input type='button' value='예약취소' id='cancel'></div>");
 				$('#change').click(function() {

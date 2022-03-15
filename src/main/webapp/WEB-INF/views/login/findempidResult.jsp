@@ -11,11 +11,11 @@
 
 
 	<form name="idsearch" method="post">
-	<c:if test="${findid != null}">
+	<c:if test="${findempid != null}">
 
 	<div class = "container">
 	<div class = "found-success">
-	<h4 id="h6_login"> 회원님의 정보는 ${findid.userid} 입니다.  </h4>
+	<h4 id="h6_login"> ${findempid.empid} 입니다.  </h4>
 
 
 
@@ -24,7 +24,7 @@
 	<div class="found-login">
 
 <div class="button2">
-		<input type="button" id="login" value="로그인" onclick="location.href='loginform'"></div>
+		<input type="button" id="login" value="로그인" onclick="location.href='emploginform'"></div>
 
 	</div>
 	</div>
@@ -34,7 +34,7 @@
 
 
 
-	<c:if test="${findid == null}">
+	<c:if test="${findempid == null}">
 		<div class="container">
 
 			<div class="found-fail">

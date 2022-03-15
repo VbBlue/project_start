@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="first.project.dao.EmpLoginDao">
+
+
+
+
+<select id="emplogin" parameterType="first.project.dto.empDto" resultType= "first.project.dto.empDto" >
+select * from emp where empid=#{empid} and emppw=#{emppw}
+</select>
+
+<select id="findempid" parameterType="first.project.dto.empDto" resultType= "first.project.dto.empDto" >
+select empid from emp where empname=#{empname} and empemail=#{empemail}
+</select>
+
+
+<select id="findemppw" parameterType="first.project.dto.empDto" resultType= "first.project.dto.empDto" >
+select * from emp where empname=#{empname} and empid=#{empid}
+</select>
+
+
+<select id="empidcheck" parameterType="String" resultType= "first.project.dto.empDto" >
+select empid from emp where empid=#{empid}
+</select>
+
+<insert id="insertEmp" parameterType="first.project.dto.empDto">
+insert into emp values
+(#{empid}, #{emppw}, #{empname}, #{empphone},
+ #{empemail}, #{empbirth}, #{bhname} )
+</insert>
+
+
+
+
+</mapper>
