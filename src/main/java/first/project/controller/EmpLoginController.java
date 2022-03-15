@@ -46,7 +46,7 @@ public class EmpLoginController {
 		} else {
 			m.addAttribute("emp", resultEmpDto);
 		}
-		return "redirect:/";
+		return "emppage/emp_main";
 
 		}
 

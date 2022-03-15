@@ -63,21 +63,34 @@
 
 
     <img src="images/1008104646.jpeg" style=" margin-bottom:15px; height:40px; width:40px;">
-      <a id="logoname" href="/">헌혈해주세요</a>
+      <c:if test="${emp.empid == null}">
+      	<a id="logoname" href="/">헌혈해주세요</a>
+      </c:if>
+      <c:if test="${emp.empid != null}">
+      	<a id="logoname" href="emppage">헌혈해주세요</a>
+      </c:if>
       <!-- ################################################################################################ -->
     </div>
     <nav id="mainav" class="fl_right">
       <!-- ################################################################################################ -->
       <ul class="clear">
+      <c:if test="${emp.empid == null}">
       	<li><a>회원가입</a>
       	<ul>
       		<li><a href="/usersignupform" title="signup">회원 회원가입</a>
       		<li><a href="/empsignupform" title="empsingup">관리자<br>회원가입</a>
       	</ul>
       	</li>
+		</c:if>
+		<c:if test="${emp.empid != null}">
+			<li><a href="emppage">관리자 페이지</a></li>
+		</c:if>
         <li><a href="boardform">게시판</a></li>
+      <c:if test="${emp.empid == null}">
         <li><a href="mapform">예약페이지</a></li>
         <li><a href="mypageform">마이페이지</a></li>
+		</c:if>
+
 
 
 		<c:if test="${user.userid != null && emp.empid==null}">
@@ -86,6 +99,10 @@
         <c:if test="${emp.empid != null && user.userid ==null}">
         <li><a href="emplogout" title="empLogout">관리자 로그아웃</a></li>
         </c:if>
+
+
+
+
         <c:if test="${user.userid == null && emp.empid==null}">
         <li><a>로그인</a>
         <ul>
