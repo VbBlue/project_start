@@ -6,6 +6,7 @@ import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -108,6 +109,7 @@ public class MainController {
 		buserDto user = (buserDto)session.getAttribute("user");
 		if(session.getAttribute("user") != null) {
 			if(m_service.last_bhdate(user.getUserid()) != null) {
+				Calendar cal = Calendar.getInstance();
 				bloodlist list = m_service.last_bhdate(user.getUserid());
 				SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
 				Date date = list.getBhdate();
@@ -116,9 +118,20 @@ public class MainController {
 				Date format1 = new SimpleDateFormat("yyyyMMdd").parse(today);
 				Long Dday = (format1.getTime() - date.getTime())/(1000*60*60*24);
 				String bhselect = list.getBhselect();
+				Date bhdate = list.getBhdate();
+				cal.setTime(bhdate);
+				cal.add(Calendar.DATE, +30);
+				String last_bhdate = sdf.format(bhdate);
+				String next_bhdate = sdf.format(cal.getTime());
+				String bhname = list.getBhname();
+				int blist_count = m_service.blist_count(user.getUserid());
 				Map<String, Object> lastDay = new HashMap<>();
 				lastDay.put("Dday", Dday);
 				lastDay.put("bhselect", bhselect);
+				lastDay.put("last_bhdate", last_bhdate);
+				lastDay.put("next_bhdate", next_bhdate);
+				lastDay.put("blist_count", blist_count);
+				lastDay.put("bhname", bhname);
 				m.addAttribute("lastDay", lastDay);
 			}
 			return "mypage/mypage";

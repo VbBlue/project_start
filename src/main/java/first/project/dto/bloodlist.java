@@ -10,8 +10,8 @@ import lombok.Data;
 public class bloodlist { //��������
 	String bhname;		//�������� �̸�
 	String userid;		//����� ���̵�
-	Date bhdate;		//������ ��¥
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	Date bhdate;		//������ ��¥
 	String bhselect;		//���� ����
 	int bhlistnum;		//�������� ��ȣ (������)
 	String empid;

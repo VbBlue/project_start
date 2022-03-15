@@ -5,11 +5,11 @@
 <mapper namespace="first.project.dao.EmpDao">
 	
 	<insert id="blist_insert" parameterType="first.project.dto.bloodlist">
-		insert into bloodlist values (#{bhname}, #{userid}, sysdate, bloodlist_seq.nextval, #{empid}, #{bhselect})
+		insert into bloodlist values (bhname = #{bhname}, userid = #{userid}, bhdate = sysdate, bhlistnum = bloodlist_seq.nextval, empid = #{empid}, bhselect = #{bhselect})
 	</insert>
 	
 	<insert id="bown_insert" parameterType="first.project.dto.bloodownDto">
-		insert into bloodown values (bloodown_seq.nextval, #{bhname}, #{userbtype}, #{bhselect})
+		insert into bloodown values (bloodownnum = bloodown_seq.nextval, bhname = #{bhname}, userbtype = #{userbtype}, bhselect = #{bhselect})
 	</insert>
 	
 	<update id="b_complete" parameterType="int">
