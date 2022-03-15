@@ -96,9 +96,7 @@ $(function() {
 						<span id="uemail"></span>
 					</div>
 
-
 					<br>
-
 			<!-- 버튼  -->
 
 		<div class="find_button">
@@ -110,7 +108,6 @@ $(function() {
 
 
 				</div>
-
 
 			</form:form>
 		</div>

@@ -22,4 +22,5 @@ public interface MypageDao {
 	int deleteReservation(reservation dto);
 	bloodlist last_bhdate(String userid);
 	int goodslist_count(Map map);
+	int blist_count(String userid);
 }

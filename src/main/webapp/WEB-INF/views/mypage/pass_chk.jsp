@@ -17,7 +17,7 @@
 <script>
 	$(function() {
 		$("#btn").click(function() {
-			if($("#pass").val() != ${user.userpw}) {
+			if($("#pass").val() != "${user.userpw}") {
 				$("#pass").val('');
 				$("#result").html("비밀번호 다름");
 			}else {

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="first.project.dao.EmpDao">
+	
+	<insert id="blist_insert" parameterType="first.project.dto.bloodlist">
+		insert into bloodlist values (bhname = #{bhname}, userid = #{userid}, bhdate = sysdate, bhlistnum = bloodlist_seq.nextval, empid = #{empid}, bhselect = #{bhselect})
+	</insert>
+	
+	<insert id="bown_insert" parameterType="first.project.dto.bloodownDto">
+		insert into bloodown values (bloodownnum = bloodown_seq.nextval, bhname = #{bhname}, userbtype = #{userbtype}, bhselect = #{bhselect})
+	</insert>
+	
+	<update id="b_complete" parameterType="int">
+		update reservation set resstate = '현혈완료' where resnum = #{resnum}
+	</update>
+	
+	<update id="res_confirm" parameterType="int">
+		update reservation set resstate = '예약완료' where resnum = #{resnum}
+	</update>
+	
+	<update id="res_cancel" parameterType="int">
+		update reservation set resstate = '예약취소' where resnum = #{resnum}
+	</update>
+	
+	<update id="bhtime_set" parameterType="first.project.dto.bhtimeDto">
+		update bhtime set opentime = #{opentime}, closetime = #{closetime}, resttime = #{resttime}, onoff = #{onoff} where bhname = #{bhname}
+	</update>
+	
+	<select id="emp_reslist" parameterType="map" resultType="map">
+		<![CDATA[
+		select * from(
+		select rownum r, bhname, userid, resdate, restime, goods, bhselect, resnum, resstate 
+		from (select * from reservation where bhname = #{bhname} and resstate = '대기중' and resdate >= #{cal1} and resdate <= #{cal2} order by restime) 
+		)where r >= #{startRow} and r <= #{endRow}
+		]]>
+	</select>
+	
+	<select id="emp_reslist_count" parameterType="map" resultType="int">
+		<![CDATA[
+		select count(*) from reservation where bhname = #{bhname} and resstate = '대기중' and resdate >= #{cal1} and resdate <= #{cal2}
+		]]>
+	</select>
+	
+	<select id="emp_all_reslist_count" parameterType="String" resultType="int">
+		select count(*) from reservation where bhname = #{bhname} and resstate = '대기중'
+	</select>
+	
+	<select id="emp_bloodlist" parameterType="map" resultType="map">
+		<![CDATA[
+		select * from(
+		select rownum r, bhname, userid, bhdate, bhselect, bhlistnum, empid
+		from (select * from bloodlist where bhname = #{bhname} and bhdate >= #{cal1} and bhdate <= #{cal2} order by bhdate desc) 
+		)where r >= #{startRow} and r <= #{endRow}
+		]]>
+	</select>
+	
+	<select id="emp_bloodlist_count" parameterType="map" resultType="int">
+		<![CDATA[
+		select count(*) from bloodlist where bhname = #{bhname} and bhdate >= #{cal1} and bhdate <= #{cal2}
+		]]>
+	</select>
+	
+	<select id="emp_today_list" parameterType="map" resultType="map">
+		<![CDATA[
+		select * from(
+		select rownum r, bhname, userid, resdate, restime, goods, bhselect, resnum, resstate 
+		from (select * from reservation where bhname = #{bhname} and resstate = '예약완료' and resdate = (select to_char(SYSDATE) FROM DUAL) order by restime) 
+		)where r >= #{startRow} and r <= #{endRow}
+		]]>
+	</select>
+	
+	<select id="emp_today_list_count" parameterType="String" resultType="int">
+		select count(*) from reservation where bhname = #{bhname} and resstate = '예약완료' and resdate = (select to_char(SYSDATE) FROM DUAL)
+	</select>
+	
+	<select id="btype" parameterType="String" resultType="String">
+		select userbtype from buser where userid = #{userid}
+	</select>
+	
+	<select id="bhtime_info" parameterType="String" resultType="first.project.dto.bhtimeDto">
+		select * from bhtime where bhname = #{bhname}
+	</select>
+	
+	<select id="A_count" parameterType="String" resultType="int">
+		select count(*) from bloodown where bhname = #{bhname} and userbtype = 'A'
+	</select>
+	
+	<select id="B_count" parameterType="String" resultType="int">
+		select count(*) from bloodown where bhname = #{bhname} and userbtype = 'B'
+	</select>
+	
+	<select id="O_count" parameterType="String" resultType="int">
+		select count(*) from bloodown where bhname = #{bhname} and userbtype = 'O'
+	</select>
+	
+	<select id="AB_count" parameterType="String" resultType="int">
+		select count(*) from bloodown where bhname = #{bhname} and userbtype = 'AB'
+	</select>
+	
+</mapper>

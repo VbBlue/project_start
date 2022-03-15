@@ -23,8 +23,12 @@ public class empDto {
 
 	String empemail;	//�̸���
 
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
+
+	//@DateTimeFormat(pattern = "yyyy-MM-dd")
 	String empbirth;	//�������
 
 	String bhname;		//�������� �̸�
+
+
+
 }

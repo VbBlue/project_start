@@ -40,7 +40,7 @@
 	</select>
 	
 	<select id="last_bhdate" parameterType="String" resultType="first.project.dto.bloodlist">
-		select bhdate, bhselect from bloodlist where userid = #{userid} and bhdate = (select max(bhdate) from bloodlist where userid = #{userid})
+		select * from bloodlist where userid = #{userid} and bhdate = (select max(bhdate) from bloodlist where userid = #{userid})
 	</select>
 	
 	<delete id="deleteuser" parameterType="String">
@@ -53,7 +53,11 @@
 	
 	<select id="reserv_stat" parameterType="String" resultType="first.project.dto.reservation">
 		select * from reservation 
-		where userid = #{userid} AND resstate = '예약중'
+		where userid = #{userid} AND resstate = '대기중'
 		OR userid = #{userid} AND resstate = '예약완료'
+	</select>
+	
+	<select id="blist_count" parameterType="String" resultType="int">
+		select count(*) from bloodlist where userid = #{userid}
 	</select>
 </mapper>

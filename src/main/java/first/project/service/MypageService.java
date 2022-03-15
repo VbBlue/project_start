@@ -53,4 +53,8 @@ public class MypageService {
 	public int goodslist_count(Map map) {
 		return dao.goodslist_count(map);
 	}
+	
+	public int blist_count(String userid) {
+		return dao.blist_count(userid);
+	}
 }

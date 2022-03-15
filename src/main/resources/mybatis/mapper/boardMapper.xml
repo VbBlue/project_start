@@ -3,6 +3,34 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="first.project.dao.BoardDao">
-
+	
+	<insert id="boardinsert" parameterType="first.project.dto.boardDto">
+		insert into board(boardname,boarddate,empid,inboard,boardview,boardnum) values(#{boardname},to_date(sysdate,'yyyy-mm-dd'),#{empid},#{inboard},0,board_seq.nextval)
+	</insert>
+	
+	<select id="boardList" parameterType="map" resultType="first.project.dto.boardDto">
+		<![CDATA[
+		select * from 
+		(select boardnum,empid,boardname,inboard,boarddate,boardview, rownum r from 
+		(select * from board order by boarddate desc) list order by boarddate desc)
+		where r >= #{start} and r <= #{end}
+		]]>
+	</select>
+	
+	<select id="bcount" resultType="int">
+		select count(*) from board
+	</select>
+	
+	<select id="boardOne" parameterType="int" resultType="first.project.dto.boardDto">
+		select * from board where boardnum = #{boardnum}
+	</select>
+	
+	<update id="updateBoard" parameterType="first.project.dto.boardDto">
+		update board set boardname = #{boardname} , inboard = #{inboard} where boardnum = #{boardnum}
+	</update>
+	
+	<delete id="deleteBoard" parameterType="int">
+		delete from board where boardnum=#{boardnum}
+	</delete>
 	
 </mapper>

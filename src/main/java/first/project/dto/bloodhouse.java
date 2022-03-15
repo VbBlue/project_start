@@ -4,9 +4,9 @@ import lombok.Data;
 
 @Data
 public class bloodhouse {
-	int bhnum;				//ÇåÇ÷ÀÇÁý ¹øÈ£ (½ÃÄö½º)
-	String bhlocation;		//ÇåÇ÷ÀÇÁý À§Ä¡
-	String bhname;			//ÇåÇ÷ÀÇÁý ÀÌ¸§
-	String bhone;			//Ç÷¾×¿ø
-	String bhphone;			//ÇåÇ÷ÀÇÁý ÀüÈ­¹øÈ£
+	int bhnum;				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
+	String bhlocation;		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡
+	String bhname;			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½
+	String bhone;			//ï¿½ï¿½ï¿½×¿ï¿½
+	String bhphone;			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­ï¿½ï¿½È£
 }
