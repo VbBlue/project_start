@@ -2,6 +2,8 @@ package first.project.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -39,7 +41,7 @@ public class BoardController {
 	}
 	
 	@GetMapping("/boardwrite")
-	public String writeForm(@ModelAttribute("emp") empDto dto) {
+	public String writeForm(HttpSession session) {
 		return "/board/write";
 	}
 	
