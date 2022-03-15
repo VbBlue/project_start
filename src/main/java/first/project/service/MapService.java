@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import first.project.dao.MapDao;
+import first.project.dto.bloodhouse;
 import first.project.dto.buserDto;
 import first.project.dto.reservation;
 
@@ -35,9 +36,6 @@ public class MapService {
 		return dao.updateUserPhone(m);
 	}
 	
-	public List<String> bhlike_select(String userid){
-		return dao.bhlike_select(userid);
-	}
 	
 	public int updateUserBtype(String userbtype, String userid) {
 		Map<String, Object> m = new HashMap<String, Object>();
@@ -53,4 +51,6 @@ public class MapService {
 	public int res_userid_count(String userid) {
 		return dao.res_userid_count(userid);
 	}
+	
+	
 }

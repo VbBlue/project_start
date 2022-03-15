@@ -31,7 +31,6 @@ public class buserDto {
 	private String username;		
 
 
-	@Pattern(regexp = "^010-?([0-9]{4})-?([0-9]{4})$", message = "010-xxxx-xxxx")
 	private String userphone;		
 
 	private String useremail;		

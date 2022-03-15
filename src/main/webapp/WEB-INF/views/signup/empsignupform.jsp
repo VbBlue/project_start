@@ -9,75 +9,73 @@
       <h6 class="heading underline font-x2">관리자 회원가입</h6>
       <div>
       <form action="../empsignup" method="post">
-      	<div>
-      		<h3>
-      			<label for="empid">아이디</label>
-      		</h3>
-      		<span>
-      			<input type="text" id="empid" name="empid" maxlength="15">
-      		</span>
-      		<span class="error_next_box" id="error_id" style="color:red;">
-      		</span>
-      		<h3>
-      			<label for="emppw">비밀번호</label>
-      		</h3>
-      		<span>
-      			<input type="password" id="emppw" name="emppw" maxlength="15">
-      		</span>
-      		<span class="error_next_box" id="error_pw" style="color:red;">
-      		</span>
-      		<h3>
-      			<label for="emppw2">비밀번호확인</label>
-      		</h3>
-      		<span>
-      			<input type="password" id="emppw2" name="emppw2">
-      		</span>
-      		<span class="error_next_box" id="error_pw2" style="color:red;">
-      		</span>
-      		<h3>
-      			<label for="empname">이름</label>
-      		</h3>
-      		<span>
-      			<input type="text" id="empname" name="empname" maxlength="4">
-      		</span>
-      		<span class="error_next_box" id="error_name" style="color:red;">
-      		</span>
-      		<h3>
-      			<label for="empphone">전화번호</label>
-      		</h3>
-      		<span>
-      			<input type="text" id="empphone" name="empphone">
-      		</span>
-      		<span class="error_next_box" id="error_phone" style="color:red;">
-      		</span>
-      		<h3>
-      			<label for="empemail">이메일</label>
-      		</h3>
-      		<span>
-      			<input type="text" id="empemail" name="empemail">
-      		</span>
-      		<span class="error_next_box" id="error_email" style="color:red;">
-      		</span>
-      		<h3>
-      			<label for="empbirth">생년월일</label>
-      		</h3>
-      		<span>
-      			<input type="text" id="empbirth" name="empbirth" maxlength="6">
-      		</span>
-      		<span class="error_next_box" id="error_birth" style="color:red;">
-      		</span>
-      		<h3>
-      			<label for="empbhname">근무 헌혈의집 명</label>
-      		</h3>
-      		<span>
-      			<input type="text" id="bhname" name="bhname" readonly>
-      			<input type="button" id="findbh" value="헌혈의 집 검색">
-      		</span>
-      		<span class="error_next_box" id="error_bhname" style="color:red;">
-      		</span>
-      		<input type="submit" id="empsignup" value="회원가입">
-      	</div>
-      	</form>
+					<div id="signup_menu">
+						<div class="signup_etc_div">
+							<label for="empid" class="signup_label">아이디</label>
+							 <span>
+								<input type="text" id="empid" name="empid" maxlength="15" class="sign_input_info" placeholder="아이디 입력">
+							</span>
+							 <span class="error_next_box" id="error_id" style="color: red;">
+							</span>
+						</div>
+						<div class="signup_etc_div">
+							<label for="emppw" class="signup_label">비밀번호</label>
+							 <span>
+								<input type="password" id="emppw" name="emppw" maxlength="15" class="sign_input_info" placeholder="비밀번호 입력">
+							</span>
+							 <span class="error_next_box" id="error_pw" style="color: red;">
+							</span>
+						</div>
+						<div class="signup_etc_div">
+							<label for="emppw2" class="signup_label">비밀번호확인</label>
+							 <span>
+								<input type="password" id="emppw2" name="emppw2" class="sign_input_info" placeholder="비밀번호 확인">
+							</span> 
+							<span class="error_next_box" id="error_pw2" style="color: red;">
+							</span>
+						</div>
+						<div class="signup_etc_div">
+							<label for="empname" class="signup_label">이름</label> 
+							<span>
+								<input type="text" id="empname" name="empname" maxlength="4" class="sign_input_info" placeholder="이름 입력">
+							</span> 
+							<span class="error_next_box" id="error_name" style="color: red;">
+							</span>
+						</div>
+						<div class="signup_etc_div">
+							<label for="empphone" class="signup_label">전화번호</label>
+							<span>
+								<input type="text" id="empphone" name="empphone" class="sign_input_info" placeholder="전화번호 입력 / 010-xxxx-xxxx">
+							</span> 
+							<span class="error_next_box" id="error_phone" style="color: red;"> </span>
+						</div>
+						<div class="signup_etc_div">
+							<label for="empemail" class="signup_label">이메일</label>
+							<span>
+								<input type="text" id="empemail" name="empemail" class="sign_input_info" placeholder="이메일 입력">
+							</span> 
+							<span class="error_next_box" id="error_email" style="color: red;">
+							</span>
+						</div>
+						<div class="signup_etc_div">
+							<label for="empbirth" class="signup_label">생년월일</label> <span>
+								<input type="text" id="empbirth" name="empbirth" maxlength="6" class="sign_input_info" placeholder="생년월일 / 주민번호 앞자리">
+							</span> 
+							<span class="error_next_box" id="error_birth" style="color: red;"> </span>
+						</div>
+						<div class="signup_etc_div">
+							<label for="empbhname" class="signup_label">근무 헌혈의집 명</label>
+							<span>
+								<div id="empbh_div">
+									<input type="text" id="bhname" name="bhname" readonly class="sign_input_info" placeholder="근무 헌혈의집 명 선택" style="margin-right: 10px;">
+									<input type="button" id="findbh" value="헌혈의 집 검색">
+								</div>
+							</span>
+							 <span class="error_next_box" id="error_bhname" style="color: red;"> </span>
+						</div>
+						<input type="submit" id="empsignup" value="회원가입">
+					</div>
+				</form>
       </div>
     </div>
   </section>

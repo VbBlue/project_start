@@ -4,101 +4,105 @@
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <div class="wrapper row2">
-  <section class="hoc container clear"> 
-    <div class="center btmspace-80">
-      <h6 class="heading underline font-x2">사용자 회원가입</h6>
-      <div>
-      <form action="../usersignup" method="post">
-      	<div>
-      		<h3>
-      			<label for="userid">아이디</label>
-      		</h3>
-      		<span>
-      			<input type="text" id="userid" name="userid" maxlength="15">
-      		</span>
-      		<span class="error_next_box" id="error_id" style="color:red;">
-      		</span>
-      		<h3>
-      			<label for="userpw">비밀번호</label>
-      		</h3>
-      		<span>
-      			<input type="password" id="userpw" name="userpw" maxlength="15">
-      		</span>
-      		<span class="error_next_box" id="error_pw" style="color:red;">
-      		</span>
-      		<h3>
-      			<label for="userpw2">비밀번호확인</label>
-      		</h3>
-      		<span>
-      			<input type="password" id="userpw2" name="userpw2">
-      		</span>
-      		<span class="error_next_box" id="error_pw2" style="color:red;">
-      		</span>
-      		<h3>
-      			<label for="username">이름</label>
-      		</h3>
-      		<span>
-      			<input type="text" id="username" name="username" maxlength="4">
-      		</span>
-      		<span class="error_next_box" id="error_name" style="color:red;">
-      		</span>
-      		<h3>
-      			<label for="userphone">전화번호</label>
-      		</h3>
-      		<span>
-      			<input type="text" id="userphone" name="userphone" maxlength="13">
-      		</span>
-      		<span class="error_next_box" id="error_phone" style="color:red;">
-      		</span>
-      		<h3>
-      			<label for="useremail">이메일</label>
-      		</h3>
-      		<span>
-      			<input type="text" id="useremail" name="useremail">
-      		</span>
-      		<span class="error_next_box" id="error_email" style="color:red;">
-      		</span>
-      		<h3>
-      			<label for="userbtype">혈액형</label>
-      		</h3>
-      		<span>
-      			<label for="userbtype_A">A형</label>
-      			<input type="radio" class="btype-check" id="userbtype_A" name="userbtype" value="A">
-      			<label for="userbtype_O">O형</label>
-      			<input type="radio" class="btype-check" id="userbtype_O" name="userbtype" value="O">
-      			<label for="userbtype_B">B형</label>
-      			<input type="radio" class="btype-check" id="userbtype_B" name="userbtype" value="B">
-      			<label for="userbtype_AB">AB형</label>
-      			<input type="radio" class="btype-check" id="userbtype_AB" name="userbtype" value="AB">
-      		</span>
-      		<span class="error_next_box" id="error_btype" style="color:red;">
-      		</span>
-      		<h3>
-      			<label for="userbirth">생년월일</label>
-      		</h3>
-      		<span>
-      			<input type="text" id="userbirth" name="userbirth" maxlength="6">
-      		</span>
-      		<span class="error_next_box" id="error_birth" style="color:red;">
-      		</span>
-      		<h3>
-      			<label for="sample6_detailAddress">주소</label>
-      		</h3>
-      		<span>
-      			<input type="text" id="sample6_postcode" placeholder="우편번호">
-				<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
-				<input class="useraddr_front" type="text" name="useraddr_front" id="sample6_address" placeholder="주소"><br>
-				<input class="useraddr_back" type="text" name="useraddr_back" id="sample6_detailAddress" placeholder="상세주소">
-				<input type="text" id="sample6_extraAddress" placeholder="참고항목">
-      		</span>
-      		<span class="error_next_box" id="error_addr" style="color:red;">
-      		</span>
-      		<input type="submit" id="usersignup" value="회원가입">
-      	   </div>
-      	</form>
-      </div>
-    </div>
-  </section>
+	<section class="hoc container clear">
+		<div class="center btmspace-80">
+			<h6 class="heading underline font-x2">사용자 회원가입</h6>
+			<div>
+				<form action="../usersignup" method="post">
+					<div id="signup_menu">
+						<div class="signup_etc_div">
+							<label for="userid" class="signup_label">아이디</label> 
+							<span> 
+							<input type="text"
+								id="userid" name="userid" maxlength="15" class="sign_input_info" placeholder="아이디 입력">
+							</span>
+						
+						<small class="error_next_box" id="error_id" style="color: red;">
+						</small>
+						</div >
+						<div class="signup_etc_div">
+							<label for="userpw" class="signup_label">비밀번호</label>
+							<span> <input type="password" id="userpw" name="userpw"
+								maxlength="15" class="sign_input_info" placeholder="비밀번호 입력">
+							</span> <small class="error_next_box" id="error_pw" style="color: red;">
+							</small>
+						</div>
+						<div class="signup_etc_div">
+							<label for="userpw2" class="signup_label">비밀번호확인</label>
+							<span> <input type="password" id="userpw2" name="userpw2" class="sign_input_info" placeholder="비밀번호 확인">
+							</span> <small class="error_next_box" id="error_pw2" style="color: red;">
+							</small>
+						</div>
+						<div class="signup_etc_div">
+							<label for="username" class="signup_label">이름</label>
+							<span> <input type="text" id="username" name="username"
+								maxlength="4" class="sign_input_info" placeholder="이름 입력">
+							</span> <small class="error_next_box" id="error_name" style="color: red;">
+							</small>
+							</div>
+							<div class="signup_etc_div">
+								<label for="userphone" class="signup_label">전화번호</label>
+								<span> <input type="text" id="userphone" name="userphone"
+									maxlength="13" class="sign_input_info" placeholder="전화번호 입력 010-xxxx-xxxx">
+								</span> <small class="error_next_box" id="error_phone"
+									style="color: red;">  </small>
+							</div>
+							<div class="signup_etc_div">
+								<label for="useremail" class="signup_label">이메일</label>
+								<span> <input type="text" id="useremail" name="useremail" class="sign_input_info" placeholder="이메일 입력">
+								</span> <small class="error_next_box" id="error_email"
+									style="color: red;"> </small>
+							</div>
+							<div class="signup_etc_div">
+								<label for="userbtype" class="signup_label">혈액형</label>
+								<span id="signup_bloodtype">
+									<div class="sign_btype-check"> 
+									<input type="radio" class="btype-check" id="userbtype_A" name="userbtype" value="A"> 
+									<label class="btn1" for="userbtype_A">A형</label> 
+									</div>
+									<div class="sign_btype-check">
+									<input type="radio" class="btype-check" id="userbtype_O" name="userbtype" value="O"> 
+									<label class="btn1" for="userbtype_O">O형</label>
+									</div>
+									<div class="sign_btype-check">
+									<input type="radio" class="btype-check" id="userbtype_B" name="userbtype" value="B">
+									<label class="btn1" for="userbtype_B">B형</label>
+									</div>
+									<div class="sign_btype-check">
+									<input type="radio" class="btype-check" id="userbtype_AB" name="userbtype" value="AB">
+									<label class="btn1" for="userbtype_AB">AB형</label>
+									</div>
+								</span> <small class="error_next_box" id="error_btype"
+									style="color: red;"> </small>
+							</div>
+							<div class="signup_etc_div">
+								<label for="userbirth" class="signup_label">생년월일</label>
+								<span> <input type="text" id="userbirth" name="userbirth"
+									maxlength="6" class="sign_input_info" placeholder="생년월일 입력 / 주민번호 앞자리">
+								</span> <small class="error_next_box" id="error_birth"
+									style="color: red;"> </small>
+							</div>
+							<div class="signup_etc_div">
+								<label for="sample6_detailAddress" class="signup_label">주소</label>
+								<span>
+									<div id="addr_div">
+									<input type="text" id="sample6_postcode" placeholder="우편번호" class="sign_addr" readonly="readonly" style="width: 30%; margin-right: 10px;">
+									<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" id="addr_button">
+									</div>
+									<input class="useraddr_front" type="text" name="useraddr_front" readonly="readonly"
+										id="sample6_address" placeholder="주소" style="width: 100%">
+									<input class="useraddr_back" type="text" name="useraddr_back"
+										id="sample6_detailAddress" placeholder="상세주소" style="width: 100%">
+									<input type="text" id="sample6_extraAddress" readonly="readonly" placeholder="참고항목" class="sign_addr">
+								</span>
+								<small class="error_next_box" id="error_addr" style="color: red;"> </small>
+							</div>
+							<input type="submit" id="usersignup" value="회원가입">
+						</div>
+				</form>
+			</div>
+		</div>
+	</section>
 </div>
 <!-- ################################################################################################ -->
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>

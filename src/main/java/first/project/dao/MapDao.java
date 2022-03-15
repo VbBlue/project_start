@@ -5,7 +5,7 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
-
+import first.project.dto.bloodhouse;
 import first.project.dto.buserDto;
 import first.project.dto.reservation;
 
@@ -26,5 +26,5 @@ public interface MapDao {
 	
 	int selectage(String userid);
 	
-	List<String> bhlike_select(String userid);
+	
 }

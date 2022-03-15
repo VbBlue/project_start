@@ -10,7 +10,7 @@ File: Layout CSS
 */
 
 @import url("fontawesome-free/css/fontawesome-all.min.css");
-@import url("framework.css");
+@import url("framework1.css");
 
 
 /*게시판*/
@@ -30,7 +30,226 @@ File: Layout CSS
 	
 }
 
+/* usersignup, empsignup == 가운데정렬 */
+#signup_menu{
+	display: flex;
+	flex-direction: column;
+	align-items: center;	
+} 
+#reservation_main{
+	width: 100%;
+	display: flex;
+}
+#reservation_main_info{
+	width: 50%;
+}
 
+#reservation_main_info_in{
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 400px;
+}
+
+#resform_submit{
+	display: flex;
+    flex-direction: row-reverse;
+    margin-top: 20px;
+}
+.resform_left{
+	margin-bottom: 15px;
+}
+
+.signup_label{
+	text-align: left;
+	-webkit-text-stroke: medium;
+}
+
+.sign_input_info{
+	background-color: transparent;
+    border: none;
+    border-bottom: inset;
+    border-bottom-color: #D7D7D7;
+    width: 100%;
+    height: 40px;
+}
+
+#signup_bloodtype{
+	display: flex;
+    justify-content: space-between;
+}
+
+.signup_etc_div{
+	width: 400px;
+	margin-bottom: 20px;
+}
+.sign_btype-check{
+	display: flex;
+}
+
+#addr_div,#empbh_div{
+	display: flex;
+}
+
+#addr_button {
+	border-radius: 8px;
+    border: none;
+    color: red;
+    background-color: #fec9d2;
+    width: 100px;
+    height: 25px;
+    margin-top: 15px;
+}
+
+#findbh{
+	border-radius: 8px;
+    border: none;
+    color: red;
+    background-color: #fec9d2;
+    width: 110px;
+    height: 25px;
+    margin-top: 15px;
+}
+
+.res_bh_info_main{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.sign_addr, .useraddr_front, .useraddr_back{
+	background-color: transparent;
+    border: none;
+    border-bottom: inset;
+    border-bottom-color: #D7D7D7;
+    height: 40px;
+}
+
+#usersignup, #empsignup{
+	border-radius: 8px;
+    border: none;
+    color: red;
+    background-color: #fec9d2;
+}
+
+.res_bh_in{
+	display: flex;
+}
+.res_bh_info_main div{
+	height: 45px;
+}
+.res_num{
+	padding-top: 11px;
+	-webkit-text-stroke: medium;
+}
+
+.res_bh_info_main input{
+	background-color: transparent;
+    border: none;
+    border-bottom: inset;
+    border-bottom-color: #D7D7D7;
+}
+
+#restime_div{
+	display: flex;
+}
+.resform_left input{
+	background-color: transparent;
+    border: none;
+    border-bottom: inset;
+    border-bottom-color: #D7D7D7;
+    width: 250px;
+}
+#resdate{
+	background-color: transparent;
+    border: none;
+    border-bottom: inset;
+    border-bottom-color: #D7D7D7;
+}
+
+.resform_left label{
+	-webkit-text-stroke: medium;
+	margin-bottom: 20px;
+}
+
+#reservation{
+	border-radius: 8px;
+    border: none;
+    color: red;
+    background-color: #fec9d2;
+}
+
+#goods_in, .goods_in_in,#bhselect_in,.bhselect_in_in{
+	display: flex;
+}
+
+.resform_right{
+	margin-bottom: 30px;
+}
+
+/* radio 버튼*/
+.btn1{
+  display: inline-block;
+  padding: 1em 2em;
+  margin: 0.5em;
+  cursor: pointer;
+  color: #292929;
+  border-radius: 0.25em;
+  background: #efefef;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2), inset 0 -3px 0 rgba(0,0,0,0.22);
+  transition: 0.3s;
+  user-select: none;
+  
+}
+.btn1:hover{
+	background: darken(#efefef, 10%);
+    color: darken(#292929, 10%);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2), inset 0 -3px 0 rgba(0,0,0,0.32);
+}
+.btn1:active{
+	transform: translateY(2px);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2), inset 0px -1px 0 rgba(0,0,0,0.22); 
+}
+.btn1 {
+    font-size: 0.9em;
+    font-family: "Lato", sans-serif;
+  }
+
+.btn-check:checked + .btn1{
+  background: indianred;
+  color: #efefef;
+}
+.btn-check:checked:hover + .btn1:hover{
+	background: darken(indianred, 5%);
+    color: darken(#efefef, 5%);
+}
+.goods:checked + .btn1{
+  background: indianred;
+  color: #efefef;
+}
+.goods:checked:hover + .btn1:hover{
+	background: darken(indianred, 5%);
+    color: darken(#efefef, 5%);
+}
+.bhselect:checked + .btn1{
+  background: indianred;
+  color: #efefef;
+}
+.bhselect:checked:hover + .btn1:hover{
+	background: darken(indianred, 5%);
+    color: darken(#efefef, 5%);
+}
+.btype-check:checked + .btn1{
+  background: indianred;
+  color: #efefef;
+}
+.btype-check:checked:hover + .btn1:hover{
+	background: darken(indianred, 5%);
+    color: darken(#efefef, 5%);
+}
+
+.btn-check, .goods, .bhselect, .btype-check{
+	display: none;
+}
 /* Rows
 --------------------------------------------------------------------------------------------------------------- */
 .row0, .row0 a{}
@@ -156,7 +375,7 @@ File: Layout CSS
 
 
 #comments form{display:block; width:100%;}
-#comments input, #comments textarea{width:100%; padding:10px; border:1px solid;}
+#comments input, #comments textarea{width:500px; padding:10px;}
 #comments textarea{overflow:auto;}
 #comments div{margin-bottom:15px;}
 #comments input[type="submit"], #comments input[type="reset"]{display:inline-block; width:auto; min-width:150px; margin:0; padding:8px 5px; cursor:pointer;}

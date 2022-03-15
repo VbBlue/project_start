@@ -29,7 +29,10 @@ import com.google.gson.Gson;
 
 import first.project.dto.bloodhouse;
 import first.project.dto.bloodlist;
+import first.project.dto.boardDto;
 import first.project.dto.buserDto;
+import first.project.dto.empDto;
+import first.project.service.BoardService;
 import first.project.service.MapService;
 import first.project.service.MypageService;
 
@@ -39,7 +42,10 @@ import first.project.service.MypageService;
 public class MainController {
 	@Autowired
 	MypageService m_service;
+	@Autowired
 	MapService map_service;
+	@Autowired
+	BoardService board_service;
 	
 	@ModelAttribute("user")
 	public buserDto getDto() {
@@ -62,16 +68,39 @@ public class MainController {
 	}
 
 	@GetMapping("boardform")
-	public String boardform() {
+	public String boardform(@RequestParam(name="p",defaultValue = "1") int page, Model m) {
+		
+		int count = board_service.bcount();
+		if(count > 0) {
+			int perpage = 5; //���������� ���� ���� ����
+			int startRow = (page-1) * perpage + 1;
+			int endRow = page * perpage;
+		
+			List<boardDto> boardList = board_service.boardList(startRow, endRow);
+			m.addAttribute("bList", boardList);
+			
+			int pageNum = 5;
+			int totalPages = count / perpage + (count%perpage > 0 ? 1:0);//��ü ��������
+			int begin = (page - 1) / pageNum * pageNum + 1;
+			int end = begin + pageNum - 1;
+			if(end > totalPages) {
+				end = totalPages;
+			}
+			m.addAttribute("begin", begin);
+			m.addAttribute("end", end);
+			m.addAttribute("totalpages", totalPages);
+			m.addAttribute("pageNum", pageNum);
+			
+		}
+		m.addAttribute("count", count);
+		
 		return "board/board";
-
 	}
 
 	@GetMapping("mapform")
 	public String mapform(@RequestParam(name="p",defaultValue = "1") int page,@ModelAttribute("user") buserDto buser ,Model m) {
 
 		List<bloodhouse> bh_list = new ArrayList<bloodhouse>();
-
 		
 		try {
             String urlStr = "https://api.odcloud.kr/api/15050728/v1/uddi:090a49f9-241c-4738-a3b4-bcff01d0062b_201711011009?page=1&perPage=200&serviceKey=TUfKwHlNTObSFJi9MUmOuy65HOB6W2S%2FcDhIbyI4ExrHpugJ2DZxO0e1RQtefwagX9JkVyBFlel9XMdE3nucLg%3D%3D";
@@ -93,28 +122,20 @@ public class MainController {
             for (int i=0;i< parse_listArr.size();i++) {
             	bloodhouse bh = new bloodhouse();
                 JSONObject bhouse = (JSONObject) parse_listArr.get(i);
-                bh.setBhphone((String)bhouse.get("�쟾�솕踰덊샇"));
-                bh.setBhname((String)bhouse.get("�뿄�삁�쓽 吏�"));
-                bh.setBhone((String)bhouse.get("�삁�븸�썝"));
-                bh.setBhlocation((String)bhouse.get("二쇱냼吏�"));
+                bh.setBhphone((String)bhouse.get("전화번호"));
+                bh.setBhname((String)bhouse.get("헌혈의 집"));
+                bh.setBhone((String)bhouse.get("혈액원"));
+                bh.setBhlocation((String)bhouse.get("주소지"));
                 bh_list.add(bh);
-
             }
             br.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
 		
-		try {
-			List<String> bhlike_selct = map_service.bhlike_select(buser.getUserid());
-			m.addAttribute("bhlike_select", bhlike_selct);
-		}catch (NullPointerException e) {
-			e.printStackTrace();
-		}
-		
 		int count = bh_list.size();
 		if(count > 0) {
-			int perpage = 15; //���������� ���� ���� ����
+			int perpage = 15;
 			int startRow = (page-1) * perpage;
 			int endRow = page * perpage;
 		
@@ -140,7 +161,6 @@ public class MainController {
 		}
 		
 		m.addAttribute("count", count);
-		
 		
 		m.addAttribute("buser", buser);
 		m.addAttribute("bh_list",bh_list);
