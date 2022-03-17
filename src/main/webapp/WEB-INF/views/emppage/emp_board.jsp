@@ -1,24 +1,18 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ include file="../includes/header.jsp" %>
-
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
 <div class="wrapper row2">
-	<section class="hoc container clear">
-    	<div class="center btmspace-80">
-      	<h6 class="heading underline font-x2">공지사항</h6>
-      	<div style="width: 1000px;">
-      	<c:if test="${emp.empid != null}">
+  <section class="hoc container clear">
+    <div class="center btmspace-80">
+    	<h6 class="heading underline font-x2">관리자게시판</h6>
+    	<div style="width: 1000px;">
      		<div id="new_write"><a href="boardwrite">새글 등록</a></div>
-     	</c:if>
 			<table>
 				<tr><th class="board_th" style="width: 60px;"></th><th class="board_th" style="width: 640px;">제목</th><th class="board_th" style="width: 150px;">작성자</th><th class="board_th" style="width: 200px;">작성일</th><th class="board_th" style="width: 70px;">조회수</th></tr>
 				<c:if test="${count != 0}">
-					<c:forEach items="${bList}" var="board">
+					<c:forEach items="${emp_blist}" var="board">
 						<tr>
 							<td class="board_td">${board.r}</td>
 							<td class="board_td" id="board_title"><a href = "contents${board.boardnum}" style="color: black;">${board.boardname}</a></td>
@@ -44,10 +38,8 @@
 				</c:if>
 			</div>
 		</div>
-   		</div>
-	</section>
+    	
+    </div>
+  </section>
 </div>
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-
 <%@ include file="../includes/footer.jsp" %>

@@ -1,5 +1,6 @@
 package first.project.service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -10,6 +11,7 @@ import first.project.dao.EmpDao;
 import first.project.dto.bhtimeDto;
 import first.project.dto.bloodlist;
 import first.project.dto.bloodownDto;
+import first.project.dto.boardDto;
 
 @Service
 public class EmpService {
@@ -92,4 +94,16 @@ public class EmpService {
 		return dao.AB_count(bhname);
 	}
 	
+	public List<boardDto> emp_boardList(int start, int end, String bhname){
+		Map<String, Object> m = new HashMap<String, Object>();
+		m.put("start", start);
+		m.put("end",end);
+		m.put("bhname", bhname);
+		
+		return dao.emp_boardList(m);
+	}
+	
+	public int emp_board_count(String bhname) {
+		return dao.emp_board_count(bhname);
+	}
 }

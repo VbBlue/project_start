@@ -23,4 +23,6 @@ public interface BoardDao {
 	int updateBoard(boardDto dto);
 	
 	int deleteBoard(int boardnum);
+	
+	int viewcount(int boardnum);
 }

@@ -6,8 +6,8 @@
 	<div class="wrapper row2">
 		<section class="hoc container clear">
 			<div class="center btmspace-80">
-				<h6 class="heading underline font-x2">${buser.username}님 예약이 완료되었습니다.</h6>
-					<div id="comments">
+				<h6 class="heading underline font-x2">예약 완료</h6>
+					<div id="comments" style="width: 100%;">
 						<ul>
 							<li>
 								<article>
@@ -28,36 +28,64 @@
 							</li>
 						</ul>
 					</div>
-					<div>
-						<div>
-						<h3 class="heading underline font-xs">예약 정보</h3>
+					<div id="resinfo_bottom">
+						<div style="margin-bottom: 20px;">
+							<h3 class="heading underline font-xs">예약 정보</h3>
 						</div>
-							<div>
-							이름
-							${buser.username }
+						<div id="resinfo_bottom_two">
+							<div class="res_bottom">
+								<div class="res_bot">
+									<div class="res_bot_title">
+										이름
+									</div>
+									<div class="res_bot_con">
+										<input value="${buser.username }">
+									</div>
+								</div>
+								<div class="res_bot">
+									<div class="res_bot_title">
+										혈액형
+									</div>
+									<div class="res_bot_con">
+										<input value="${buser.userbtype }형">
+									</div>
+								</div>
+								<div class="res_bot">
+									<div class="res_bot_title">
+										날짜
+									</div>
+									<div class="res_bot_con">
+										<input value="${date}">
+									</div>
+								</div>
+								<div class="res_bot">
+									<div class="res_bot_title">
+										시간
+									</div>
+									<div class="res_bot_con">
+										<input value="${res.restime}">
+									</div>
+								</div>
+								<div class="res_bot">
+									<div class="res_bot_title">
+										기념품
+									</div>
+									<div class="res_bot_con">
+										<input value="${res.goods}">
+									</div>
+								</div>
+								<div class="res_bot">
+									<div class="res_bot_title">
+										피선택
+									</div>
+									<div class="res_bot_con">
+										<input value="${res.bhselect}">
+									</div>
+								</div>
 							</div>
-							<div>
-							혈액형
-							${buser.userbtype }형
-							</div>
-							<div>
-							날짜
-							${date}
-							</div>
-							<div>
-							시간
-							${res.restime}
-							</div>
-							<div>
-							기념품
-							${res.goods}
-							</div>
-							<div>
-							피선택
-							${res.bhselect}
-							</div>
+						</div>
 					</div>
-					<a href="/">확인</a>
+				<a href="/">확인</a>
 			</div>
 		</section>
 	</div>

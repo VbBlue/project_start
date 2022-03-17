@@ -44,4 +44,7 @@ public class BoardService {
 		return dao.deleteBoard(boardnum);
 	}
 	
+	public int viewcount(int boardnum) {
+		return dao.viewcount(boardnum);
+	}
 }

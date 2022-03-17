@@ -10,10 +10,11 @@ import lombok.Data;
 public class boardDto {  
 	String boardname;		
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	Date boarddate;		
+	Date boarddate;	
 	String empid;			
 	String inboard;			
 	int boardview;			
 	int boardnum;
+	String bhname;
 	int r;
 }
