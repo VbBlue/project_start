@@ -57,7 +57,7 @@
       	<a id="logoname" href="/">헌혈해주세요</a>
       </c:if>
       <c:if test="${emp.empid != null}">
-      	<a id="logoname" href="emppage">헌혈해주세요</a>
+      	<a id="logoname" href="emp">헌혈해주세요</a>
       </c:if>
       <!-- ################################################################################################ -->
     </div>
@@ -73,7 +73,7 @@
       	</li>
 		</c:if>
 		<c:if test="${emp.empid != null}">
-			<li><a href="emppage">관리자 페이지</a></li>
+			<li><a href="emp">관리자 페이지</a></li>
 		</c:if>
         <li><a href="boardform">게시판</a></li>
       <c:if test="${emp.empid == null}">

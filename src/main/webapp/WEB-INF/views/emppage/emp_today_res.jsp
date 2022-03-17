@@ -4,13 +4,26 @@
 <div class="wrapper row2">
   <section class="hoc container clear">
     <div class="center btmspace-80">
-    	<h6 class="heading underline font-x2">오늘 헌혈예정</h6>
-  		<div id="result">
-  			<input type='button' id='check_confirm' value='선택 헌혈완료'>
-			<input type='button' id='check_cancel' value='선택 헌혈취소'>
-		    <table id="reslist"></table>
+<%@ include file="../emppage/emp_menu.jsp" %>
+<div class="list_main">
+				<div class="list_search">
+
+
+					<div class="date_top">
+						<h6 class="heading underline font-x2" id="h6_login">오늘 헌혈예정</h6>
+
+					</div>
+					<div id="result"></div>
+					
+						<input type='button' id='check_confirm' value='선택 헌혈완료'>
+						<input type='button' id='check_cancel' value='선택 헌혈취소'>
+						<table id="reslist"></table>
 			<div id="pages"><input type='button' id='page' style='display:none'></div>
-	    </div>
+				</div>
+			</div>
+
+
+ 
 	</div>
   </section>
 <!-- 스크립트 -->

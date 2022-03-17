@@ -4,28 +4,52 @@
 <div class="wrapper row2">
   <section class="hoc container clear">
     <div class="center btmspace-80">
-    	<h6 class="heading underline font-x2">예약리스트</h6>
-    	<table>
-      		<tr>
-      			<td><input type="button" id="today" value="오늘"></td>
-	      		<td><input type="button" id="month" value="30일"></td>
-	      		<td><input type="button" id="quarter" value="120일"></td>
-	      	</tr>
-	      	<tr>
-	      		<td align="left">기간선택</td>
-	      		<td><input type="date" id="cal1" name="cal1" min=""></td>
-	      		<td><input type="date" id="cal2" name="cal2" min=""></td>
-      		</tr>
-      		<tr>
-      			<td colspan='3' align="center"><input type="button" value="조회" id="page"></td>
-      		</tr>
-	     </table>
-		<div id="result">
-			<input type='button' id='check_confirm' value='선택 예약확정'>
-			<input type='button' id='check_cancel' value='선택 예약취소'>
-		    <table id="reslist"></table>
-			<div id="pages"></div>
-	    </div>
+<%@ include file="../emppage/emp_menu.jsp" %>
+<div class="list_main">
+				<div class="list_search">
+
+
+					<div class="date_top">
+						<h6 class="heading underline font-x2" id="h6_login">예약리스트</h6>
+
+						<div class="date_btn_main">
+							<div class="date_btn">
+								<input type="button" id="today" value="오늘">
+							</div>
+							<div class="date_btn">
+								<input type="button" id="month" value="30일">
+							</div>
+							<div class="date_btn">
+								<input type="button" id="quarter" value="120일">
+							</div>
+						</div>
+
+
+						<div class="cal">
+							<div class="cal_in">
+								<input type="date" id="cal1" name="cal1" max="">
+							</div>
+							<p>~</p>
+							<div class="cal_in">
+								<input type="date" id="cal2" name="cal2" max="">
+							</div>
+						</div>
+
+
+						<div>
+							<div class="search_btn">
+								<input type="button" value="조회" id="page">
+							</div>
+						</div>
+					</div>
+					<div id="result"></div>
+						<input type='button' id='check_confirm' value='선택 예약확정'>
+						<input type='button' id='check_cancel' value='선택 예약취소'>
+						<table id="reslist"></table>
+					<div id="pages"></div>
+				</div>
+			</div>
+    
     </div>
   </section>
 <!-- 스크립트 -->

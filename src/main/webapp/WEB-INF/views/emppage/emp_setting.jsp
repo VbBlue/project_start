@@ -14,7 +14,7 @@
 	.switch input {display:none;}
 	
 	/* The slider */
-	.slider {
+	.toggle {
 	  position: absolute;
 	  cursor: pointer;
 	  top: 0;
@@ -26,7 +26,7 @@
 	  transition: .4s;
 	}
 	
-	.slider:before {
+	.toggle:before {
 	  position: absolute;
 	  content: "";
 	  height: 26px;
@@ -38,26 +38,26 @@
 	  transition: .4s;
 	}
 	
-	input:checked + .slider {
+	input:checked + .toggle {
 	  background-color: #2196F3;
 	}
 	
-	input:focus + .slider {
+	input:focus + .toggle {
 	  box-shadow: 0 0 1px #2196F3;
 	}
 	
-	input:checked + .slider:before {
+	input:checked + .toggle:before {
 	  -webkit-transform: translateX(26px);
 	  -ms-transform: translateX(26px);
 	  transform: translateX(26px);
 	}
 	
 	/* Rounded sliders */
-	.slider.round {
+	.toggle.round {
 	  border-radius: 34px;
 	}
 	
-	.slider.round:before {
+	.toggle.round:before {
 	  border-radius: 50%;
 	}
 	
@@ -71,37 +71,47 @@
 <div class="wrapper row2">
   <section class="hoc container clear">
     <div class="center btmspace-80">
-    	<h6 class="heading underline font-x2">영업시간 설정</h6>
-    	<form action='/bhtime_set' method='post'>
-    		<table>
-    			<tr>
-		    		<td>영업시간 설정</td>
-		    		<td>오픈시간: </td>
-		    		<td><select id='opentime' name='opentime'></select></td>
-		    		<td>마감시간: </td>
-		    		<td><select id='closetime' name='closetime'></select></td>
-		    	</tr>
-		    	<tr>
-		    		<td>휴식시간 설정</td>
-		    		<td>휴식시간: </td>
-		    		<td><select id="resttime" name="resttime"></select></td>
-		    	</tr>
-		    	<tr>
-		    		<td>ON/OFF 설정</td>
-		    		<td>
-			    		<label class="switch">
-		  					<input type="checkbox">	
-		  					<span class="slider round"></span>
-						</label>
-					</td>
-					<td><p class="onoff">OFF</p><p class="onoff" style="display:none;">ON</p></td>
-					<td><input style="display:none;" id="onoff" name="onoff"></td>
-		    	</tr>
-    	</table>
-    	<input type="submit" value="설정완료">
-    	</form>
+<%@ include file="../emppage/emp_menu.jsp" %>
+<div class="update_center">
+<h6 class="heading underline font-x2">영업시간 설정</h6>
 
-    </div>
+      <form action='/bhtime_set' method='post'>
+		<div class="update_main">
+
+      <div class="update_mem_div">
+
+      <div class="update_mem_left">
+      	<label for="opentime">오픈시간</label>
+      	<select id='opentime' name='opentime'></select>
+		</div>
+
+      <div class="update_mem_left">
+      	<label for="closetime">마감시간</label>
+      	<select id='closetime' name='closetime'></select>
+		</div>
+
+      <div class="update_mem_left">
+      	<label for="resttime">휴식시간</label>
+      	<select id="resttime" name="resttime"></select>
+		</div>
+
+      <div class="update_mem_left">
+      	<label>ON/OFF 설정</label>
+      	<label class="switch">
+		<input type="checkbox">	
+		<span class="toggle round"></span>
+		</label>
+		<p class="onoff">OFF</p><p class="onoff" style="display:none;">ON</p>
+		<input style="display:none;" id="onoff" name="onoff">
+	</div>
+      </div>
+</div>
+<div class="update_btn">
+<input type="submit" value="설정완료">
+</div>
+</form>
+     </div>
+</div>
   </section>
 <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
