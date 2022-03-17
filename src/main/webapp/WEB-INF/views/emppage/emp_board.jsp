@@ -6,6 +6,7 @@
 <div class="wrapper row2">
   <section class="hoc container clear">
     <div class="center btmspace-80">
+<%@ include file="../emppage/emp_menu.jsp" %>
     	<h6 class="heading underline font-x2">관리자게시판</h6>
     	<div style="width: 1000px;">
      		<div id="new_write"><a href="boardwrite">새글 등록</a></div>

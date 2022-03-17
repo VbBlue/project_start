@@ -34,10 +34,11 @@ public class EmpLoginController {
 	public empDto getEmpDto() {
 		return new empDto();
 	}
-	@GetMapping("empmain")
-	public String empmainform() {
-		return "emppage/emp_main";
-	}
+
+	/*
+	 * @GetMapping("empmain") public String empmainform() { return "redirect:/emp";
+	 * }
+	 */
 
 
 	@PostMapping("emplogin")
@@ -50,7 +51,7 @@ public class EmpLoginController {
 		} else {
 			m.addAttribute("emp", resultEmpDto);
 		}
-		return "redirect:/empmain";
+		return "redirect:/emp";
 
 		}
 

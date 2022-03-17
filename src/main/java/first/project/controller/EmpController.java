@@ -188,34 +188,6 @@ public class EmpController {
 		service.blist_insert(blist);
 	}
 
-	@RequestMapping("/empboard")
-	public String board(@RequestParam(name="p",defaultValue = "1") int page, Model m, HttpSession session) {
-		empDto emp = (empDto)session.getAttribute("emp");
-		int count = service.emp_board_count(emp.getBhname());
-		if(count > 0) {
-			int perpage = 5;
-			int startRow = (page-1) * perpage + 1;
-			int endRow = page * perpage;
-
-			List<boardDto> boardList = service.emp_boardList(startRow, endRow, emp.getBhname());
-			m.addAttribute("emp_blist", boardList);
-			int pageNum = 5;
-			int totalPages = count / perpage + (count%perpage > 0 ? 1:0);//��ü ��������
-			int begin = (page - 1) / pageNum * pageNum + 1;
-			int end = begin + pageNum - 1;
-			if(end > totalPages) {
-				end = totalPages;
-			}
-			m.addAttribute("begin", begin);
-			m.addAttribute("end", end);
-			m.addAttribute("totalpages", totalPages);
-			m.addAttribute("pageNum", pageNum);
-		}
-		m.addAttribute("count", count);
-
-		return "/emppage/emp_board";
-	}
-
 	@RequestMapping("/empset")
 	public String setting(HttpSession session, Model m) {
 		empDto emp = (empDto)session.getAttribute("emp");
