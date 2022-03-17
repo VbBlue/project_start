@@ -41,12 +41,14 @@ public class BoardController {
 	}
 	
 	@GetMapping("/boardwrite")
-	public String writeForm(HttpSession session) {
+	public String writeForm(@ModelAttribute("emp") empDto dto, Model m) {
+		m.addAttribute("dto", dto);
 		return "/board/write";
 	}
 	
 	@RequestMapping("/contents{boardnum}")
 	public String content(@ModelAttribute("emp") empDto empdto,@PathVariable int boardnum, Model m) {
+		service.viewcount(boardnum);
 		boardDto dto = service.boardOne(boardnum);
 		
 		m.addAttribute("dto", dto);
@@ -69,8 +71,8 @@ public class BoardController {
 	@DeleteMapping("/board/delete")
 	@ResponseBody
 	public String delete(int boardnum) {
-		int i = service.deleteBoard(boardnum);
-		return ""+i;
+		service.deleteBoard(boardnum);
+		return "redirect:boardform";
 	}
 }
 

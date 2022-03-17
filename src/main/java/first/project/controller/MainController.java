@@ -85,7 +85,6 @@ public class MainController {
 		
 			List<boardDto> boardList = board_service.boardList(startRow, endRow);
 			m.addAttribute("bList", boardList);
-			
 			int pageNum = 5;
 			int totalPages = count / perpage + (count%perpage > 0 ? 1:0);//��ü ��������
 			int begin = (page - 1) / pageNum * pageNum + 1;
@@ -105,8 +104,7 @@ public class MainController {
 	}
 
 	@GetMapping("mapform")
-	public String mapform(@RequestParam(name="p",defaultValue = "1") int page, Model m) {
-
+	public String mapform(@RequestParam(name="p",defaultValue = "1") int page,Model m) {
 		List<bloodhouse> bh_list = new ArrayList<bloodhouse>();
 		
 		try {
@@ -204,7 +202,7 @@ public class MainController {
 			}
 			return "mypage/mypage";
 		}
-		return "redirect:/";
+		return "redirect:/loginform";
 	}
 	
 	@RequestMapping("/emp")

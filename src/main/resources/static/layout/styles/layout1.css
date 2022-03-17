@@ -27,15 +27,15 @@ File: Layout CSS
 /*버튼*/
 #board_number{
 	background-color: black;
-	
+
 }
 
 /* usersignup, empsignup == 가운데정렬 */
 #signup_menu{
 	display: flex;
 	flex-direction: column;
-	align-items: center;	
-} 
+	align-items: center;
+}
 #reservation_main{
 	width: 100%;
 	display: flex;
@@ -198,7 +198,7 @@ File: Layout CSS
   box-shadow: 0 3px 10px rgba(0,0,0,0.2), inset 0 -3px 0 rgba(0,0,0,0.22);
   transition: 0.3s;
   user-select: none;
-  
+
 }
 .btn1:hover{
 	background: darken(#efefef, 10%);
@@ -207,7 +207,7 @@ File: Layout CSS
 }
 .btn1:active{
 	transform: translateY(2px);
-    box-shadow: 0 3px 10px rgba(0,0,0,0.2), inset 0px -1px 0 rgba(0,0,0,0.22); 
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2), inset 0px -1px 0 rgba(0,0,0,0.22);
 }
 .btn1 {
     font-size: 0.9em;

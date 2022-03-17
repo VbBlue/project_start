@@ -3,11 +3,10 @@
 <link href="layout/styles/mypage.css" rel="stylesheet" type="text/css" media="all">
 	      <div>
 	      <nav class="menu">
-	      	<h1><button id="mypage">마이페이지</button></h1>
+	      	<button id="mypage">마이페이지</button>
 		      <ul class="menu_list">
 		      	<li><input type='button' value='개인정보변경' id='mem_update'></li>
 		      	<li><input type='button' value='헌혈내역' id='bloodlist'></li>
-		      	<li><input type='button' value='당첨내역' id='goodslist'></li>
 		      	<li><input type='button' value='회원탈퇴' id='mem_delete'></li>
 		      </ul>
 		  </nav>
@@ -27,9 +26,7 @@
 		$('#bloodlist').click(function() {
 			location.href="/bloodlist";
 		});//헌혈내역 클릭
-		$('#goodslist').click(function() {
-			location.href="/goodslist";
-		});//당첨내역 클릭
+
 	});
-	
+
 </script>

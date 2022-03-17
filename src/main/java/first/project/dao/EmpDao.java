@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Mapper;
 import first.project.dto.bhtimeDto;
 import first.project.dto.bloodlist;
 import first.project.dto.bloodownDto;
+import first.project.dto.boardDto;
 
 @Mapper
 public interface EmpDao {
@@ -31,4 +32,7 @@ public interface EmpDao {
 	int B_count(String bhname);
 	int O_count(String bhname);
 	int AB_count(String bhname);
+	
+	List<boardDto> emp_boardList(Map<String, Object> map);
+	int emp_board_count(String bhname);
 }

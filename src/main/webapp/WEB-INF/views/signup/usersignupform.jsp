@@ -13,13 +13,11 @@
 						<div class="signup_etc_div">
 							<label for="userid" class="signup_label">아이디</label>
 							<span>
-							<input type="text"
-								id="userid" name="userid" maxlength="15" class="sign_input_info" placeholder="아이디 입력">
+							<input type="text" id="userid" name="userid" maxlength="15" class="sign_input_info" placeholder="아이디 입력">
 							</span>
-
-						<small class="error_next_box" id="error_id" style="color: red;">
-						</small>
-						</div >
+							<span class="error_next_box" id="error_id" style="color: red;">
+							</span>
+						</div>
 						<div class="signup_etc_div">
 							<label for="userpw" class="signup_label">비밀번호</label>
 							<span> <input type="password" id="userpw" name="userpw"
@@ -122,8 +120,8 @@ $(function(){
 		let userid = $("input#userid").val();
 		let idcheck = /^(?=.*[A-Za-z])(?=.*\d)?[A-Za-z\d]{5,15}$/;
 		if(userid == ""){
-			idpattern = false;
 			idover = false;
+			idpattern = false;
 			$("#error_id").append("아이디를 입력해주세요")
 		}
 		else{
@@ -148,7 +146,28 @@ $(function(){
 			})
 		}
 	}) //$("#userphone").keyup(function() 종료
+			
+	
+	$("input#userpw").keyup(function(){
+		$("#error_pw").empty();
+		var userpw = $("input#userpw").val();
+		var pwcheck = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,15}$/;
+		if(userpw==""){
+			pwpattern = false;
+			$("#error_pw").append("비밀번호를 입력해주세요")
+		}
+		else{
+			if(pwcheck.test(userpw)){
+				pwpattern = false;
+				$("#error_pw").append("")
+			}
+			else{
+				pwpattern = true;
+				$("#error_pw").append("비밀번호는 문자, 숫자, 특수문자를 포함하여 작성해주세요(최소 8 최대 15)")
+			}
+		}
 	})
+
 
 
 	$("#userpw2").keyup(function(){
@@ -359,6 +378,8 @@ $(function(){
 			return false;
 		}
 	})//$("#usersignup").click(function() 종료
+});
+
 
 function sample6_execDaumPostcode() {
     new daum.Postcode({

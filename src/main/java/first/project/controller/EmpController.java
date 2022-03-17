@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -21,20 +22,26 @@ import first.project.dto.reservation;
 import first.project.dto.bhtimeDto;
 import first.project.dto.bloodlist;
 import first.project.dto.bloodownDto;
+import first.project.dto.boardDto;
 import first.project.service.EmpService;
 
 
 @Controller
 public class EmpController {
-	
+
 	@Autowired
 	EmpService service;
-	
+
+	@GetMapping("/emppage")
+	public String emppageform() {
+		return"emppage/emp_main";
+	}
+
 	@RequestMapping("/empres")
 	public String reservation() {
 		return "/emppage/emp_reservation";
 	}
-	
+
 	@RequestMapping("/emp_reslist")
 	@ResponseBody
 	public String emp_reslist(@RequestParam(name="p", defaultValue = "1") int page, HttpSession session, String cal1, String cal2) {
@@ -58,7 +65,7 @@ public class EmpController {
 			result.put("list", list);
 			int pageNum = 5;
 			int totalPages = count/perPage + (count % perPage > 0 ? 1:0);
-			
+
 			int begin = (page - 1) / pageNum * pageNum + 1;
 			int end = begin + pageNum -1;
 			if(end > totalPages) {
@@ -71,12 +78,12 @@ public class EmpController {
 		}
 		return reslist;
 	}
-	
+
 	@RequestMapping("/res_confirm")
 	public void res_confirm(int resnum) {
 		service.res_confirm(resnum);
 	}
-	
+
 	@RequestMapping("/res_cancel")
 	public void res_cancel(int resnum) {
 		service.res_cancel(resnum);
@@ -86,7 +93,7 @@ public class EmpController {
 	public String bloodlist() {
 		return "/emppage/emp_bloodlist";
 	}
-	
+
 	@RequestMapping("/empblist_search")
 	@ResponseBody
 	public String bloodlist_search(@RequestParam(name="p", defaultValue = "1") int page, HttpSession session, String cal1, String cal2) {
@@ -110,7 +117,7 @@ public class EmpController {
 			result.put("list", list);
 			int pageNum = 5;
 			int totalPages = count/perPage + (count % perPage > 0 ? 1:0);
-			
+
 			int begin = (page - 1) / pageNum * pageNum + 1;
 			int end = begin + pageNum -1;
 			if(end > totalPages) {
@@ -123,12 +130,12 @@ public class EmpController {
 		}
 		return blist;
 	}
-	
+
 	@RequestMapping("/today_res")
 	public String today_res() {
 		return "/emppage/emp_today_res";
 	}
-	
+
 	@RequestMapping("/today_res_list")
 	@ResponseBody
 	public String today_res_list(@RequestParam(name="p", defaultValue = "1") int page, HttpSession session) {
@@ -162,7 +169,7 @@ public class EmpController {
 		}
 		return reslist;
 	}
-	
+
 	@RequestMapping("/b_complete")
 	public void b_complete(reservation res, HttpSession session) {
 		empDto emp = (empDto)session.getAttribute("emp");
@@ -180,12 +187,35 @@ public class EmpController {
 		service.b_complete(res.getResnum());
 		service.blist_insert(blist);
 	}
-	
+
 	@RequestMapping("/empboard")
-	public String board() {
+	public String board(@RequestParam(name="p",defaultValue = "1") int page, Model m, HttpSession session) {
+		empDto emp = (empDto)session.getAttribute("emp");
+		int count = service.emp_board_count(emp.getBhname());
+		if(count > 0) {
+			int perpage = 5;
+			int startRow = (page-1) * perpage + 1;
+			int endRow = page * perpage;
+
+			List<boardDto> boardList = service.emp_boardList(startRow, endRow, emp.getBhname());
+			m.addAttribute("emp_blist", boardList);
+			int pageNum = 5;
+			int totalPages = count / perpage + (count%perpage > 0 ? 1:0);//��ü ��������
+			int begin = (page - 1) / pageNum * pageNum + 1;
+			int end = begin + pageNum - 1;
+			if(end > totalPages) {
+				end = totalPages;
+			}
+			m.addAttribute("begin", begin);
+			m.addAttribute("end", end);
+			m.addAttribute("totalpages", totalPages);
+			m.addAttribute("pageNum", pageNum);
+		}
+		m.addAttribute("count", count);
+
 		return "/emppage/emp_board";
 	}
-	
+
 	@RequestMapping("/empset")
 	public String setting(HttpSession session, Model m) {
 		empDto emp = (empDto)session.getAttribute("emp");
@@ -194,7 +224,7 @@ public class EmpController {
 		m.addAttribute("bhtime", bhtime);
 		return "/emppage/emp_setting";
 	}
-	
+
 	@RequestMapping("/bhtime_set")
 	public String bhtime_set(HttpSession session, bhtimeDto bhtime) {
 		empDto emp = (empDto)session.getAttribute("emp");
@@ -203,5 +233,5 @@ public class EmpController {
 		service.bhtime_set(bhtime);
 		return "redirect:/emp";
 	}
-	
+
 }

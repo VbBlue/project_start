@@ -3,7 +3,7 @@
 <link href="layout/styles/mypage.css" rel="stylesheet" type="text/css" media="all">
 <div>
 <nav class="menu">
-	<h1><button id="/emp">관리자페이지</button></h1>
+
 	<ul class="menu_list">
 		<li><input type="button" id="reservation_page" value="예약내역"></li>
 		<li><input type="button" id="today_res" value="헌혈예정"></li>

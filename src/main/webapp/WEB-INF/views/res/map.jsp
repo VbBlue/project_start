@@ -198,5 +198,7 @@ $(".heart-click").click(function(){
 	alert("bhname");
 })
 
+sele
+
 </script>
 <%@ include file="../includes/footer.jsp" %>

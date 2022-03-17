@@ -1,23 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-
-<form id="from" target="param">
-	<label for='pass'>비밀번호 입력: </label>
-	<input type='password' id='pass'><br>
-	<input type="submit" value='확인' id="btn"><br>
-	<span id="result"></span>
-</form>
-<iframe name="param" style="width:0px; height:0px; border:0px;">
-</iframe>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
 <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <script>
 	$(function() {
 		$("#btn").click(function() {
@@ -39,5 +24,30 @@
 		});//버튼 클릭
 	});//ready
 </script>
-</body>
-</html>
+
+
+
+<div class="wrapper row2">
+	<section class="container clear">
+	<div class="center btmspace-80">
+	<h6 class="heading underline font-x2" id="h6_login">개인정보 변경</h6>
+
+
+<form id="from" target="param">
+
+<div class="chk_inp">
+	<label for='pass'>비밀번호 입력 </label>
+	<input type='password' id='pass'><br>
+	</div>
+
+	<div class="chk_btn">
+	<input type="submit" value='확인' id="btn"><br>
+	</div>
+	<span id="result"></span>
+</form>
+<iframe name="param" style="width:0px; height:0px; border:0px;">
+</iframe>
+
+</div>
+</section>
+</div>

@@ -20,6 +20,4 @@
 		select count(userid) from buser where userid=#{userid}
 	</select>
 
-
-
 </mapper>

@@ -99,4 +99,16 @@
 		select count(*) from bloodown where bhname = #{bhname} and userbtype = 'AB'
 	</select>
 	
+	<select id="emp_boardList" parameterType="map" resultType="first.project.dto.boardDto">
+		<![CDATA[
+		select * from 
+		(select boardnum,empid,boardname,inboard,boarddate,boardview,bhname, rownum r from 
+		(select * from board where bhname=#{bhname} order by boarddate desc) list order by boarddate desc)
+		where r >= #{start} and r <= #{end}
+		]]>
+	</select>
+	
+	<select id="emp_board_count" resultType="int" parameterType="String">
+		select count(*) from board where bhname=#{bhname}
+	</select>
 </mapper>
