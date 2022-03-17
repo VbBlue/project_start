@@ -120,7 +120,6 @@
 		margin-top:30px;
 		grid-column: 2 / 7;
 		display: grid;
-		grid-template-rows: repeat(2, 1fr);
 		height:100%;
 	}
 
@@ -161,11 +160,11 @@
 	}
 
 	.menu {
-		background-color:#eee;
-    	margin-bottom: 800px;
+
+
     	margin-left: 30px;
 		grid-column: 1 / 2;
-		width: 150px;
+
 
 
 	}
@@ -200,6 +199,21 @@
 		background-color: #696969;
 		color:white;
 	}
+
+
+	.main_emp_s{
+		display: flex;
+	}
+	.main_emp_s input{
+		border: none;
+   		background: padding-box;
+
+	}
+
+
+
+
+
 
 	.content{
 		 margin-left: 60px;
@@ -382,7 +396,7 @@
 	}
 
 	.mypage_h{
-		margin-right: 950px;
+		margin-left: 25px;
     	padding: 10px;
 	}
 	.top_right{

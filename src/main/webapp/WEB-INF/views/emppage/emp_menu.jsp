@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <link href="layout/styles/mypage.css" rel="stylesheet" type="text/css" media="all">
 <div>
-<nav class="menu">
+<nav class="menu" style="margin-top: 100px;">
 
 	<ul class="menu_list">
 		<li><input type="button" id="reservation_page" value="예약내역"></li>

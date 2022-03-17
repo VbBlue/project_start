@@ -662,7 +662,7 @@ ul.imgs li{
 
 /* Page Intro
 --------------------------------------------------------------------------------------------------------------- */
-#pageintro{padding:50px 0 200px;}/* 300px => 100px for #introblocks negative margin */
+#pageintro{/*  padding:50px 0 200px;*/}/* 300px => 100px for #introblocks negative margin */
 
 #pageintro article, #pageintro article p{display:block; max-width:75%; margin-left:50%; text-align:left;}
 #pageintro article p{max-width:65%; line-height:2rem;}
