@@ -12,7 +12,9 @@
     	<div class="center btmspace-80">
       	<h6 class="heading underline font-x2">공지사항</h6>
       	<div style="width: 1000px;">
+      	<c:if test="${emp.empid != null}">
      		<div id="new_write"><a href="boardwrite">새글 등록</a></div>
+     	</c:if>
 			<table>
 				<tr><th class="board_th" style="width: 60px;"></th><th class="board_th" style="width: 640px;">제목</th><th class="board_th" style="width: 150px;">작성자</th><th class="board_th" style="width: 200px;">작성일</th><th class="board_th" style="width: 70px;">조회수</th></tr>
 				<c:if test="${count != 0}">

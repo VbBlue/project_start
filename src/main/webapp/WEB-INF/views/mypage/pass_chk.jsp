@@ -7,12 +7,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form id="from">
+
+<form id="from" target="param">
 	<label for='pass'>비밀번호 입력: </label>
 	<input type='password' id='pass'><br>
-	<input type="button" value='확인' id="btn"><br>
+	<input type="submit" value='확인' id="btn"><br>
 	<span id="result"></span>
 </form>
+<iframe name="param" style="width:0px; height:0px; border:0px;">
+</iframe>
+
 <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 	$(function() {

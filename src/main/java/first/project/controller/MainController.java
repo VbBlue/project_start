@@ -53,8 +53,6 @@ public class MainController {
 	MapService map_service;
 	@Autowired
 	BoardService board_service;
-	
-	
 
 	@GetMapping("/")
 	public String indexform() {
@@ -107,7 +105,6 @@ public class MainController {
 
 	@GetMapping("mapform")
 	public String mapform(@RequestParam(name="p",defaultValue = "1") int page,Model m) {
-
 		List<bloodhouse> bh_list = new ArrayList<bloodhouse>();
 		
 		try {
@@ -169,7 +166,6 @@ public class MainController {
 		}
 		
 		m.addAttribute("count", count);
-		
 		m.addAttribute("bh_list",bh_list);
 		return "res/map";
 	}
@@ -177,7 +173,7 @@ public class MainController {
 	@GetMapping("mypageform")
 	public String mypageform(HttpSession session, Model m) throws ParseException {
 		buserDto user = (buserDto)session.getAttribute("user");
-		if(session.getAttribute("user") != null) {
+		if(user != null) {
 			if(m_service.last_bhdate(user.getUserid()) != null) {
 				Calendar cal = Calendar.getInstance();
 				bloodlist list = m_service.last_bhdate(user.getUserid());
@@ -211,9 +207,8 @@ public class MainController {
 	
 	@RequestMapping("/emp")
 	public String emppage(HttpSession session, Model m) {
-		empDto dto = new empDto();
-		session.setAttribute("emp", dto);
-		if(session.getAttribute("emp") != null) {
+		empDto dto = (empDto)session.getAttribute("emp");
+		if(dto != null) {
 			String bhname = dto.getBhname();
 			int resCount = e_servcie.emp_all_reslist_count(bhname);
 			int todayCount = e_servcie.emp_today_list_count(bhname);

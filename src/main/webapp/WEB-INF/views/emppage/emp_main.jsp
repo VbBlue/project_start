@@ -4,16 +4,8 @@
 <div class="wrapper row2">
   <section class="hoc container clear">
     <div class="center btmspace-80">
-      <h6 class="heading underline font-x2">관리자페이지</h6>
-    	<div>
-    		<ul>
-    			<li><input type="button" id="reservation" value="예약내역"></li>
-    			<li><input type="button" id="today_res" value="헌혈예정"></li>
-    			<li><input type="button" id="bloodlist" value="헌혈내역"></li>
-    			<li><input type="button" id="board" value="공지사항"></li>
-    			<li><input type="button" id="setting" value="영업시간 설정"></li>
-    		</ul>
-    	</div>
+<%@ include file="../emppage/emp_menu.jsp" %>
+    	
     	<div>
     		<table>
     			<tr>
@@ -43,21 +35,7 @@
 								 "O: " + "${O}" + "<br>" +
 								 "AB: " + "${AB}")
 		
-		$("#reservation").click(function () {
-			location.href = "/empres";
-		});//예약내역 클릭
-		$("#today_res").click(function () {
-			location.href = "/today_res";
-		});//헌혈예정 클릭
-		$("#bloodlist").click(function () {
-			location.href = "/empblist";
-		});//헌혈내역 클릭
-		$("#board").click(function () {
-			location.href = "/empboard";
-		});//공지사항 클릭
-		$("#setting").click(function () {
-			location.href = "/empset";
-		});//시간설정 클릭
+		
 	});//ready
 </script>
 </div>
