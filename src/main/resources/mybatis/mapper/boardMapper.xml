@@ -5,7 +5,7 @@
 <mapper namespace="first.project.dao.BoardDao">
 	
 	<insert id="boardinsert" parameterType="first.project.dto.boardDto">
-		insert into board(boardname,boarddate,empid,inboard,boardview,boardnum) values(#{boardname},to_date(sysdate,'yyyy-mm-dd'),#{empid},#{inboard},0,board_seq.nextval)
+		insert into board(boardname,boarddate,empid,inboard,boardview,bhname,boardnum) values(#{boardname},to_date(sysdate,'yyyy-mm-dd'),#{empid},#{inboard},0,#{bhname},board_seq.nextval)
 	</insert>
 	
 	<select id="boardList" parameterType="map" resultType="first.project.dto.boardDto">
@@ -32,5 +32,9 @@
 	<delete id="deleteBoard" parameterType="int">
 		delete from board where boardnum=#{boardnum}
 	</delete>
+	
+	<update id="viewcount" parameterType="int">
+		update board set boardview = boardview+1 where boardnum = #{boardnum}
+	</update>
 	
 </mapper>

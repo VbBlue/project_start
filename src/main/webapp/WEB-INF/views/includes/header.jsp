@@ -32,9 +32,6 @@
 		 <c:if test="${user.userid == null && emp.empid != null}">
 					${emp.empid} 님이 로그인 하였습니다
 		</c:if>
-
-
-
 		</li>
       </ul>
       <!-- ################################################################################################ -->
@@ -42,13 +39,6 @@
     <div class="fl_right">
       <!-- ################################################################################################ -->
       <ul class="nospace">
-
-
-
-
-
-
-
       </ul>
       <!-- ################################################################################################ -->
     </div>
@@ -70,29 +60,30 @@
       <!-- ################################################################################################ -->
       <ul class="clear">
       	<li><a>회원가입</a>
-      	<ul>
-      		<li><a href="/usersignupform" title="signup">회원 회원가입</a>
-      		<li><a href="/empsignupform" title="empsingup">관리자<br>회원가입</a>
-      	</ul>
+      		<ul>
+      			<li><a href="/usersignupform" title="signup">회원 회원가입</a>
+      			<li><a href="/empsignupform" title="empsingup">관리자<br>회원가입</a>
+      		</ul>
       	</li>
+        
         <li><a href="boardform">게시판</a></li>
         <li><a href="mapform">예약페이지</a></li>
         <li><a href="mypageform">마이페이지</a></li>
 
 
 		<c:if test="${user.userid != null && emp.empid==null}">
-        <li><a href="logout" title="Logout">회원 로그아웃</a></li>
+        	<li><a href="logout" title="Logout">회원 로그아웃</a></li>
         </c:if>
         <c:if test="${emp.empid != null && user.userid ==null}">
-        <li><a href="emplogout" title="empLogout">관리자 로그아웃</a></li>
+        	<li><a href="emplogout" title="empLogout">관리자 로그아웃</a></li>
         </c:if>
         <c:if test="${user.userid == null && emp.empid==null}">
-        <li><a>로그인</a>
-        <ul>
-	        <li><a href="loginform" title="Login">회원 로그인</a></li>
-			<li><a href="emploginform" title="emplogin">관리자 로그인</a></li>
-        </ul>
-        </li>
+        	<li><a>로그인</a>
+        		<ul>
+	        		<li><a href="loginform" title="Login">회원 로그인</a></li>
+					<li><a href="emploginform" title="emplogin">관리자 로그인</a></li>
+        		</ul>
+        	</li>
 		</c:if>
 
 		<!--  사용자 로그아웃 -->

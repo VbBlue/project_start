@@ -54,10 +54,7 @@ public class MainController {
 	@Autowired
 	BoardService board_service;
 	
-	@ModelAttribute("user")
-	public buserDto getDto() {
-		return new buserDto();
-	}
+	
 
 	@GetMapping("/")
 	public String indexform() {
@@ -90,7 +87,6 @@ public class MainController {
 		
 			List<boardDto> boardList = board_service.boardList(startRow, endRow);
 			m.addAttribute("bList", boardList);
-			
 			int pageNum = 5;
 			int totalPages = count / perpage + (count%perpage > 0 ? 1:0);//��ü ��������
 			int begin = (page - 1) / pageNum * pageNum + 1;
@@ -110,7 +106,7 @@ public class MainController {
 	}
 
 	@GetMapping("mapform")
-	public String mapform(@RequestParam(name="p",defaultValue = "1") int page,@ModelAttribute("user") buserDto buser ,Model m) {
+	public String mapform(@RequestParam(name="p",defaultValue = "1") int page,Model m) {
 
 		List<bloodhouse> bh_list = new ArrayList<bloodhouse>();
 		
@@ -174,7 +170,6 @@ public class MainController {
 		
 		m.addAttribute("count", count);
 		
-		m.addAttribute("buser", buser);
 		m.addAttribute("bh_list",bh_list);
 		return "res/map";
 	}
@@ -211,7 +206,7 @@ public class MainController {
 			}
 			return "mypage/mypage";
 		}
-		return "redirect:/";
+		return "redirect:/loginform";
 	}
 	
 	@RequestMapping("/emp")

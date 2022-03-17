@@ -9,31 +9,31 @@
 <div class="wrapper row2">
 	<section class="hoc container clear"> 
     	<div class="center btmspace-80">
-      	<h6 class="heading underline font-x2">글쓰기</h6>
-			<table border="1">
-				<tr><td>제목</td><td>${dto.boardname}</td></tr>
-				<tr><td>작성자</td><td>${dto.empid}</td></tr>
-				<tr><td>내용</td><td>${dto.inboard}</td></tr>
-				<tr><td>등록일</td><td><fmt:formatDate value="${board.boarddate}" dateStyle="short"/></td></tr>
-				<tr><td>조회수</td><td>${dto.boardview}</td></tr>
-				<tr><td colspan="2" align="right">
+      	<h6 class="heading underline font-x2">상세보기</h6>
+      		<div style="width: 800px; height: 500px;">
+      			<div id="contents_t_d">
+					<div style="width: 690px;" id="con_title">
+						<div class="con_t_id">제목 </div>
+						<div style="width: 570px; margin-left: 10px;">${dto.boardname}</div>
+					</div>
+					<div class="con_d_v">날짜 : <fmt:formatDate value="${dto.boarddate}" dateStyle="short"/></div>
+      			</div>
+      			<div id="contents_id_v">
+					<div style="width: 690px;" id="con_title">
+						<div class="con_t_id">작성자 </div>
+						<div style="width: 570px; margin-left: 10px; text-align: left; ">${dto.empid}</div>
+					</div>
+					<div class="con_d_v">조회수 :  ${dto.boardview}</div>
+      			</div>
+				<div id="con_inboard"><textarea >${dto.inboard}</textarea></div>
+				<div style="text-align: right; margin-top: 10px;">
 				<c:if test="${emp.empid == dto.empid}">
 				<a href="/update${dto.boardnum}">글 수정</a>
 				<a id="${dto.boardnum}" href="#">글 삭제</a>
 				</c:if>
-				<a href="../boardform">목록 이동</a>
-				</td></tr>
-			</table><br>
-			
-			<%-- <table id="${dto.no}">
-				<tr><td>댓글</td><td><input type="text" name="content" id="content"></td><td><input type="button" id="commbtn" value="등록"></td></tr>
-				<c:forEach items="${commlist}" var="comm">
-						<tr><td>${comm.id}</td>
-						    <td>${comm.content}</td>
-						    <td><fmt:formatDate value="${comm.regdate}" dateStyle="short"/></td>
-						    <c:if test="${user.id==comm.id}"><td><input type="button" class="delbtn" title="${comm.cno}" value="삭제"></td></c:if></tr>
-				</c:forEach>
-			</table> --%>
+				<a href="javascript:history.back();">목록 이동</a>
+				</div>
+			</div>
 		</div>
 	</section>
 </div>

@@ -28,6 +28,10 @@ File: Layout CSS
 	width: 50%;
 }
 
+#reservationform{
+	width: 100%;
+}
+
 #reservation_main_info_in{
 	display: flex;
     flex-direction: column;
@@ -122,15 +126,21 @@ File: Layout CSS
 	height: 45px;
 }
 .res_num{
+	margin-right: 15px;
 	padding-top: 11px;
 	-webkit-text-stroke: medium;
 }
 
 .res_bh_info_main input{
-	background-color: transparent;
-    border: none;
-    border-bottom: inset;
-    border-bottom-color: #D7D7D7;
+	width: 280px;
+	background-color: transparent !important;
+    border: none !important;
+    border-bottom: inset !important;
+    border-bottom-color: #D7D7D7 !important;
+}
+
+.bh_info{
+	width: 250px;
 }
 
 #restime_div{
@@ -235,6 +245,114 @@ File: Layout CSS
 	display: none;
 }
 
+#resinfo_bottom{
+	width: 100%;
+}
+
+#resinfo_bottom_two{
+	height: 310px;
+}
+
+.res_bottom{
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.res_bot_title{
+	width: 100px;
+}
+.res_bot{
+	width: 375px;
+	display: flex;
+	margin-bottom: 30px;
+}
+.res_bot_con input{
+	padding-left: 10px;
+	width: 270px;
+	background-color: transparent;
+    border: none;
+    border-bottom: inset;
+    border-bottom-color: #D7D7D7;
+}
+
+/* =board============================================================ */
+#new_write{
+	width: 100%;
+    text-align: right;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+
+.board_write_div{
+	display: flex;
+	text-align: left;
+	margin-bottom: 30px;
+}
+#inboard{
+	width: 85%;
+	border: groove;
+}
+
+#board_title{
+	text-align: left;
+}
+.board_td{
+	border: none;
+}
+.board_th{
+	background-color: #D7D7D7;
+    border: none;
+    border-bottom: groove;
+}
+
+.board_write_div input{
+	width: 300px;
+	border: none;
+    background-color: transparent;
+    border-bottom: groove;
+    padding: 5px;
+}
+.board_write_div label{
+	width: 100px;
+}
+
+#contents_t_d{
+	display: flex;
+	justify-content: space-between;
+    border-bottom: groove;
+}
+#contents_id_v{
+	display: flex;
+	border-bottom: groove;
+	justify-content: space-between;
+}
+#con_title{
+	display: flex;
+}
+
+.con_d_v{
+	border-left: groove;
+	padding-left: 5px;
+	width: 110px;
+}
+
+.con_t_id{
+	width: 100px;
+	border-right: groove;
+}
+#con_inboard{
+	height: 100%;
+	width: 100%;
+}
+#con_inboard textarea{
+	height: 100%;
+	width: 100%;
+	padding: 15px;
+	background-color: transparent;
+	border: groove;
+	border-top: none;
+	text-align: center;
+}
 /* Rows
 --------------------------------------------------------------------------------------------------------------- */
 .row0, .row0 a{}
@@ -611,7 +729,7 @@ ul.imgs li{
 #comments .comcont p{margin:10px 5px 10px 0; padding:0;}
 
 #comments form{display:block; width:100%;}
-#comments input, #comments textarea{width:100%; padding:10px; border:1px solid;}
+#comments input, #comments textarea{padding:10px; border:1px solid;}
 #comments textarea{overflow:auto;}
 #comments div{margin-bottom:15px;}
 #comments input[type="submit"], #comments input[type="reset"]{display:inline-block; width:auto; min-width:150px; margin:0; padding:8px 5px; cursor:pointer;}
@@ -867,7 +985,7 @@ input:focus, textarea:focus, *:required:focus{border-color:#FF3F4A !important;}
 /* Tables + Comments */
 table, th, td, #comments .avatar, #comments input, #comments textarea{border-color:#D7D7D7;}
 th{color:#FFFFFF; background-color:#373737;}
-tr, #comments li, #comments input[type="submit"], #comments input[type="reset"]{color:inherit; background-color:#FBFBFB;}
+tr, #comments li, #comments input[type="submit"], #comments input[type="reset"]{color:inherit; background-color:#FBFBFB; border-radius: 1em;}
 tr:nth-child(even), #comments li:nth-child(even){color:inherit; background-color:#F7F7F7;}
 table a, #comments a{background-color:inherit;}
 
