@@ -106,11 +106,7 @@
 					window.open("/pass_chk?resnum="+data.resnum, "reservation_delete", "width=400px, height=400px");
 				});//예약취소 클릭
 			}else if(parseInt(Dday) >= 0) {
-<<<<<<< HEAD
-				$("#reserve_stat").append("<div class='title'>예약 가능일입니다.</div><div><input class='res_btn' type='button' value='예약하러가기' id='reservation'></div>")
-=======
 				$("#reserve_stat").append("<div class='res_title'>예약 가능일입니다.</div><div><input class='res_btn' type='button' value='예약하러가기' id='reservation'></div>")
->>>>>>> branch 'master' of https://github.com/shshshrj/project_start.git
 				$('#reservation').click(function() {
 					location.href="/mapform";
 				});//예약하기 클릭
