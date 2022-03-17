@@ -59,6 +59,19 @@
 			</c:if>
 			<c:if test="${count == 0}">
 			</c:if>
+			<div>
+				<div>
+					<select>
+						<option value="">--선택--</option>
+						<option value="1">헌혈의 집</option>
+						<option value="2">주소</option>
+					</select>
+				</div>
+				<div>
+					<input type="text">
+					<input type="button" value="검색">
+				</div>
+			</div>
 			<div id="map" style="width: 100%; height: 600px;"></div>
 
 		</div>
@@ -197,8 +210,6 @@ $(".heart-click").click(function(){
 	let bhname=$(this).attr('idx');
 	alert("bhname");
 })
-
-sele
 
 </script>
 <%@ include file="../includes/footer.jsp" %>
