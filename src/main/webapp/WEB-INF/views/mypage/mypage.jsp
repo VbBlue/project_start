@@ -86,7 +86,7 @@
 					window.open("/pass_chk?resnum="+data.resnum, "reservation_delete", "width=400px, height=400px");
 				});//예약취소 클릭
 			}else if(parseInt(Dday) >= 0) {
-				$("#reserve_stat").append("<tr><td><span class='title'>예약 가능일입니다.</span></td><td><input class='res_btn' type='button' value='예약하러가기' id='reservation'</td><tr>")
+				$("#reserve_stat").append("<div class='title'>예약 가능일입니다.</div><div><input class='res_btn' type='button' value='예약하러가기' id='reservation'></div>")
 				$('#reservation').click(function() {
 					location.href="/mapform";
 				});//예약하기 클릭
@@ -94,18 +94,6 @@
 				$("#reserve_stat").append("<tr><td>예약내역이 없습니다.</td></tr>")
 			}
 		});//ajax
-		$('#mem_update').click(function() {
-			window.open("/pass_chk", "mem_update", "width=400px, height=400px");
-		});//개인정보변경 클릭
-		$('#mem_delete').click(function() {
-			window.open("/pass_chk", "mem_delete", "width=400px, height=400px");
-		});//회원탈퇴 클릭
-		$('#bloodlist').click(function() {
-			location.href="/bloodlist";
-		});//헌혈내역 클릭
-		$('#goodslist').click(function() {
-			location.href="/goodslist";
-		});//당첨내역 클릭
 	});//ready
 </script>
 <%@ include file="../includes/footer.jsp" %>
