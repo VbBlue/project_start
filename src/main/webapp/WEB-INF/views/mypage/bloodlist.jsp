@@ -2,34 +2,57 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../includes/header.jsp" %>
 <div class="wrapper row2">
-  <section class="hoc container clear"> 
-    <div class="center btmspace-80">
-      <%@ include file="../mypage/mypage_menu.jsp" %>
-      <div class="list_main">
-      	<table class="list_search">
-      		<tr class="date">
-      			<td class="date_choice" rowspan='2'>기간선택</td>
-      			<td class="date_btn"><span style="width:100%; height:100%;"><input type="button" id="last_year" value="작년"></span></td>
-	      		<td class="date_btn"><input type="button" id="this_year" value="올해"></td>
-	      		<td class="date_btn"><input type="button" id="recent_year" value="최근 1년"></td>
-	      	</tr>
-	      	<tr class="cal">
-	      		<td><input type="date" id="cal1" name="cal1" max=""></td>
-	      		<td>~</td>
-	      		<td><input type="date" id="cal2" name="cal2" max=""></td>
-      		</tr>
-      		<tr>
-      			<td colspan='4' class="search_btn"><input type="button" value="조회" id="search"></td>
-      		</tr>
-	     </table>
-	    <div id="result">
-		    <table id="bloodlist_data"></table>
-			<div id="page"></div>
-	    </div>
-      	</div>
-    </div>
-  </section>
-  <!-- 스크립트 -->
+	<section class="hoc container clear">
+		<div class="center btmspace-80">
+			<%@ include file="../mypage/mypage_menu.jsp"%>
+
+
+			<div class="list_main">
+				<div class="list_search">
+
+
+					<div class="date_top">
+						<h6 class="heading underline font-x2" id="h6_login">헌혈 내역 조회</h6>
+
+						<div class="date_btn_main">
+							<div class="date_btn">
+								<input type="button" id="last_year" value="작년">
+							</div>
+							<div class="date_btn">
+								<input type="button" id="this_year" value="올해">
+							</div>
+							<div class="date_btn">
+								<input type="button" id="recent_year" value="최근 1년">
+							</div>
+						</div>
+
+
+						<div class="cal">
+							<div class="cal_in">
+								<input type="date" id="cal1" name="cal1" max="">
+							</div>
+							<p>~</p>
+							<div class="cal_in">
+								<input type="date" id="cal2" name="cal2" max="">
+							</div>
+						</div>
+
+
+						<div>
+							<div class="search_btn">
+								<input type="button" value="조회" id="search">
+							</div>
+						</div>
+					</div>
+					<div id="result"></div>
+						<table id="bloodlist_data"></table>
+					<div id="page"></div>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>
+	<!-- 스크립트 -->
   <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script>
 
@@ -72,7 +95,7 @@
   				if(end < totalPages) {
   					$("#page").append("<a href='javascript:void(0);' id='next'>[다음]</a>");
   				}
-  				
+
   				$("#page").on("click", "#next", function() {
   					$("#page").empty();
   					begin += 10;
@@ -91,7 +114,7 @@
   	  				}
   	  				$("#first").trigger("click");
   				})
-  				
+
   				$("#page").on("click", "#prev", function() {
 		  	  		$("#page").empty();
 	  				begin -= 10;
@@ -110,7 +133,7 @@
 	  				}
 	  				$("#first").trigger("click");
   				});
-  				
+
 
    				$("#page").on("click", "#first" , function() {
   					$("#bloodlist_data").empty();
@@ -128,13 +151,13 @@
   		  		$("#first").trigger("click");
   			}else {
   				$("#result").empty();
-				$("#result").text("조회내역 없음");
+				$("#result").text("조회내역 없음").css("color", "red");
   			}
-  				
+
   			});//JSON
   		});//조회버튼 클릭
   		$("#search").trigger("click");
   	});//ready
   </script>
-</div>
+
 <%@ include file="../includes/footer.jsp" %>

@@ -156,10 +156,10 @@ File: Layout CSS
 }
 
 #reservation{
-	border-radius: 8px;
-    border: none;
-    color: red;
-    background-color: #fec9d2;
+	border: none;
+    color: white;
+    background-color: #696969;
+    border-radius: 0.40em;
 }
 
 #goods_in, .goods_in_in,#bhselect_in,.bhselect_in_in{
@@ -494,8 +494,23 @@ ul.imgs li{
 
 
 }
+.chk_inp{
+	display: flex;
+    margin-bottom: 20px;
+}
 
+.chk_btn{
+    width: 100%;
+    text-align: -webkit-center;
 
+}
+
+.chk_btn input{
+	border: none;
+	text-align:center;
+	background-color: transparent;
+	font-weight: bold;
+}
 
 /* Top Bar
 --------------------------------------------------------------------------------------------------------------- */

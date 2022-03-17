@@ -1,69 +1,48 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../includes/header.jsp" %>
 <div class="wrapper row2">
   <section class="hoc container clear">
     <div class="center btmspace-80">
-      <!-- 마이페이지 내용(테이블) -->
 <%@ include file="../mypage/mypage_menu.jsp" %>
 
 	      <div class="main">
+
 	      	<div>
-	      		<h1>내 헌혈정보</h1>
+
+	<div class="mypage_h">
+	<h6 class="heading underline font-x2" id="h6_login">나의 헌혈 정보</h6>
+	</div>
+
+<div>
 	      		<div class="contents">
-	      			<table class="my_info">
-	      				<tr>
-	      					<td>
-	      						<div>
-	      							<span class="title">혈액형</span><br>
-	      							<span class="content">${user.userbtype }형</span>
-	      						</div>
-	      					</td>
-	      					<td>
-	      						<div>
-		      						<span class="title">총 헌혈 횟수</span><br>
-		      						<span class="content" id="blist_count"></span>
-	      						</div>
-	      					</td>
-	      				</tr>
-	      				<tr>
-	      					<td>
-	      						<div>
-		      						<span class="title">최근 헌혈 일자</span><br>
-		      						<span class="content" id="last_bhdate"></span>
-	      						</div>
-	      					</td>
-	      					<td>
-	      						<div>
-		      						<span class="title">최근 이용한 헌혈의집</span><br>
-		      						<span class="content" id="last_bhname"></span>
-	      						</div>
-	      					</td>
-	      				</tr>
-	      				<tr>
-	      					<td>
-	      						<div>
-		      						<span class="title">다음 헌혈 가능일까지</span><br>
-		      						<span class="content" id="Dday"></span>
-	      						</div>
-	      					</td>
-	      					<td>
-	      						<div>
-		      						<span class="title">다음 헌혈 가능일</span><br>
-		      						<span class="content" id="bloodCycle"></span>
-	      						</div>
-	      					</td>
-	      				</tr>
-	      			</table>
-	      		</div>
-	      	</div>
-	      	<div>
-	      		<h1>헌혈 예약정보</h1>
-	      		<div class="contents res">
-	      			<table id="reserve_stat"></table>
-	      			<div id="res_button"></div>
+
+	      			<div class="main_left">
+	      			<div class="top_left"><div class="title">혈액형</div><div class="content">${user.userbtype }형</div></div>
+					<div class="top_left"><div class="title">총 헌혈 횟수</div><div class="content" id="blist_count"></div></div>
+					<div class="top_left"><div class="title">최근 헌혈 일자</div><div class="content" id="last_bhdate"></div></div>
+					</div>
+
+
+					<div class="main_right">
+					<div class="top_right"><div class="title">최근 이용한 헌혈의집</div><div class="content" id="last_bhname"></div></div>
+					<div class="top_right"><div class="title">다음 헌혈 가능일까지</div><div class="content" id="Dday"></div></div>
+					 <div class="top_right"><div class="title">다음 헌혈 가능일</div><div class="content" id="bloodCycle"></div></div>
+					</div>
+
+</div>
+
+
+		<div>
+			<div class="contents_1">
+	      		<h6 class="heading underline font-x2" id="h6_login">헌혈 예약 정보</h6>
+	      		<div id="res_button"></div>
 	      		</div>
 
+
+	      		<div class="res_center">
+	      			<div id="reserve_stat"></div>
+</div>
+	      	</div>
 	      	</div>
 <%-- 				<table style='text-align:left;'>
 					<tr>
@@ -79,10 +58,11 @@
 					</tr>
 				</table> --%>
 			</div>
-
+		</div>
     </div>
   </section>
 </div>
+
   <!-- 스크립트 -->
 <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
@@ -113,9 +93,9 @@
 				var day = ('0' + resdate.getDate()).slice(-2);
 				var dateString = year + '-' + month  + '-' + day;
 				//$("#reserve_stat").append("<td>헌혈의집: "+data.bhname+"<br>예약날짜: "+dateString+"<br>예약시간: "+data.restime+"<br>기념품: "+data.goods+"<br>헌혈종류: "+data.bhselect+"<br>예약상태: "+data.resstate+"</td><td><input type='button' value='예약변경' id='change'</td><td><input type='button' value='예약취소' id='cancel'></td>");
-				$("#reserve_stat").append("<tr><td><div><span class='title'>헌혈의집</span><span class='content'>"+data.bhname+"</span></div></td><td><div><span class='title'>헌혈종류</span><span class='content'>"+data.bhselect+"</span></div></td></tr>" +
-										  "<tr><td><div><span class='title'>예약날짜</span><span class='content'>"+dateString+"</span></div></td><td><div><span class='title'>예약시간</span><span class='content'>"+data.restime+"</span></div></td></tr>" +
-										  "<tr><td><div><span class='title'>기념품</span><span class='content'>"+data.goods+"</span></div></td><td><div><span class='title'>예약상태</span><span class='content'>"+data.resstate+"</span></div></td></tr>");
+				$("#reserve_stat").append("<div class='stat_bottom'><div class='title_bottom'>헌혈의집</div><div class='content_bottom'>"+data.bhname+"</div></div><br><div class='stat_bottom'><div class='title_bottom'>헌혈종류</div><div class='content_bottom'>"+data.bhselect+"</div></div><br>" +
+										  "<div class='stat_bottom'><div class='title_bottom'>예약날짜</div><div class='content_bottom'>"+dateString+"</div></div><br><div class='stat_bottom'><div class='title_bottom'>예약시간</div><div class='content_bottom'>"+data.restime+"</div></div><br>" +
+										  "<div class='stat_bottom'><div class='title_bottom'>기념품</div><div class='content_bottom'>"+data.goods+"</div></div><br><div class='stat_bottom'><div class='title_bottom'>예약상태</div><div class='content_bottom'>"+data.resstate+"</div></div><br>");
 
 				//$("#res_button").append("<div><input type='button' value='예약변경' id='change'><input type='button' value='예약취소' id='cancel'></div>");#
 				$("#res_button").append("<div class='btns'><input type='button' value='예약변경' id='change'><input type='button' value='예약취소' id='cancel'></div>");
@@ -126,7 +106,7 @@
 					window.open("/pass_chk?resnum="+data.resnum, "reservation_delete", "width=400px, height=400px");
 				});//예약취소 클릭
 			}else if(parseInt(Dday) >= 0) {
-				$("#reserve_stat").append("<tr><td><span class='title'>예약 가능일입니다.</span></td><td><input class='res_btn' type='button' value='예약하러가기' id='reservation'</td><tr>")
+				$("#reserve_stat").append("<div class='res_title'>예약 가능일입니다.</div><div><input class='res_btn' type='button' value='예약하러가기' id='reservation'></div>")
 				$('#reservation').click(function() {
 					location.href="/mapform";
 				});//예약하기 클릭
@@ -134,18 +114,6 @@
 				$("#reserve_stat").append("<tr><td>예약내역이 없습니다.</td></tr>")
 			}
 		});//ajax
-		$('#mem_update').click(function() {
-			window.open("/pass_chk", "mem_update", "width=400px, height=400px");
-		});//개인정보변경 클릭
-		$('#mem_delete').click(function() {
-			window.open("/pass_chk", "mem_delete", "width=400px, height=400px");
-		});//회원탈퇴 클릭
-		$('#bloodlist').click(function() {
-			location.href="/bloodlist";
-		});//헌혈내역 클릭
-		$('#goodslist').click(function() {
-			location.href="/goodslist";
-		});//당첨내역 클릭
 	});//ready
 </script>
 <%@ include file="../includes/footer.jsp" %>
