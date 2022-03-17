@@ -25,7 +25,7 @@ $("#bloodlist").click(function () {
 	location.href = "/empblist";
 });//헌혈내역 클릭
 $("#board").click(function () {
-	location.href = "/empboard";
+	location.href = "/boardform";
 });//공지사항 클릭
 $("#setting").click(function () {
 	location.href = "/empset";

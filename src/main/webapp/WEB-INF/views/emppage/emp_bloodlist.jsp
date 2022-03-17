@@ -4,26 +4,51 @@
 <div class="wrapper row2">
   <section class="hoc container clear">
     <div class="center btmspace-80">
-    	<h6 class="heading underline font-x2">헌혈리스트</h6>
-    	<table>
-      		<tr>
-      			<td><input type="button" id="last_year" value="작년"></td>
-	      		<td><input type="button" id="this_year" value="올해"></td>
-	      		<td><input type="button" id="recent_year" value="최근 1년"></td>
-	      	</tr>
-	      	<tr>
-	      		<td align="left">기간선택</td>
-	      		<td><input type="date" id="cal1" name="cal1" max=""></td>
-	      		<td><input type="date" id="cal2" name="cal2" max=""></td>
-      		</tr>
-      		<tr>
-      			<td colspan='3' align="center"><input type="button" value="조회" id="page"></td>
-      		</tr>
-	     </table>
-		<div id="result">
-		    <table id="blist"></table>
-			<div id="pages"></div>
-	    </div>
+<%@ include file="../emppage/emp_menu.jsp" %>
+<div class="list_main">
+				<div class="list_search">
+
+
+					<div class="date_top">
+						<h6 class="heading underline font-x2" id="h6_login">헌혈리스트</h6>
+
+						<div class="date_btn_main">
+							<div class="date_btn">
+								<input type="button" id="last_year" value="작년">
+							</div>
+							<div class="date_btn">
+								<input type="button" id="this_year" value="올해">
+							</div>
+							<div class="date_btn">
+								<input type="button" id="recent_year" value="최근 1년">
+							</div>
+						</div>
+
+
+						<div class="cal">
+							<div class="cal_in">
+								<input type="date" id="cal1" name="cal1" max="">
+							</div>
+							<p>~</p>
+							<div class="cal_in">
+								<input type="date" id="cal2" name="cal2" max="">
+							</div>
+						</div>
+
+
+						<div>
+							<div class="search_btn">
+								<input type="button" value="조회" id="page">
+							</div>
+						</div>
+					</div>
+					<div id="result"></div>
+						<table id="blist"></table>
+					<div id="pages"></div>
+				</div>
+			</div>
+
+
     </div>
   </section>
 <!-- 스크립트 -->
