@@ -7,10 +7,10 @@
 
 	      <div class="main">
 
-	      	<div>
+	      	<div class="main_h">
 
 	<div class="mypage_h" style="text-align: left;">
-	<h6 class="heading underline font-x2" id="h6_login">나의 헌혈 정보</h6>
+	<h6 class="heading underline font-x2" id="h_font">나의 헌혈 정보</h6>
 	</div>
 
 <div>
@@ -34,7 +34,7 @@
 
 		<div>
 			<div class="contents_1">
-	      		<h6 class="heading underline font-x2" id="h6_login">헌혈 예약 정보</h6>
+	      		<h6 class="heading underline font-x2" id="h_font">헌혈 예약 정보</h6>
 	      		<div id="res_button"></div>
 	      		</div>
 

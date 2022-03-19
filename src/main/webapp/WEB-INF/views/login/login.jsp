@@ -25,8 +25,7 @@ $(function(){
 <div class="wrapper row2">
   <section class="hoc container clear">
     <div class="center btmspace-80">
-	<h6 class="heading underline font-x2" id='h6_login' style="font-size:4vw;">로그인
-</h6><br>
+	<h6 class="heading underline font-x2">로그인</h6>
 
 
 

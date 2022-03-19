@@ -1,6 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../includes/header.jsp" %>
+<link href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/static/woff2/SUIT.css" rel="stylesheet">
+
+
 <div class="wrapper row2">
 	<section class="hoc container clear">
 		<div class="center btmspace-80">
@@ -12,7 +14,7 @@
 
 
 					<div class="date_top">
-						<h6 class="heading underline font-x2" id="h6_login">헌혈 내역 조회</h6>
+						<h6 class="heading underline font-x2" id="h_font">헌혈 내역 조회</h6>
 
 						<div class="date_btn_main">
 							<div class="date_btn">

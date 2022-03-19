@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html lang="">
 <!-- To declare your language - read more here: https://www.w3.org/International/questions/qa-html-language-declarations -->
@@ -10,6 +11,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+<link href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/static/woff2/SUIT.css" rel="stylesheet">
 <script src="layout/scripts/jquery.min.js"></script>
 <script src="layout/scripts/jquery.backtotop.js"></script>
 <script src="layout/scripts/jquery.mobilemenu.js"></script>
@@ -61,6 +63,7 @@
       </c:if>
       <!-- ################################################################################################ -->
     </div>
+
     <nav id="mainav" class="fl_right">
       <!-- ################################################################################################ -->
       <ul class="clear">
@@ -72,14 +75,34 @@
       		</ul>
       	</li>
 		</c:if>
+
+
 		<c:if test="${emp.empid != null}">
 			<li><a href="emp">관리자 페이지</a></li>
 		</c:if>
+
+
         <li><a href="boardform">게시판</a></li>
+
       <c:if test="${emp.empid == null}">
         <li><a href="mapform">예약페이지</a></li>
-        <li><a href="mypageform">마이페이지</a></li>
+
 		</c:if>
+
+
+      	<li><a href="mypageform">마이페이지</a>
+  		 <c:if test="${user.userid != null}">
+      		<ul>
+      			<li><a href="/bloodlist" title="bloodlist">헌혈 내역</a>
+      			<li><a href="/mem_updateForm" title="/mem_updateForm">개인정보변경</a>
+
+      		</ul>
+      		</c:if>
+      	</li>
+
+
+
+
 
 
 
@@ -110,14 +133,10 @@
 
 
 
-
-
-
-
-
       </ul>
       <!-- ################################################################################################ -->
     </nav>
+
   </header>
 </div>
 </body>

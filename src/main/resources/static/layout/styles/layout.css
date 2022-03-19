@@ -13,7 +13,15 @@ File: Layout CSS
 @import url("framework.css");
 
 
-/*
+
+
+
+@font-face{
+	font-family: 'MjMJGothic';
+	src: url("/font/MjMJGothic.ttf") format("truetype");;
+}
+
+
 /* usersignup, empsignup == 가운데정렬 */
 #signup_menu{
 	display: flex;
@@ -50,7 +58,7 @@ File: Layout CSS
 
 .signup_label{
 	text-align: left;
-	-webkit-text-stroke: medium;
+    font-weight: bold;
 }
 
 .sign_input_info{
@@ -364,101 +372,19 @@ File: Layout CSS
 
 
 
+
+
+
+
+
+
 /* index 이미지 슬라이드 부분
 --------------------------------------------------------------------------------------------------------------- */
-
-
-.slider{
-    width: 480px;
-    height: 480px;
-    position: relative;  /* 태그의 위치를 살짝 변경하고 싶을 때 position: relative를 사용합. top, right, bottom, left 속성을 사용해 위치 조절 가능 */
-    margin-left: 30%;
-
-
-}
-
-.slider input[type=radio]{
-    display: none; /* 라디오박스는 보이지 않도록 감추며, 아래쪽에 있는 불릿 라벨로 슬라이드 이동 라디오박스 기능 사용  */
-
-}
-
-
-/* 슬라이드 이미지 목록 위치를 정의. 순서 없는 목록(<ul>) 태그로 생성하기 때문에 불릿을 안보이게 하고, 목록의 여백을 모두 제거해야함.
-   슬라이드 이미지들 중 체크된 1개를 제외한 나머지는 모두 투명하게 해서 보이지 않도록 해야 하므로 "opacity: 0;" 속성을
-   슬라이드 각 항목("ul.imgs li") 클래스에 추가 한다. */
-ul.imgs{
-    padding: 0;
-    margin: 0;
-
-}
-
-ul.imgs li{
-    position: absolute; /* 슬라이드가 겹쳐서 모여야 하므로 absolute 속성으로 배치 */
-    opacity: 0; /* 체크한 라디오박스 순서의 슬라이드만 표시되도록 기본 투명도 설정 */
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-/* 불렛 버튼  */
-.bullets{
-    position: absolute;
-    left: 50%; /* 가로로 가운데 정렬 */
-    transform: translateX(-50%);
-    bottom: 20px; /* 슬라이드 밑에서 20px 간격 띄움 */
-    z-index: 2; /* 슬라이드 위에 보이도록 레이어 순위를 높임 */
-}
-.bullets label{
-    display: inline-block; /* 한 줄로 불릿 나열*/
-    border-radius: 50%; /* 원형 불릿으로 처리 */
-    background-color: rgba(0,0,0,0.55);
-    width: 20px; /* 불릿 너비 */
-    height: 20px; /* 불릿 높이 */
-    cursor: pointer;
-}
-
-.slider input[type=radio]:nth-child(1):checked~.bullets>label:nth-child(1){
-    background-color: #fff;
-}
-.slider input[type=radio]:nth-child(2):checked~.bullets>label:nth-child(2){
-    background-color: #fff;
-}
-.slider input[type=radio]:nth-child(3):checked~.bullets>label:nth-child(3){
-    background-color: #fff;
-}
-.slider input[type=radio]:nth-child(4):checked~.bullets>label:nth-child(4){
-    background-color: #fff;
-}
-.slider input[type=radio]:nth-child(5):checked~.bullets>label:nth-child(5){
-    background-color: #fff;
-}
-
-
-.slider input[type=radio]:nth-child(1):checked~ul.imgs>li:nth-child(1){
-    opacity: 1;
-    transition: 1s;
-    z-index: 1;
-}
-.slider input[type=radio]:nth-child(2):checked~ul.imgs>li:nth-child(2){
-    opacity: 1;
-    transition: 1s;
-    z-index: 1;
-}
-.slider input[type=radio]:nth-child(3):checked~ul.imgs>li:nth-child(3){
-    opacity: 1;
-    transition: 1s;
-    z-index: 1;
-}
-.slider input[type=radio]:nth-child(4):checked~ul.imgs>li:nth-child(4){
-    opacity: 1;
-    transition: 1s;
-    z-index: 1;
-}
-.slider input[type=radio]:nth-child(5):checked~ul.imgs>li:nth-child(5){
-    opacity: 1;
-    transition: 1s;
-    z-index: 1;
-}
+.slide { width: 1200px; margin: 0 auto; }
+.slide_left {margin-left: 500px; }
+div#slide div.slidebanner { width: 1200px; height: 640px; overflow: hidden; }
+div#slide div.slidebanner ul { width: 1200px; height: 900px; position: relative;}
+div#slide div.slidebanner ul li { width: 1200px; height: 640px; float: right; }
 
 /* ------------------------------------------------------------------------------------------------  */
 
@@ -613,13 +539,12 @@ ul.imgs li{
 
 }
 .chk_inp{
-	display: flex;
     margin-bottom: 20px;
 }
 
 .chk_btn{
     width: 100%;
-    text-align: -webkit-center;
+
 
 }
 
@@ -664,7 +589,7 @@ ul.imgs li{
 --------------------------------------------------------------------------------------------------------------- */
 #pageintro{/*  padding:50px 0 200px;*/}/* 300px => 100px for #introblocks negative margin */
 
-#pageintro article, #pageintro article p{display:block; max-width:75%; margin-left:50%; text-align:left;}
+#pageintro article, #pageintro article p{/* display:block; max-width:75%; margin-left:50%; text-align:left; */display: flex;}
 #pageintro article p{max-width:65%; line-height:2rem;}
 #pageintro .heading{margin-bottom:20px; font-size:4rem;}
 #pageintro footer{margin-top:50px;}
@@ -791,7 +716,7 @@ This gives a smooth transition to "ALL" elements used in the layout - other than
 If you don't want it to fade all elements, you have to list the ones you want to be faded individually
 Delete it completely to stop fading
 --------------------------------------------------------------------------------------------------------------- */
-*, *::before, *::after{transition:all .3s ease-in-out;}
+*, *::before, *::after{/* transition:all .3s ease-in-out; */}
 #mainav form *{transition:none !important;}
 
 
@@ -979,7 +904,7 @@ input:focus, textarea:focus, *:required:focus{border-color:#FF3F4A !important;}
 
 /* Navigation */
 #mainav{}
-#mainav li a{color:	#696969; font-weight: bold; border-color:transparent;}
+#mainav li a{color: black; font-weight: bold; border-color:transparent;}
 #mainav .active a, #mainav a:hover, #mainav li:hover > a{color:#FFFFFF; background-color:	#000000;}
 #mainav li li a, #mainav .active li a{color:#000000; background-color:#FFFFFF;/* #FF3F4A */ border-color:#000000;}
 #mainav li li:hover > a, #mainav .active .active > a{color:#FFFFFF; background-color:	#696969; border-color:rgba(255,255,255,.6);}
