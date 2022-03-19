@@ -6,11 +6,12 @@
 <%@ include file="../mypage/mypage_menu.jsp" %>
 
 <div class="update_center">
-<h6 class="heading underline font-x2">개인 정보 변경</h6>
+<div class="update_c">
+
 
       <form action="/mem_update" method="post">
 		<div class="update_main">
-
+<h6 class="heading underline font-x2">개인정보<br>변경</h6>
       <div class="update_mem_div">
 
       <div class="update_mem_left">
@@ -56,18 +57,13 @@
       	<input value="${user.useraddr}" name="useraddr" class="update_input">
       </div>
       </div>
-
-
-
-
-
-
-
 </div>
+
 <div class="update_btn">
 <input type="submit" value="개인정보변경" >
 </div>
 </form>
+</div>
      </div>
     </div>
   </section>

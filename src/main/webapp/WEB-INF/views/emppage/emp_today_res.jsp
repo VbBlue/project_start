@@ -8,8 +8,10 @@
 			<div class="list_main">
 				<div class="list_search">
 					<div class="date_top">
-						<h6 class="heading underline font-x2" id="h6_login">오늘 헌혈예정</h6>
+						<h6 class="heading underline font-x2" id="h_font">오늘 헌혈예정</h6>
 					</div>
+
+
 					<div id="result"></div>
 					<table id="reslist">
 					<tr id="reslist_head">
@@ -48,15 +50,20 @@
 	  	  				var month = ('0' + (resdate.getMonth() + 1)).slice(-2);
 	  	  				var day = ('0' + resdate.getDate()).slice(-2);
 	  	  				var dateString = year + '-' + month  + '-' + day;
+<<<<<<< HEAD
 	  	  				$("#reslist").append("<tr><td id='data'>" +
 	  	  											  data['list'][i]['R'] + "</td><td id='data' name='bhname'>" + 
+=======
+	  	  				$("#reslist").append("<tr><td><input type='checkbox' id='chk'></td><td id='data'>" +
+	  	  											  data['list'][i]['R'] + "</td><td id='data' name='bhname'>" +
+>>>>>>> branch 'master' of https://github.com/shshshrj/project_start.git
 	  	  											  data['list'][i]['BHNAME'] + "</td><td id='data' name='userid'>" +
 	  	  											  data['list'][i]['USERID'] + "</td><td id='data'>" +
 	  	  											  dateString + "</td><td id='data'>" +
 	  	  											  data['list'][i]['RESTIME'] + "</td><td id='data'>" +
 	  	  											  data['list'][i]['GOODS'] + "</td><td id='data' name='bhselect'>" +
 	  	  											  data['list'][i]['BHSELECT'] + "</td><td id='data'>" +
-	  	  											  data['list'][i]['RESSTATE'] + "</td><td style='display:None' id='resnum'>" + 
+	  	  											  data['list'][i]['RESSTATE'] + "</td><td style='display:None' id='resnum'>" +
 	  	  											  data['list'][i]['RESNUM'] + "</td><td>" +
 	  	  											  "<input type='button' id='b_complete' value='헌혈완료'></td><td>" +
 	  	  											  "<input type='button' id='b_cancel' value='헌혈취소'></td>");
@@ -101,10 +108,10 @@
 		$("#reslist").on("click", "#all_check", function() {
 			if($("#all_check").is(":checked")) {
 				$("input[id='chk']").prop("checked", true);
-				
+
 			}else {
 				$("input[id='chk']").prop("checked", false);
-			}	
+			}
 		});//체크박스 전체선택
 		$("#reslist").on("click", "#data", function() {
 			if($(this).parents("tr").find("#chk").is(":checked")) {
@@ -144,7 +151,7 @@
 			alert("취소 완료");
 			$("#page").trigger("click");
 		});//선택 예약취소
-		
+
 	});//ready
 </script>
 </div>

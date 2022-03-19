@@ -7,9 +7,9 @@
 <%@ include file="../emppage/emp_menu.jsp" %>
 	      <div class="main">
 
-	      	<div>
+	      	<div class="main_h">
 
-	<div class="mypage_h">
+	<div class="mypage_h" style="text-align: left;">
 	<h6 class="heading underline font-x2" id="h6_login">나의 헌혈 정보</h6>
 	</div>
 <div class="contents">
@@ -34,6 +34,7 @@
 	</div>
 		</div>
   </section>
+  </div>
   <!-- 스크립트 -->
 <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
@@ -118,5 +119,4 @@ const myChart = new Chart(ctx, {
 });
 </script>
 
-</div>
 <%@ include file="../includes/footer.jsp" %>
