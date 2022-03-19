@@ -31,4 +31,10 @@
 		SELECT MONTHS_BETWEEN(TRUNC(SYSDATE,'YYYY'),TRUNC(TO_DATE(userbirth),'YYYY'))/12 +1 as userage FROM buser where userid = #{userid}
 	</select>
 	
+	<select id="search_bhname" resultType="first.project.dto.bloodhouse" parameterType="String">
+		select * from bloodhouse where bhname like '%'||#{info}||'%'
+	</select>
+	<select id="search_bhlocation" resultType="first.project.dto.bloodhouse" parameterType="String">
+		select * from bloodhouse where bhlocation like '%'||#{info}||'%'
+	</select>
 </mapper>

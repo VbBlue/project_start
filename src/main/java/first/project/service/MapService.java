@@ -1,5 +1,6 @@
 package first.project.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -52,5 +53,14 @@ public class MapService {
 		return dao.res_userid_count(userid);
 	}
 	
+	public ArrayList<bloodhouse> bh_search(String info, String sel) {
+		if (sel.equals("1")) {
+			return dao.search_bhname(info);
+		}
+		else if (sel.equals("2")) {
+			return dao.search_bhlocation(info);
+		}
+		return null;
+	}
 	
 }

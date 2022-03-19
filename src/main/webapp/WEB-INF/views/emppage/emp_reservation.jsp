@@ -14,13 +14,13 @@
 
 						<div class="date_btn_main">
 							<div class="date_btn">
-								<input type="button" id="today" value="오늘">
+								<input type="button" class="emp_list_btn" id="today" value="오늘">
 							</div>
 							<div class="date_btn">
-								<input type="button" id="month" value="30일">
+								<input type="button" class="emp_list_btn" id="month" value="30일">
 							</div>
 							<div class="date_btn">
-								<input type="button" id="quarter" value="120일">
+								<input type="button" class="emp_list_btn" id="quarter" value="120일">
 							</div>
 						</div>
 
@@ -43,9 +43,20 @@
 						</div>
 					</div>
 					<div id="result"></div>
-						<input type='button' id='check_confirm' value='선택 예약확정'>
-						<input type='button' id='check_cancel' value='선택 예약취소'>
-						<table id="reslist"></table>
+						<table id="reslist">
+						<tr id="reslist_head">
+							<th>순번</th>
+							<th>헌혈의집</th>
+							<th>아이디</th>
+							<th>예약일자</th>
+							<th>예약시간</th>
+							<th>기념품</th>
+							<th>헌혈종류</th>
+							<th>예약상태</th>
+							<th>예약확정</th>
+							<th>예약취소</th>
+						</tr>
+						</table>
 					<div id="pages"></div>
 				</div>
 			</div>
@@ -82,21 +93,20 @@
   		});//최근 120일 버튼 클릭
   		$("#today").trigger("click");
   		$(".wrapper").on("click", "#page", function() {
-  			$("#reslist").empty();
+  			$("#reslist_head").nextAll().remove();
   			$("div[id='pages']").empty();
   			var cal1 = $("#cal1").val();
   	  		var cal2 = $("#cal2").val();
   	  		var p = $(this).prop("name");
   			$.getJSON("emp_reslist", {"p":p, "cal1":cal1, "cal2":cal2}, function(data) {
   				if(data['count'] != 0) {
-  					$("#reslist").append("<th><input type='checkbox' id='all_check'></th><th>순번</th><th>헌혈의집</th><th>아이디</th><th>예약일자</th><th>예약시간</th><th>기념품</th><th>헌혈종류</th><th>예약상태</th><th>예약확정</th><th>예약취소</th>")
   	  				for(i in data['list']) {
   	  					var resdate = new Date(data['list'][i]['RESDATE']);
   	  					var year = resdate.getFullYear();
   	  					var month = ('0' + (resdate.getMonth() + 1)).slice(-2);
   	  					var day = ('0' + resdate.getDate()).slice(-2);
   	  					var dateString = year + '-' + month  + '-' + day;
-  	  					$("#reslist").append("<tr><td><input type='checkbox' id='chk'></td><td id='data'>" +
+  	  					$("#reslist").append("<tr><td id='data'>" +
   	  												  data['list'][i]['R'] + "</td><td id='data'>" + 
   	  												  data['list'][i]['BHNAME'] + "</td><td id='data'>" +
   	  												  data['list'][i]['USERID'] + "</td><td id='data'>" +
@@ -137,43 +147,6 @@
 			alert("취소 완료");
 			$("#page").trigger("click");
 		});//예약취소 클릭
-		$("#reslist").on("click", "#all_check", function() {
-			if($("#all_check").is(":checked")) {
-				$("input[id='chk']").prop("checked", true);
-				
-			}else {
-				$("input[id='chk']").prop("checked", false);
-			}	
-		});//체크박스 전체선택
-		$("#reslist").on("click", "#data", function() {
-			if($(this).parents("tr").find("#chk").is(":checked")) {
-				$(this).parents("tr").find("#chk").prop("checked", false);
-			}else {
-				$(this).parents("tr").find("#chk").prop("checked", true);
-			}
-		});//체크박스 하나 선택
-		$("#check_confirm").on("click", function() {
-			var test = $('#reslist').find('input[id="chk"]');
-			for(i = 0; i < test.length; i++) {
-				if(test.eq(i).is(":checked")) {
-					var resnum = $(test.eq(i)).parents("tr").find("#resnum").html();
-					$.ajax({Type:"POST", url:"res_confirm", data:{"resnum":resnum}});
-				}
-			}
-			alert("확정 완료");
-			$("#page").trigger("click");
-		});//선택 예약확정
-		$("#check_cancel").on("click", function() {
-			var test = $('#reslist').find('input[id="chk"]');
-			for(i = 0; i < test.length; i++) {
-				if(test.eq(i).is(":checked")) {
-					var resnum = $(test.eq(i)).parents("tr").find("#resnum").html();
-					$.ajax({Type:"POST", url:"res_cancel", data:{"resnum":resnum}});
-				}
-			}
-			alert("취소 완료");
-			$("#page").trigger("click");
-		});//선택 예약취소
 	});//ready
 </script>
 </div>

@@ -46,6 +46,7 @@ File: Layout CSS
 }
 .resform_left{
 	margin-bottom: 15px;
+	text-align: -webkit-center;
 }
 
 .signup_label{
@@ -73,31 +74,23 @@ File: Layout CSS
 }
 .sign_btype-check{
 	display: flex;
+	width: 100px;
 }
 
 #addr_div,#empbh_div{
 	display: flex;
 }
 
-#addr_button {
-	border-radius: 8px;
-    border: none;
-    color: red;
-    background-color: #fec9d2;
-    width: 100px;
+#addr_button,#findbh {
+	border: none;
+    color: white;
+    background-color: #696969;
+    border-radius: 0.40em;
+    width: auto;
     height: 25px;
     margin-top: 15px;
 }
 
-#findbh{
-	border-radius: 8px;
-    border: none;
-    color: red;
-    background-color: #fec9d2;
-    width: 110px;
-    height: 25px;
-    margin-top: 15px;
-}
 
 .res_bh_info_main{
 	display: flex;
@@ -112,11 +105,11 @@ File: Layout CSS
     height: 40px;
 }
 
-#usersignup, #empsignup{
-	border-radius: 8px;
+#usersignup, #empsignup,.emp_list_btn{
     border: none;
-    color: red;
-    background-color: #fec9d2;
+    color: white;
+    background-color: #696969;
+    border-radius: 0.40em;
 }
 
 .res_bh_in{
@@ -178,6 +171,7 @@ File: Layout CSS
 
 .resform_right{
 	margin-bottom: 30px;
+    text-align: -webkit-center;
 }
 
 /* radio 버튼*/
@@ -205,6 +199,7 @@ File: Layout CSS
 }
 .btn1 {
     font-size: 0.9em;
+    width: auto;
     font-family: "Lato", sans-serif;
   }
 
@@ -320,6 +315,7 @@ File: Layout CSS
 	display: flex;
 	justify-content: space-between;
     border-bottom: groove;
+    border-top: groove;
 }
 #contents_id_v{
 	display: flex;

@@ -3,47 +3,52 @@
 <%@ include file="../includes/header.jsp" %>
 <div class="wrapper row2">
   <section class="hoc container clear">
-    <div class="center btmspace-80">
-<%@ include file="../emppage/emp_menu.jsp" %>
-<div class="list_main">
+		<div class="center btmspace-80">
+			<%@ include file="../emppage/emp_menu.jsp"%>
+			<div class="list_main">
 				<div class="list_search">
-
-
 					<div class="date_top">
 						<h6 class="heading underline font-x2" id="h6_login">오늘 헌혈예정</h6>
-
 					</div>
 					<div id="result"></div>
-					
-						<input type='button' id='check_confirm' value='선택 헌혈완료'>
-						<input type='button' id='check_cancel' value='선택 헌혈취소'>
-						<table id="reslist"></table>
-			<div id="pages"><input type='button' id='page' style='display:none'></div>
+					<table id="reslist">
+					<tr id="reslist_head">
+						<th>순번</th>
+						<th>헌혈의집</th>
+						<th>아이디</th>
+						<th>예약일자</th>
+						<th>예약시간</th>
+						<th>기념품</th>
+						<th>헌혈종류</th>
+						<th>예약상태</th>
+						<th>헌혈완료</th>
+						<th>헌혈취소</th>
+					</tr>
+					</table>
+					<div id="pages">
+						<input type='button' id='page' value="조회" >
+					</div>
 				</div>
 			</div>
-
-
- 
-	</div>
-  </section>
+		</div>
+	</section>
 <!-- 스크립트 -->
 <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 	$(function() {
-		$(".wrapper").on("click", "#page", function() {
-			$("#reslist").empty();
+		$("#pages").on("click", "#page", function() {
+			$("#reslist_head").nextAll().remove();
   			$("div[id='pages']").empty();
 	  	  	var p = $(this).prop("name");
 	  		$.getJSON("today_res_list", {"p":p}, function(data) {
 	  			if(data['count'] != 0) {
-	  				$("#reslist").append("<th><input type='checkbox' id='all_check'></th><th>순번</th><th>헌혈의집</th><th>아이디</th><th>예약일자</th><th>예약시간</th><th>기념품</th><th>헌혈종류</th><th>예약상태</th><th>헌혈완료</th><th>헌혈취소</th>")
 	  	  			for(i in data['list']) {
 	  	  				var resdate = new Date(data['list'][i]['RESDATE']);
 	  	  				var year = resdate.getFullYear();
 	  	  				var month = ('0' + (resdate.getMonth() + 1)).slice(-2);
 	  	  				var day = ('0' + resdate.getDate()).slice(-2);
 	  	  				var dateString = year + '-' + month  + '-' + day;
-	  	  				$("#reslist").append("<tr><td><input type='checkbox' id='chk'></td><td id='data'>" +
+	  	  				$("#reslist").append("<tr><td id='data'>" +
 	  	  											  data['list'][i]['R'] + "</td><td id='data' name='bhname'>" + 
 	  	  											  data['list'][i]['BHNAME'] + "</td><td id='data' name='userid'>" +
 	  	  											  data['list'][i]['USERID'] + "</td><td id='data'>" +

@@ -340,7 +340,7 @@ $(function(){
 	})//$("#usersignup").click(function() 종료
 
 	$("#findbh").click(function() {
-		window.open("/findbhform", "findid", "width=600px, height=600px");
+		window.open("/findbhform", "findid", "width=750px, height=600px");
 	});
 });
 

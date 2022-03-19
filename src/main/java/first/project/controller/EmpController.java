@@ -32,11 +32,6 @@ public class EmpController {
 	@Autowired
 	EmpService service;
 
-	@GetMapping("/emppage")
-	public String emppageform() {
-		return"emppage/emp_main";
-	}
-
 	@RequestMapping("/empres")
 	public String reservation() {
 		return "/emppage/emp_reservation";

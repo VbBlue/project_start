@@ -104,7 +104,7 @@ public class MainController {
 	}
 
 	@GetMapping("mapform")
-	public String mapform(@RequestParam(name="p",defaultValue = "1") int page,Model m) {
+	public String mapform(Model m) {
 		List<bloodhouse> bh_list = new ArrayList<bloodhouse>();
 		
 		try {
@@ -138,34 +138,7 @@ public class MainController {
             e.printStackTrace();
         }
 		
-		int count = bh_list.size();
-		if(count > 0) {
-			int perpage = 15;
-			int startRow = (page-1) * perpage;
-			int endRow = page * perpage;
 		
-			List<bloodhouse> bh_page_list = new ArrayList<bloodhouse>();
-			for (int i=0; i<bh_list.size(); i++) {
-				if(i>=startRow && i<=endRow) {
-					bh_page_list.add(bh_list.get(i));
-				}
-			}
-			m.addAttribute("bh_page_list", bh_page_list);
-			
-			int pageNum = 5;
-			int totalPages = count / perpage + (count%perpage > 0 ? 1:0);//��ü ��������
-			int begin = (page - 1) / pageNum * pageNum + 1;
-			int end = begin + pageNum - 1;
-			if(end > totalPages) {
-				end = totalPages;
-			}
-			m.addAttribute("begin", begin);
-			m.addAttribute("end", end);
-			m.addAttribute("totalpages", totalPages);
-			m.addAttribute("pageNum", pageNum);
-		}
-		
-		m.addAttribute("count", count);
 		m.addAttribute("bh_list",bh_list);
 		return "res/map";
 	}
