@@ -3,7 +3,10 @@ package first.project.controller;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.json.simple.JSONArray;
@@ -41,7 +44,11 @@ public class JoinController {
 	}
 	
 	@PostMapping("/usersignup")
-	public String usersignup(buserDto dto,String useraddr_front, String useraddr_back) {
+	public String usersignup(buserDto dto,String birth,String useraddr_front, String useraddr_back) throws ParseException {
+		SimpleDateFormat format = new SimpleDateFormat("yyMMdd");
+		Date d = format.parse(birth);
+		dto.setUserbirth(d);
+		
 		String useraddr = useraddr_front + useraddr_back;
 		dto.setUseraddr(useraddr);
 		dto.setBcount(0);

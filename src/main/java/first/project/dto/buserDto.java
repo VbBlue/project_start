@@ -5,6 +5,8 @@ package first.project.dto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 
+import java.util.Date;
+
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
@@ -37,7 +39,7 @@ public class buserDto {
 	private String userbtype;		
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private String userbirth;		
+	private Date userbirth;		
 
 	private String useraddr;		
 	private int bcount;				

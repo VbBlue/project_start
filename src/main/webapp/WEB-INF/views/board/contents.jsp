@@ -48,7 +48,7 @@
 	$(function(){
 		$("a[id]").click(function(){
 			let no = $(this).attr("id");
-			$.ajax({url:"/board/delete", data:"boardnum="+boardnum, method:"delete"}
+			$.ajax({url:"/board/delete", data:"boardnum="+no, method:"delete"}
 			).done(function(){
 				location.href="/boardform";
 			})

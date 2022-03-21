@@ -38,24 +38,23 @@
 
 						<div>
 							<div class="search_btn">
-								<input type="button" value="조회" id="page">
+								<input type="button"  class="page_btn" value="조회" id="page">
 							</div>
 						</div>
 					</div>
-					<div id="result"></div>
 						<table id="reslist">
-						<tr id="reslist_head">
-							<th>순번</th>
-							<th>헌혈의집</th>
-							<th>아이디</th>
-							<th>예약일자</th>
-							<th>예약시간</th>
-							<th>기념품</th>
-							<th>헌혈종류</th>
-							<th>예약상태</th>
-							<th>예약확정</th>
-							<th>예약취소</th>
-						</tr>
+							<tr id="reslist_head">
+								<th>순번</th>
+								<th>헌혈의집</th>
+								<th>아이디</th>
+								<th>예약일자</th>
+								<th>예약시간</th>
+								<th>기념품</th>
+								<th>헌혈종류</th>
+								<th>예약상태</th>
+								<th>예약확정</th>
+								<th>예약취소</th>
+							</tr>
 						</table>
 					<div id="pages"></div>
 				</div>
@@ -63,6 +62,8 @@
     
     </div>
   </section>
+  
+</div>
 <!-- 스크립트 -->
 <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
@@ -92,7 +93,7 @@
   	  		$("#cal2").val(day_120);
   		});//최근 120일 버튼 클릭
   		$("#today").trigger("click");
-  		$(".wrapper").on("click", "#page", function() {
+  		$(".page_btn").click(function() {
   			$("#reslist_head").nextAll().remove();
   			$("div[id='pages']").empty();
   			var cal1 = $("#cal1").val();
@@ -128,9 +129,9 @@
   	  				if(data['count'] / 10 > data['end']) {
   	  					$("div[id='pages']").append("<a href='javascript:void(0);' id='page' name=" + (data['begin'] + 5) + ">" + "[다음]" + " " + "</a>")
   	  				}
-  				}else {
-  	  				$("#result").empty();
-  					$("#result").text("조회내역 없음");
+  				}else if(data['count'] == 0){
+  					alert(data['count']);
+  					$("#reslist").append("<tr><td colspan='10'>해당 기간에 헌혈 예정이 없습니다.</td></tr>");
   	  			}
   			})//JSON
   		});//조회버튼 클릭
@@ -149,5 +150,4 @@
 		});//예약취소 클릭
 	});//ready
 </script>
-</div>
 <%@ include file="../includes/footer.jsp" %>

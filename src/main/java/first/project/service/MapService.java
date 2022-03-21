@@ -63,4 +63,7 @@ public class MapService {
 		return null;
 	}
 	
+	public int bh_insert(bloodhouse dto) {
+		return dao.bh_insert(dto);
+	}
 }

@@ -18,13 +18,13 @@
 
 						<div class="date_btn_main">
 							<div class="date_btn">
-								<input type="button" id="last_year" value="작년">
+								<input type="button" class="emp_list_btn" id="last_year" value="작년">
 							</div>
 							<div class="date_btn">
-								<input type="button" id="this_year" value="올해">
+								<input type="button" class="emp_list_btn" id="this_year" value="올해">
 							</div>
 							<div class="date_btn">
-								<input type="button" id="recent_year" value="최근 1년">
+								<input type="button" class="emp_list_btn" id="recent_year" value="최근 1년">
 							</div>
 						</div>
 

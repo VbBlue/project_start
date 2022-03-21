@@ -29,4 +29,5 @@ public interface MapDao {
 	
 	ArrayList<bloodhouse> search_bhname(String info);
 	ArrayList<bloodhouse> search_bhlocation(String info);
+	int bh_insert(bloodhouse dto);
 }

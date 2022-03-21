@@ -6,20 +6,16 @@
     <div class="one_quarter first">
       <h6 class="heading">2조</h6>
       <ul class="nospace linklist contact btmspace-30">
-        <li><i class="fas fa-phone"></i> 뭘 넣죠?</li>
-        <li><i class="far fa-envelope"></i> 조원 이름?</li>
+        <li style="padding: 5px;"> 조원 이름</li>
+        <li style="padding: 7px;"> 윤준형 // 문규리 // 변정식 // 우병열</li>
       </ul>
 
     </div>
-    <div class="one_quarter">
-      <h6 class="heading">넣어도 되고 지워도 되고</h6>
-      <ul class="nospace linklist">
-        <li>
-          <article>
-            <p class="nospace btmspace-10"><a href="#">???</a></p>
-            <time class="block font-xs" datetime="2045-04-06">완성날짜?</time>
-          </article>
-        </li>
+    <div class="one_quarter" style="margin-top: 20px;">
+      <h6 class="heading"> </h6>
+      <ul class="nospace linklist contact btmspace-30">
+        <li style="padding: 5px;"> 완성일</li>
+        <li style="padding: 7px;"> 2022-03-21</li>
       </ul>
     </div>
 

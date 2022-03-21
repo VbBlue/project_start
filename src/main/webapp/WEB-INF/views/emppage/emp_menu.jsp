@@ -10,7 +10,6 @@
 				<li><input type="button" id="today_res" value="헌혈예정"></li>
 				<li><input type="button" id="bloodlist" value="헌혈내역"></li>
 				<li><input type="button" id="board" value="공지사항"></li>
-				<li><input type="button" id="setting" value="영업시간 설정"></li>
 			</ul>
 		</nav>
 		</div>
@@ -30,7 +29,4 @@
 		$("#board").click(function () {
 			location.href = "/boardform";
 		});//공지사항 클릭
-		$("#setting").click(function () {
-			location.href = "/empset";
-		});//시간설정 클릭
 </script>

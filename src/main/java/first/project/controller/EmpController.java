@@ -41,6 +41,7 @@ public class EmpController {
 	@ResponseBody
 	public String emp_reslist(@RequestParam(name="p", defaultValue = "1") int page, HttpSession session, String cal1, String cal2) {
 		Map<String, Object> param = new HashMap<String, Object>();
+		Map<String, Object> result = new HashMap<>();
 		empDto dto = (empDto)session.getAttribute("emp");
 		String bhname = dto.getBhname();
 		param.put("bhname", bhname);
@@ -56,7 +57,6 @@ public class EmpController {
 			param.put("startRow", startRow);
 			param.put("endRow", endRow);
 			List<Map<String, Object>> list = service.emp_reslist(param);
-			Map<String, Object> result = new HashMap<>();
 			result.put("list", list);
 			int pageNum = 5;
 			int totalPages = count/perPage + (count % perPage > 0 ? 1:0);
@@ -69,6 +69,9 @@ public class EmpController {
 			result.put("begin", begin);
 			result.put("end", end);
 			result.put("count", count);
+			reslist = gson.toJson(result);
+		}else {
+			result.put("count",count);
 			reslist = gson.toJson(result);
 		}
 		return reslist;
@@ -127,7 +130,35 @@ public class EmpController {
 	}
 
 	@RequestMapping("/today_res")
-	public String today_res() {
+	public String today_res(@RequestParam(name="p", defaultValue = "1") int page, HttpSession session,Model m) {
+		Map<String, Object> param = new HashMap<String, Object>();
+		List<Map<String, Object>>list = new ArrayList<Map<String,Object>>(); 
+		empDto dto = (empDto)session.getAttribute("emp");
+		String bhname = dto.getBhname();
+		param.put("bhname", bhname);
+		int perPage = 10;	//한 페이지에 보일 글 개수
+		int count = service.emp_today_list_count(bhname);
+		if(count > 0 ) {
+			int startRow = (page - 1) * perPage + 1;
+			int endRow = page * perPage;
+			param.put("startRow", startRow);
+			param.put("endRow", endRow);
+			list = service.emp_today_list(param);
+			int pageNum = 5;
+			int totalPages = count/perPage + (count % perPage > 0 ? 1:0);
+			int begin = (page - 1) / pageNum * pageNum + 1;
+			int end = begin + pageNum -1;
+			if(end > totalPages) {
+				end = totalPages;
+			}
+			m.addAttribute("begin", begin);
+			m.addAttribute("end", end);
+			m.addAttribute("totalpages", totalPages);
+			m.addAttribute("pageNum", pageNum);
+		}
+		m.addAttribute("count", count);
+		m.addAttribute("reslist", list);
+		System.out.println(list);
 		return "/emppage/emp_today_res";
 	}
 
@@ -181,24 +212,6 @@ public class EmpController {
 		service.bown_insert(bown);
 		service.b_complete(res.getResnum());
 		service.blist_insert(blist);
-	}
-
-	@RequestMapping("/empset")
-	public String setting(HttpSession session, Model m) {
-		empDto emp = (empDto)session.getAttribute("emp");
-		String bhname = emp.getBhname();
-		bhtimeDto bhtime = service.bhtime_info(bhname);
-		m.addAttribute("bhtime", bhtime);
-		return "/emppage/emp_setting";
-	}
-
-	@RequestMapping("/bhtime_set")
-	public String bhtime_set(HttpSession session, bhtimeDto bhtime) {
-		empDto emp = (empDto)session.getAttribute("emp");
-		String bhname = emp.getBhname();
-		bhtime.setBhname(bhname);
-		service.bhtime_set(bhtime);
-		return "redirect:/emp";
 	}
 
 }

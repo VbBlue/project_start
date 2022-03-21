@@ -1,5 +1,6 @@
 package first.project.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -13,11 +14,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.support.SessionStatus;
 
 import com.google.gson.Gson;
 
 import first.project.service.MypageService;
 import first.project.dto.*;
+
 
 @Controller
 public class MypageController {
@@ -30,16 +33,33 @@ public class MypageController {
 	}
 
 	@RequestMapping("/mem_updateForm")
-	public String mem_updateFrom() {
+	public String mem_updateFrom(HttpSession session,Model m) {
+		buserDto user = (buserDto)session.getAttribute("user");
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		String birth = format.format(user.getUserbirth());
+		m.addAttribute("userbirth", birth);
 		return "/mypage/mem_update";
 	}
 
 	@RequestMapping("/mem_update")
-	public String mem_update(buserDto dto, HttpSession session) {
+	public String mem_update(buserDto dto,SessionStatus status, HttpSession session,String useraddr_front, String useraddr_back) {
 		buserDto user = (buserDto)session.getAttribute("user");
+		String useraddr = useraddr_front + useraddr_back;
+		dto.setUseraddr(useraddr);
 		if(dto.getUserid().equals(user.getUserid())) {
-			service.updatebuser(dto);
+			if(!dto.getUserpw().equals("")) {
+				service.updatebuser_pw(dto);
+			}else if(!dto.getUserphone().equals("")) {
+				service.updatebuser_ph(dto);
+			}else if(!dto.getUseremail().equals("")) {
+				service.updatebuser_em(dto);
+			}else if(dto.getUserbtype() != null) {
+				service.updatebuser_bt(dto);
+			}else if(!dto.getUseraddr().equals("")) {
+				service.updatebuser_ad(dto);
+			}
 		}
+		session.invalidate();	//HttpSession 사용시 로그아웃
 		return "redirect:/loginform";
 	}
 
@@ -133,6 +153,7 @@ public class MypageController {
 		buserDto user = (buserDto)session.getAttribute("user");
 		if(session.getAttribute("user") != null) {
 			service.deleteuser(user.getUserid());
+			session.invalidate();
 			return "redirect:/";
 		}
 		return "redirect:/loginform";

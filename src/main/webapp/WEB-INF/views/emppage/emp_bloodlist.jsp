@@ -36,11 +36,10 @@
 
 						<div>
 							<div class="search_btn">
-								<input type="button" value="조회" id="page">
+								<input type="button" value="조회"class="page_btn" id="page" >
 							</div>
 						</div>
 					</div>
-					<div id="result"></div>
 						<table id="blist">
 							<tr id="blist_tr">
 								<th>순번</th>
@@ -83,7 +82,7 @@
   		});//최근 1년 버튼 클릭
   		$("#recent_year").trigger("click");
   		$(".wrapper").on("click", "#page", function() {
-  			$("#blist_tr").nextall().remove();
+  			$("#blist_tr").nextAll().remove();
   			$("div[id='pages']").empty();
   			var cal1 = $("#cal1").val();
   	  		var cal2 = $("#cal2").val();
@@ -113,8 +112,7 @@
   	  					$("div[id='pages']").append("<a href='javascript:void(0);' id='page' name=" + (data['begin'] + 5) + ">" + "[다음]" + " " + "</a>")
   	  				}
   				}else {
-  	  				$("#result").empty();
-  					$("#result").text("조회내역 없음");
+  					$("#blist").append("<tr><td colspan='6'>다시 검색해주세요</td></tr>");
   	  			}
   			})//JSON
   		});//조회버튼 클릭

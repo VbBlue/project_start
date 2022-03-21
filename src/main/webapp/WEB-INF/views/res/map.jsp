@@ -134,7 +134,7 @@ var positions =[];
 		        '        <div class="body">' + 
 		        '            <div class="desc">' + 
 		        '                <div class="ellipsis"><input type="text" class="bh" name="bhlocation" value="${bh.bhlocation}"></div>' + 
-		        '                <div><input type="submit" value="예약"></div>' + 
+		        '                <div><input id="map_res_info" type="submit" value="예약"></div>' + 
 		        '            </div>' + 
 		        '        </div>' + 
 		        '		</form>'+

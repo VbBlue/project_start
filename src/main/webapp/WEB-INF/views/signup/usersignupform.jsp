@@ -15,14 +15,15 @@
 							<span>
 							<input type="text" id="userid" name="userid" maxlength="15" class="sign_input_info" placeholder="아이디 입력">
 							</span>
-							<span class="error_next_box" id="error_id" style="color: red;">
-							</span>
+							<small class="error_next_box" id="error_id" style="color: red;">
+							</small>
 						</div>
 						<div class="signup_etc_div">
 							<label for="userpw" class="signup_label">비밀번호</label>
 							<span> <input type="password" id="userpw" name="userpw"
 								maxlength="15" class="sign_input_info" placeholder="비밀번호 입력">
-							</span> <small class="error_next_box" id="error_pw" style="color: red;">
+							</span>
+							<small class="error_next_box" id="error_pw" style="color: red;">
 							</small>
 						</div>
 						<div class="signup_etc_div">
@@ -75,17 +76,17 @@
 							</div>
 							<div class="signup_etc_div">
 								<label for="userbirth" class="signup_label">생년월일</label>
-								<span> <input type="text" id="userbirth" name="userbirth"
-									maxlength="6" class="sign_input_info" placeholder="생년월일 입력 / 주민번호 앞자리">
-								</span> <small class="error_next_box" id="error_birth"
-									style="color: red;"> </small>
+								<span>
+									<input type="text" id="userbirth" name="birth" maxlength="6" class="sign_input_info" placeholder="생년월일 입력 / 주민번호 앞자리">
+								</span>
+								<small class="error_next_box" id="error_birth" style="color: red;"> </small>
 							</div>
 							<div class="signup_etc_div">
 								<label for="sample6_detailAddress" class="signup_label">주소</label>
 								<span>
 									<div id="addr_div">
 									<input type="text" id="sample6_postcode" placeholder="우편번호" class="sign_addr" readonly="readonly" style="width: 30%; margin-right: 10px;">
-									<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" id="addr_button">
+									<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" class="addr_button">
 									</div>
 									<input class="useraddr_front" type="text" name="useraddr_front" readonly="readonly"
 										id="sample6_address" placeholder="주소" style="width: 100%">
@@ -370,12 +371,12 @@ $(function(){
 		}
 		if (!useraddr1){
 			$("input.useraddr_front").focus();
-			$("#error_addr").append("주소를 해주세요.");
+			$("#error_addr").append("주소를 입력해주세요.");
 			return false;
 		}
 		if (!useraddr2){
 			$("input.useraddr_back").focus();
-			$("#error_addr").append("상세주소를 해주세요.");
+			$("#error_addr").append("상세주소를 입력해주세요.");
 			return false;
 		}
 	})//$("#usersignup").click(function() 종료

@@ -89,7 +89,7 @@ File: Layout CSS
 	display: flex;
 }
 
-#addr_button,#findbh {
+.addr_button,#findbh {
 	border: none;
     color: white;
     background-color: #696969;
@@ -98,6 +98,11 @@ File: Layout CSS
     height: 25px;
     margin-top: 15px;
 }
+.addr_button:hover,.page_btn:hover,#findbh:hover,#usersignup:hover,#empsignup:hover,#map_res_info:hover,#reservation:hover,.emp_list_btn:hover,#search:hover,#search_map:hover {
+	color:#000;
+	background-color: #D7D7D7;
+}
+
 
 
 .res_bh_info_main{
@@ -113,7 +118,14 @@ File: Layout CSS
     height: 40px;
 }
 
-#usersignup, #empsignup,.emp_list_btn{
+.page_btn{
+	border: none;
+	color: white;
+	background-color: #696969;
+	border-radius: 0.40em;
+}
+
+#usersignup, #empsignup,.emp_list_btn,#map_res_info,#search,#search_map{
     border: none;
     color: white;
     background-color: #696969;
@@ -376,7 +388,6 @@ File: Layout CSS
 /* index 이미지 슬라이드 부분
 --------------------------------------------------------------------------------------------------------------- */
 .slide { width: 1200px; margin: 0 auto; }
-.slide_left {margin-left: 500px; }
 div#slide div.slidebanner { width: 1200px; height: 640px; overflow: hidden; }
 div#slide div.slidebanner ul { width: 1200px; height: 900px; position: relative;}
 div#slide div.slidebanner ul li { width: 1200px; height: 640px; float: right; }

@@ -37,4 +37,8 @@
 	<select id="search_bhlocation" resultType="first.project.dto.bloodhouse" parameterType="String">
 		select * from bloodhouse where bhlocation like '%'||#{info}||'%'
 	</select>
+	
+	<insert id="bh_insert" parameterType="first.project.dto.bloodhouse">
+		insert into bloodhouse values(bloodhouse_seq.nextval,#{bhlocation},#{bhname},#{bhone},#{bhphone},0)
+	</insert>
 </mapper>

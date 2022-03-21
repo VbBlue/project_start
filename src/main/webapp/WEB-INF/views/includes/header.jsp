@@ -64,10 +64,10 @@
       <!-- ################################################################################################ -->
     </div>
 
-    <nav id="mainav" class="fl_right">
+	<nav id="mainav" class="fl_right">
       <!-- ################################################################################################ -->
-      <ul class="clear">
-      <c:if test="${emp.empid == null}">
+	<ul class="clear">
+		<c:if test="${emp.empid == null && user.userid == null}">
       	<li><a>회원가입</a>
       		<ul>
       			<li><a href="/usersignupform" title="signup">회원 회원가입</a>
@@ -86,11 +86,10 @@
 
       <c:if test="${emp.empid == null}">
         <li><a href="mapform">예약페이지</a></li>
-
+      	<li><a href="mypageform">마이페이지</a></li>
 		</c:if>
 
 
-      	<li><a href="mypageform">마이페이지</a>
   		 <c:if test="${user.userid != null}">
       		<ul>
       			<li><a href="/bloodlist" title="bloodlist">헌혈 내역</a>
@@ -98,7 +97,6 @@
 
       		</ul>
       		</c:if>
-      	</li>
 
 
 
