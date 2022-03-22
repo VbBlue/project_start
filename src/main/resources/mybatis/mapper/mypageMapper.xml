@@ -4,10 +4,20 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="first.project.dao.MypageDao">
 
-	<update id="updatebuser" parameterType="first.project.dto.buserDto">
-		update buser
-		set userpw = #{userpw}, userphone = #{userphone}, useremail = #{useremail}, userbtype = #{userbtype}, userbirth = #{userbirth}, useraddr = #{useraddr}
-		where userid = #{userid}
+	<update id="updatebuser_pw" parameterType="first.project.dto.buserDto">
+		update buser set userpw = #{userpw} where userid = #{userid}
+	</update>
+	<update id="updatebuser_ph" parameterType="first.project.dto.buserDto">
+		update buser set userphone = #{userphone} where userid = #{userid}
+	</update>
+	<update id="updatebuser_em" parameterType="first.project.dto.buserDto">
+		update buser set useremail = #{useremail} where userid = #{userid}
+	</update>
+	<update id="updatebuser_bt" parameterType="first.project.dto.buserDto">
+		update buser set userbtype = #{userbtype} where userid = #{userid}
+	</update>
+	<update id="updatebuser_ad" parameterType="first.project.dto.buserDto">
+		update buser set useraddr = #{useraddr} where userid = #{userid}
 	</update>
 	
 	<update id="updateReservation" parameterType="first.project.dto.reservation">

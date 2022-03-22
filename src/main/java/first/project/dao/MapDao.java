@@ -1,5 +1,6 @@
 package first.project.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -26,5 +27,7 @@ public interface MapDao {
 	
 	int selectage(String userid);
 	
-	
+	ArrayList<bloodhouse> search_bhname(String info);
+	ArrayList<bloodhouse> search_bhlocation(String info);
+	int bh_insert(bloodhouse dto);
 }

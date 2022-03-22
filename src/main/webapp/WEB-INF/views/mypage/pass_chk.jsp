@@ -30,14 +30,13 @@
 <div class="wrapper row2">
 	<section class="container clear">
 	<div class="center btmspace-80">
-	<h6 class="heading underline font-x2" id="h6_login">개인정보 변경</h6>
+	<h6 class="heading underline font-x2" id="h6_login">비밀번호 입력</h6>
 
 
 <form id="from" target="param">
 
 <div class="chk_inp">
-	<label for='pass'>비밀번호 입력 </label>
-	<input type='password' id='pass'><br>
+	<input type='password' id='pass'>
 	</div>
 
 	<div class="chk_btn">

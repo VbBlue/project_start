@@ -7,10 +7,10 @@
 
 	      <div class="main">
 
-	      	<div>
+	      	<div class="main_h">
 
-	<div class="mypage_h">
-	<h6 class="heading underline font-x2" id="h6_login">나의 헌혈 정보</h6>
+	<div class="mypage_h" style="text-align: left;">
+	<h6 class="heading underline font-x2" id="h_font">나의 헌혈 정보</h6>
 	</div>
 
 <div>
@@ -34,8 +34,8 @@
 
 		<div>
 			<div class="contents_1">
-	      		<h6 class="heading underline font-x2" id="h6_login">헌혈 예약 정보</h6>
-	      		<div id="res_button"></div>
+	      		<h6 class="heading underline font-x2" id="h_font">헌혈 예약 정보</h6>
+	      		<div id="res_button" style="width: 200px;"></div>
 	      		</div>
 
 
@@ -98,7 +98,7 @@
 										  "<div class='stat_bottom'><div class='title_bottom'>기념품</div><div class='content_bottom'>"+data.goods+"</div></div><br><div class='stat_bottom'><div class='title_bottom'>예약상태</div><div class='content_bottom'>"+data.resstate+"</div></div><br>");
 
 				//$("#res_button").append("<div><input type='button' value='예약변경' id='change'><input type='button' value='예약취소' id='cancel'></div>");#
-				$("#res_button").append("<div class='btns'><input type='button' value='예약변경' id='change'><input type='button' value='예약취소' id='cancel'></div>");
+				$("#res_button").append("<div class='btns'><input type='button' value='예약변경' id='change' style='margin-right:10px;'><input type='button' value='예약취소' id='cancel'></div>");
 				$('#change').click(function() {
 					location.href="/reservation_updateForm";
 				});//예약변경 클릭

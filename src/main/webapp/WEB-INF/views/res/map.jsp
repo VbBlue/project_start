@@ -28,37 +28,30 @@
 	<section class="hoc container clear">
 		<div class="center btmspace-80">
 			<h6 class="heading underline font-x2">예약하기</h6>
-			<c:if test="${count != 0}">
-				<table>
-					<tr>
+				<table id="map_bh_table"style="width: 900px;">
+					<tr id="map_bh_tr">
 						<th>헌혈의집</th>
 						<th>주소</th>
 						<th>전화번호</th>
 						<th>혈액원</th>
 					</tr>
-					<c:forEach items="${bh_page_list}" var="bh">
-						<tr id="${bh.bhname}">
-							<td>${bh.bhname}</td>
-							<td>${bh.bhlocation}</td>
-							<td>${bh.bhphone}</td>
-							<td>${bh.bhone}</td>
-						</tr>
-					</c:forEach>
 				</table>
-				<div id="page">
-					<c:if test="${begin > pageNum}">
-						<a href="mapform?p=${begin-1}">[이전]</a>
-					</c:if>
-					<c:forEach begin="${begin}" end="${end}" var="i">
-						<a href="mapform?p=${i}">${i}</a>
-					</c:forEach>
-					<c:if test="${end < totalpages}">
-						<a href="mapform?p=${end+1}">[다음]</a>
-					</c:if>
+			<div style="display: flex; margin-bottom: 10px;">
+				<div style="margin-right: 15px;">
+					<select id="info_select">
+						<option value="">--선택--</option>
+						<option value="1">헌혈의 집</option>
+						<option value="2">주소</option>
+					</select>
 				</div>
-			</c:if>
-			<c:if test="${count == 0}">
-			</c:if>
+				<div style="display: flex; width: 400px;">
+					<input type="search" id="search_info" style="width: 350px; margin-right: 15px;" onkeyup="if(window.event.keyCode==13){search()}"/>
+					<input type="button" id="search_map" value="검색" onclick="search()"/>
+				</div>
+				<div>
+				<small class="error_next_box" id="error_info" style="color: red;"></small>
+				</div>
+			</div >
 			<div id="map" style="width: 100%; height: 600px;"></div>
 
 		</div>
@@ -66,6 +59,7 @@
 </div>
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
+
 
 <script type="text/javascript"
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=280f48cb94b34b4e389e403bc684ac31&libraries=services"></script>
@@ -140,7 +134,7 @@ var positions =[];
 		        '        <div class="body">' + 
 		        '            <div class="desc">' + 
 		        '                <div class="ellipsis"><input type="text" class="bh" name="bhlocation" value="${bh.bhlocation}"></div>' + 
-		        '                <div><input type="submit" value="예약"></div>' + 
+		        '                <div><input id="map_res_info" type="submit" value="예약"></div>' + 
 		        '            </div>' + 
 		        '        </div>' + 
 		        '		</form>'+
@@ -193,12 +187,38 @@ function closeOverlay() {
     overlay.setMap(null);
 }
 
-$(".heart-click").click(function(){
-	let bhname=$(this).attr('idx');
-	alert("bhname");
-})
-
-sele
-
+</script>
+<script>
+function search() {
+	$("#map_bh_tr").nextAll().remove();
+	let info = $("#search_info").val();
+	let sel = $("#info_select").val();
+	if (!sel){
+		$("#info_select").focus();
+	}
+	else if(!info){
+		$("#search_info").focus();
+	}
+	else{
+		$.ajax({url:"/bh_search", data:{"info":info,"select":sel} , dataType:"json"}
+		).done(function(data){
+			if (data.length <1){
+				$("table#map_bh_table").append(
+						"<tr><td colspan='4'>다시 검색해주세요</td></tr>")
+			}else{
+				for(var i = 0; i<data.length; i++){
+					$("table#map_bh_table").append(
+						"<tr id='map_bh_sel'>"+
+						"<td id='bhname'>"+data[i].bhname+"</td>"+
+						"<td id='bhlocation'>"+data[i].bhlocation+"</td>"+
+						"<td id='bhphone'>"+data[i].bhphone+"</td>"+
+						"<td id='bhone'>"+data[i].bhone+"</td>"+
+						"</tr>"	
+					)
+				}
+			}
+		})
+	}
+}
 </script>
 <%@ include file="../includes/footer.jsp" %>

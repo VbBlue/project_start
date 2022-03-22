@@ -15,7 +15,11 @@ import first.project.dto.reservation;
 public interface MypageDao {
 	List<bloodlist> bloodlist(Map map);
 	List<goodslist> goodslist(Map map);
-	int updatebuser(buserDto dto);
+	int updatebuser_pw(buserDto dto);
+	int updatebuser_ph(buserDto dto);
+	int updatebuser_em(buserDto dto);
+	int updatebuser_bt(buserDto dto);
+	int updatebuser_ad(buserDto dto);
 	int deleteuser(String userid);
 	reservation reserv_stat(String userid);
 	int updateReservation(reservation dto);

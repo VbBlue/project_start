@@ -7,7 +7,42 @@
 
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
-<form method="post" id="writeform" action="/update" >
+<div class="wrapper row2">
+	<section class="hoc container clear"> 
+    	<div class="center btmspace-80">
+      	<h6 class="heading underline font-x2">공지사항 수정</h6>
+      		<div style="width: 50%;">
+				<form method="post" id="writeform" action="/update" >
+					<input type="hidden" name="_method" value="put">
+					<input type="hidden" name="boardnum" value="${dto.boardnum}">
+					<div class="board_write_div">
+						<label>제목</label>
+						<input name="boardname" id="boardname" value="${dto.boardname}"/>
+						<small class="error_next_box" id="error_title" style="color: red; align-self: center; padding: 5px;">
+					</small>
+					</div>
+					<div class="board_write_div">
+						<label>작성자</label>
+						<input name="empid" value="${dto.empid}" readonly>
+					</div>
+					<div class="board_write_div">
+						<label>헌혈센터 명</label>
+						<input name="bhname" value="${dto.bhname}" readonly>
+					</div>
+					<div class="board_write_div">
+						<label>내용</label>
+						<textarea name="inboard" cols="40" rows="10" id="inboard">${dto.inboard}</textarea>
+					</div>
+					<div style="text-align: -webkit-right;">
+						<input id="con_w_submit" type="submit" value="수정 완료"> 
+					</div>	
+				</form>
+			</div>
+		</div>
+	</section>
+</div>
+
+<%-- <form method="post" id="writeform" action="/update" >
 		<input type="hidden" name="_method" value="put">
 		<table border="1">
 			<tr>	
@@ -32,7 +67,7 @@
 				</td>
 			</tr>
 		</table>
-	</form>
+	</form> --%>
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 

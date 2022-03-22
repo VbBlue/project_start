@@ -1,5 +1,6 @@
 package first.project.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -13,36 +14,55 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.support.SessionStatus;
 
 import com.google.gson.Gson;
 
 import first.project.service.MypageService;
 import first.project.dto.*;
 
+
 @Controller
 public class MypageController {
 	@Autowired
 	MypageService service;
-	
+
 	@RequestMapping("/pass_chk")
 	public String pass_chk() {
 		return "/mypage/pass_chk";
 	}
-	
+
 	@RequestMapping("/mem_updateForm")
-	public String mem_updateFrom() {
+	public String mem_updateFrom(HttpSession session,Model m) {
+		buserDto user = (buserDto)session.getAttribute("user");
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		String birth = format.format(user.getUserbirth());
+		m.addAttribute("userbirth", birth);
 		return "/mypage/mem_update";
 	}
-	
+
 	@RequestMapping("/mem_update")
-	public String mem_update(buserDto dto, HttpSession session) {
+	public String mem_update(buserDto dto,SessionStatus status, HttpSession session,String useraddr_front, String useraddr_back) {
 		buserDto user = (buserDto)session.getAttribute("user");
+		String useraddr = useraddr_front + useraddr_back;
+		dto.setUseraddr(useraddr);
 		if(dto.getUserid().equals(user.getUserid())) {
-			service.updatebuser(dto);
+			if(!dto.getUserpw().equals("")) {
+				service.updatebuser_pw(dto);
+			}else if(!dto.getUserphone().equals("")) {
+				service.updatebuser_ph(dto);
+			}else if(!dto.getUseremail().equals("")) {
+				service.updatebuser_em(dto);
+			}else if(dto.getUserbtype() != null) {
+				service.updatebuser_bt(dto);
+			}else if(!dto.getUseraddr().equals("")) {
+				service.updatebuser_ad(dto);
+			}
 		}
+		session.invalidate();	//HttpSession 사용시 로그아웃
 		return "redirect:/loginform";
 	}
-	
+
 	@RequestMapping("/bloodlist_search")
 	@ResponseBody
 	public String bloodlist_search(@RequestParam(name="p", defaultValue = "1") int page, String userid, String cal1, String cal2) {
@@ -60,7 +80,7 @@ public class MypageController {
 			int endRow = page * perPage;
 			int pageNum = 10;
 			int totalPages = count/perPage + (count % perPage > 0 ? 1:0);
-			
+
 			int begin = (page - 1) / pageNum * pageNum + 1;
 			int end = begin + pageNum -1;
 			if(end > totalPages) {
@@ -76,8 +96,8 @@ public class MypageController {
 		String bloodlist = gson.toJson(result);
 		return bloodlist;
 	}
-	
-	
+
+
 	@RequestMapping("/bloodlist")
 	public String bloodlist(Model m, HttpSession session) {
 		if(session.getAttribute("user") != null) {
@@ -85,7 +105,7 @@ public class MypageController {
 		}
 		return "redirect:/loginform";
 	}
-	
+
 	@RequestMapping("/goodslist_search")
 	@ResponseBody
 	public String goodslist_search(@RequestParam(name="p", defaultValue = "1") int page, String userid, String cal1, String cal2) {
@@ -103,7 +123,7 @@ public class MypageController {
 			int endRow = page * perPage;
 			int pageNum = 10;
 			int totalPages = count/perPage + (count % perPage > 0 ? 1:0);
-			
+
 			int begin = (page - 1) / pageNum * pageNum + 1;
 			int end = begin + pageNum -1;
 			if(end > totalPages) {
@@ -119,7 +139,7 @@ public class MypageController {
 		String goodslist = gson.toJson(result);
 		return goodslist;
 	}
-	
+
 	@RequestMapping("/goodslist")
 	public String goodslist(Model m, HttpSession session) {
 		if(session.getAttribute("user") != null) {
@@ -127,17 +147,18 @@ public class MypageController {
 		}
 		return "redirect:/loginform";
 	}
-	
+
 	@RequestMapping("/mem_delete")
 	public String mem_delete(HttpSession session) {
 		buserDto user = (buserDto)session.getAttribute("user");
 		if(session.getAttribute("user") != null) {
 			service.deleteuser(user.getUserid());
+			session.invalidate();
 			return "redirect:/";
 		}
 		return "redirect:/loginform";
 	}
-	
+
 	@RequestMapping("/reserv_stat")
 	@ResponseBody
 	public String reserv_stat(HttpSession session) {
@@ -150,7 +171,7 @@ public class MypageController {
 		}
 		return "redirect:/loginform";
 	}
-	
+
 	@RequestMapping("/reservation_updateForm")
 	public String reservation_updateForm(Model m, HttpSession session) {
 		buserDto user = (buserDto)session.getAttribute("user");
@@ -161,7 +182,7 @@ public class MypageController {
 		}
 		return "redirect:/loginform";
 	}
-	
+
 	@RequestMapping("/reservation_update")
 	public String reservation_update(reservation dto, HttpSession session) {
 		buserDto user = (buserDto)session.getAttribute("user");
@@ -171,7 +192,7 @@ public class MypageController {
 		}
 		return "redirect:/loginform";
 	}
-	
+
 	@RequestMapping("/reservation_delete")
 	public String reservation_delete(reservation dto, HttpSession session) {
 		buserDto user = (buserDto)session.getAttribute("user");

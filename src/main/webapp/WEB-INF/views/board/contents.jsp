@@ -25,13 +25,19 @@
 					</div>
 					<div class="con_d_v">조회수 :  ${dto.boardview}</div>
       			</div>
-				<div id="con_inboard"><textarea >${dto.inboard}</textarea></div>
-				<div style="text-align: right; margin-top: 10px;">
-				<c:if test="${emp.empid == dto.empid}">
-				<a href="/update${dto.boardnum}">글 수정</a>
-				<a id="${dto.boardnum}" href="#">글 삭제</a>
-				</c:if>
-				<a href="javascript:history.back();">목록 이동</a>
+				<div id="con_inboard"><textarea readonly="readonly">${dto.inboard}</textarea></div>
+					<div style="text-align: right; margin-top: 10px; display: flex; justify-content: right;">
+					<c:if test="${emp.bhname == dto.bhname}">
+						<div style="border-right: groove; padding: 5px;">
+							<a href="/update${dto.boardnum}">글 수정</a>
+						</div>
+					<div style="border-right: groove; padding: 5px;">
+						<a id="${dto.boardnum}" href="#">글 삭제</a>
+					</div>
+					</c:if>
+					<div style="padding: 5px;">
+						<a href="javascript:history.back();">목록 이동</a>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -42,7 +48,7 @@
 	$(function(){
 		$("a[id]").click(function(){
 			let no = $(this).attr("id");
-			$.ajax({url:"/board/delete", data:"boardnum="+boardnum, method:"delete"}
+			$.ajax({url:"/board/delete", data:"boardnum="+no, method:"delete"}
 			).done(function(){
 				location.href="/boardform";
 			})

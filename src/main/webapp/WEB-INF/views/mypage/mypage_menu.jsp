@@ -1,16 +1,20 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <link href="layout/styles/mypage.css" rel="stylesheet" type="text/css" media="all">
-	      <div>
+
+
+	      <div class="menu_first">
 	      <nav class="menu">
-	      	<button id="mypage">마이페이지</button>
+
 		      <ul class="menu_list">
+		      	<li><input type="button" value='마이페이지' id='mypage'></li>
 		      	<li><input type='button' value='개인정보변경' id='mem_update'></li>
 		      	<li><input type='button' value='헌혈내역' id='bloodlist'></li>
 		      	<li><input type='button' value='회원탈퇴' id='mem_delete'></li>
 		      </ul>
 		  </nav>
 	      </div>
+
+
 <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 	$(function() {
@@ -28,5 +32,4 @@
 		});//헌혈내역 클릭
 
 	});
-
 </script>

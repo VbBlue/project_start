@@ -55,11 +55,11 @@ public class BoardController {
 		return "board/contents";
 	}
 	
-	@GetMapping("update{no}")
-	public String updateForm(@PathVariable int no, Model m ) {
-		boardDto dto = service.boardOne(no);
+	@GetMapping("update{boardnum}")
+	public String updateForm(@PathVariable int boardnum, Model m ) {
+		boardDto dto = service.boardOne(boardnum);
 		m.addAttribute("dto", dto);
-		return "board/updateForm";
+		return "board/update";
 	}
 
 	@PutMapping("/update")

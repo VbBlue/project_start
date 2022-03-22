@@ -26,8 +26,20 @@ public class MypageService {
 		return dao.goodslist(map);
 	}
 	
-	public int updatebuser(buserDto dto) {
-		return dao.updatebuser(dto);
+	public int updatebuser_pw(buserDto dto) {
+		return dao.updatebuser_pw(dto);
+	}
+	public int updatebuser_ph(buserDto dto) {
+		return dao.updatebuser_ph(dto);
+	}
+	public int updatebuser_em(buserDto dto) {
+		return dao.updatebuser_em(dto);
+	}
+	public int updatebuser_bt(buserDto dto) {
+		return dao.updatebuser_bt(dto);
+	}
+	public int updatebuser_ad(buserDto dto) {
+		return dao.updatebuser_ad(dto);
 	}
 	
 	public int deleteuser(String userid) {
