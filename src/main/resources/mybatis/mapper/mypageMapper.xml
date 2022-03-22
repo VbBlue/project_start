@@ -12,7 +12,7 @@
 	
 	<update id="updateReservation" parameterType="first.project.dto.reservation">
 		update reservation
-		set resdate = #{resdate}, restime = #{restime}, goods = #{goods}, bhselect = #{bhselect}
+		set resdate = #{resdate}, restime = #{restime}, goods = #{goods}, bhselect = #{bhselect}, resstate = '대기중'
 		where resnum = #{resnum}
 	</update>
 
