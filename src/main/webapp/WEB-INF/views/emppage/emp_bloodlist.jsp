@@ -116,6 +116,7 @@
   	  			}
   			})//JSON
   		});//조회버튼 클릭
+  		$(".page_btn").trigger("click");
 	});//ready
 </script>
 </div>

@@ -147,7 +147,12 @@
 		  				j = count;
 		  			}
 		  			for(i - 1; i < j; i++){
-						$("#bloodlist_data").append("<tr><td>" + (i + 1) + "</td><td>" + data['list'][i].bhname + "</td><td>" + data['list'][i].bhdate + "</td><td>" + data['list'][i].bhselect + "</td></tr>");
+		  				var date = new Date(data['list'][i].bhdate);
+  	  					var year = date.getFullYear();
+  	  					var month = ('0' + (date.getMonth() + 1)).slice(-2);
+  	  					var day = ('0' + date.getDate()).slice(-2);
+  	  					var dateString = year + '-' + month  + '-' + day;
+						$("#bloodlist_data").append("<tr><td>" + (i + 1) + "</td><td>" + data['list'][i].bhname + "</td><td>" + dateString + "</td><td>" + data['list'][i].bhselect + "</td></tr>");
 					}
   				});
   		  		$("#first").trigger("click");

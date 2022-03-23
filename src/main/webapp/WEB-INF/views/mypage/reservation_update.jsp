@@ -16,17 +16,17 @@
 
 	 	<div class="reserv_left">
 	 	<label for="bhname">헌혈의 집 이름</label>
-      	<input value="${res.bhname}" name="bhname">
+      	<input value="${res.bhname}" name="bhname" readonly>
       	</div>
 
 		<div class="reserv_left">
 		<label for="userid">아이디</label>
-      	<input value="${res.userid}" name="userid">
+      	<input value="${res.userid}" name="userid" readonly>
       	</div>
 
       	<div class="reserv_left">
       	<label for="resdate">예약날짜</label>
-      	<input value="${res.resdate}" name="resdate">
+      	<input type='date' value="${res.resdate}" name="resdate" id="resdate" min="">
       	</div>
 
       	<div class="reserv_left">
@@ -44,15 +44,9 @@
       	<input value="${res.bhselect}" name="bhselect">
       	</div>
 
-      	<div class="reserv_left">
+      	<div class="reserv_left" style="display:none;">
      	<label for="resnum">예약내역 번호</label>
       	<input value="${res.resnum}" name="resnum">
-      	</div>
-
-
-      	<div class="reserv_left">
-     	<label for="resstate">예약상태</label>
-      	<input value="${res.resstate}" name="resstate">
       	</div>
       	</div>
 	</div>
@@ -65,5 +59,12 @@
       </div>
     </div>
   </section>
- </div>
+<script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+	$(function() {
+		var today = new Date().toISOString().split("T")[0];
+		$("#resdate").attr("min", today);
+	});
+</script>
+</div>
 <%@ include file="../includes/footer.jsp" %>
