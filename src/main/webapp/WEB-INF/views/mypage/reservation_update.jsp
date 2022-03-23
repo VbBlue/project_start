@@ -44,16 +44,11 @@
       	<input value="${res.bhselect}" name="bhselect">
       	</div>
 
-      	<div class="reserv_left">
+      	<div class="reserv_left" style="display:none;">
      	<label for="resnum">예약내역 번호</label>
       	<input value="${res.resnum}" name="resnum">
       	</div>
 
-
-      	<div class="reserv_left">
-     	<label for="resstate">예약상태</label>
-      	<input value="${res.resstate}" name="resstate">
-      	</div>
       	</div>
 	</div>
 
