@@ -16,17 +16,17 @@
 
 	 	<div class="reserv_left">
 	 	<label for="bhname">헌혈의 집 이름</label>
-      	<input value="${res.bhname}" name="bhname">
+      	<input value="${res.bhname}" name="bhname" readonly>
       	</div>
 
 		<div class="reserv_left">
 		<label for="userid">아이디</label>
-      	<input value="${res.userid}" name="userid">
+      	<input value="${res.userid}" name="userid" readonly>
       	</div>
 
       	<div class="reserv_left">
       	<label for="resdate">예약날짜</label>
-      	<input value="${res.resdate}" name="resdate">
+      	<input type='date' value="${res.resdate}" name="resdate" id="resdate" min="">
       	</div>
 
       	<div class="reserv_left">
@@ -48,7 +48,10 @@
      	<label for="resnum">예약내역 번호</label>
       	<input value="${res.resnum}" name="resnum">
       	</div>
+<<<<<<< HEAD
+=======
 
+>>>>>>> branch 'master' of https://github.com/shshshrj/project_start.git
       	</div>
 	</div>
 
@@ -60,5 +63,12 @@
       </div>
     </div>
   </section>
- </div>
+<script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+	$(function() {
+		var today = new Date().toISOString().split("T")[0];
+		$("#resdate").attr("min", today);
+	});
+</script>
+</div>
 <%@ include file="../includes/footer.jsp" %>

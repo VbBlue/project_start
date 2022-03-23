@@ -42,8 +42,12 @@
 							</div>
 						</div>
 					</div>
+					<div id="result"></div>
+						<input type='button' id='check_confirm' value='선택 예약확정'>
+						<input type='button' id='check_cancel' value='선택 예약취소'>
 						<table id="reslist">
 							<tr id="reslist_head">
+								<th><input type='checkbox' id='all_check'></th>
 								<th>순번</th>
 								<th>헌혈의집</th>
 								<th>아이디</th>
@@ -56,11 +60,12 @@
 								<th>예약취소</th>
 							</tr>
 						</table>
-					<div id="pages"></div>
+						<div id="pages"></div>
+					</div>
+					
 				</div>
 			</div>
     
-    </div>
   </section>
   
 </div>
@@ -93,7 +98,7 @@
   	  		$("#cal2").val(day_120);
   		});//최근 120일 버튼 클릭
   		$("#today").trigger("click");
-  		$(".page_btn").click(function() {
+  		$(".wrapper").on("click", "#page", function() {
   			$("#reslist_head").nextAll().remove();
   			$("div[id='pages']").empty();
   			var cal1 = $("#cal1").val();
@@ -107,7 +112,7 @@
   	  					var month = ('0' + (resdate.getMonth() + 1)).slice(-2);
   	  					var day = ('0' + resdate.getDate()).slice(-2);
   	  					var dateString = year + '-' + month  + '-' + day;
-  	  					$("#reslist").append("<tr><td id='data'>" +
+  	  					$("#reslist").append("<tr><td><input type='checkbox' id='chk'></td><td id='data'>" +
   	  												  data['list'][i]['R'] + "</td><td id='data'>" + 
   	  												  data['list'][i]['BHNAME'] + "</td><td id='data'>" +
   	  												  data['list'][i]['USERID'] + "</td><td id='data'>" +
@@ -130,13 +135,12 @@
   	  					$("div[id='pages']").append("<a href='javascript:void(0);' id='page' name=" + (data['begin'] + 5) + ">" + "[다음]" + " " + "</a>")
   	  				}
   				}else if(data['count'] == 0){
-  					alert(data['count']);
   					$("#reslist").append("<tr><td colspan='10'>해당 기간에 헌혈 예정이 없습니다.</td></tr>");
   	  			}
   			})//JSON
   		});//조회버튼 클릭
-		
-		$("#reslist").on("click", "#res_confirm", function(data) {
+  		$(".page_btn").trigger("click");
+  		$("#reslist").on("click", "#res_confirm", function(data) {
 			var resnum = $(this).parents("tr").find("#resnum").html();
 			$.ajax({Type:"POST", url:"res_confirm", data:{"resnum":resnum}});
 			alert("확정 완료");
@@ -148,6 +152,43 @@
 			alert("취소 완료");
 			$("#page").trigger("click");
 		});//예약취소 클릭
+		$("#reslist").on("click", "#all_check", function() {
+			if($("#all_check").is(":checked")) {
+				$("input[id='chk']").prop("checked", true);
+				
+			}else {
+				$("input[id='chk']").prop("checked", false);
+			}	
+		});//체크박스 전체선택
+		$("#reslist").on("click", "#data", function() {
+			if($(this).parents("tr").find("#chk").is(":checked")) {
+				$(this).parents("tr").find("#chk").prop("checked", false);
+			}else {
+				$(this).parents("tr").find("#chk").prop("checked", true);
+			}
+		});//체크박스 하나 선택
+		$("#check_confirm").on("click", function() {
+			var test = $('#reslist').find('input[id="chk"]');
+			for(i = 0; i < test.length; i++) {
+				if(test.eq(i).is(":checked")) {
+					var resnum = $(test.eq(i)).parents("tr").find("#resnum").html();
+					$.ajax({Type:"POST", url:"res_confirm", data:{"resnum":resnum}});
+				}
+			}
+			alert("확정 완료");
+			$("#page").trigger("click");
+		});//선택 예약확정
+		$("#check_cancel").on("click", function() {
+			var test = $('#reslist').find('input[id="chk"]');
+			for(i = 0; i < test.length; i++) {
+				if(test.eq(i).is(":checked")) {
+					var resnum = $(test.eq(i)).parents("tr").find("#resnum").html();
+					$.ajax({Type:"POST", url:"res_cancel", data:{"resnum":resnum}});
+				}
+			}
+			alert("취소 완료");
+			$("#page").trigger("click");
+		});//선택 예약취소
 	});//ready
 </script>
 <%@ include file="../includes/footer.jsp" %>
