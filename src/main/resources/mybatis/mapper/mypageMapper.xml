@@ -22,7 +22,11 @@
 	
 	<update id="updateReservation" parameterType="first.project.dto.reservation">
 		update reservation
+<<<<<<< HEAD
 		set resdate = '대기중', restime = #{restime}, goods = #{goods}, bhselect = #{bhselect}
+=======
+		set resdate = #{resdate}, restime = #{restime}, goods = #{goods}, bhselect = #{bhselect}, resstate = '대기중'
+>>>>>>> branch 'master' of https://github.com/shshshrj/project_start.git
 		where resnum = #{resnum}
 	</update>
 

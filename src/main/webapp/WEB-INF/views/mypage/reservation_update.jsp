@@ -48,6 +48,10 @@
      	<label for="resnum">예약내역 번호</label>
       	<input value="${res.resnum}" name="resnum">
       	</div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> branch 'master' of https://github.com/shshshrj/project_start.git
       	</div>
 	</div>
 

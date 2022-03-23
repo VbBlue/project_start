@@ -147,11 +147,19 @@
 		  				j = count;
 		  			}
 		  			for(i - 1; i < j; i++){
+<<<<<<< HEAD
 		  				var date = new Date(data['list'][i].bhdate);
   	  					var year = date.getFullYear();
   	  					var month = ('0' + (date.getMonth() + 1)).slice(-2);
   	  					var day = ('0' + date.getDate()).slice(-2);
   	  					var dateString = year + '-' + month  + '-' + day;
+=======
+		  				var bhdate = new Date(data['list'][i].bhdate);
+						var year = bhdate.getFullYear();
+						var month = ('0' + (bhdate.getMonth() + 1)).slice(-2);
+						var day = ('0' + bhdate.getDate()).slice(-2);
+						var dateString = year + '-' + month  + '-' + day;
+>>>>>>> branch 'master' of https://github.com/shshshrj/project_start.git
 						$("#bloodlist_data").append("<tr><td>" + (i + 1) + "</td><td>" + data['list'][i].bhname + "</td><td>" + dateString + "</td><td>" + data['list'][i].bhselect + "</td></tr>");
 					}
   				});
