@@ -10,7 +10,6 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -19,10 +18,8 @@ import com.google.gson.Gson;
 
 import first.project.dto.empDto;
 import first.project.dto.reservation;
-import first.project.dto.bhtimeDto;
 import first.project.dto.bloodlist;
 import first.project.dto.bloodownDto;
-import first.project.dto.boardDto;
 import first.project.service.EmpService;
 
 
@@ -60,7 +57,6 @@ public class EmpController {
 			result.put("list", list);
 			int pageNum = 5;
 			int totalPages = count/perPage + (count % perPage > 0 ? 1:0);
-
 			int begin = (page - 1) / pageNum * pageNum + 1;
 			int end = begin + pageNum -1;
 			if(end > totalPages) {
@@ -138,12 +134,14 @@ public class EmpController {
 		param.put("bhname", bhname);
 		int perPage = 10;	//한 페이지에 보일 글 개수
 		int count = service.emp_today_list_count(bhname);
+		System.out.println(count);
 		if(count > 0 ) {
 			int startRow = (page - 1) * perPage + 1;
 			int endRow = page * perPage;
 			param.put("startRow", startRow);
 			param.put("endRow", endRow);
 			list = service.emp_today_list(param);
+			System.out.println(list);
 			int pageNum = 5;
 			int totalPages = count/perPage + (count % perPage > 0 ? 1:0);
 			int begin = (page - 1) / pageNum * pageNum + 1;
@@ -158,7 +156,6 @@ public class EmpController {
 		}
 		m.addAttribute("count", count);
 		m.addAttribute("reslist", list);
-		System.out.println(list);
 		return "/emppage/emp_today_res";
 	}
 

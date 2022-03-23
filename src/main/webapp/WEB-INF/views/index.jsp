@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="./includes/header.jsp" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <link href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/static/woff2/SUIT.css" rel="stylesheet">
 <script>
 	$(document).ready(
@@ -19,9 +20,67 @@
 			})
 </script>
 <div class="wrapper bgded overlay">
-	<div id="pageintro" class="hoc clear" >
-		<div>
-		가나다라
+	<div id="pageintro" class="hoc clear"  style="display: flex;">
+		<div class="main_b_left">
+			<div>
+			<p style="color: #2c2c2c; font-size: 28px; padding: 15px; margin-left: 40px;">혈액 보유량</p>
+			</div>
+			<div class="to_b_div">
+				<ul>
+					<li class="to_b_i">
+						<div>
+							<c:if test="${b_avg_count.O >= 3.0}">
+								<img src="images/b_high.png">
+							</c:if>
+							<c:if test="${b_avg_count.O < 3.0}">
+								<img src="images/b_low.png">
+							</c:if>
+						</div>
+						<p class="to_b_name"><strong>O</strong></p>
+						<p class="to_b_avg">${b_avg_count.O}</p>
+					</li>
+					<li class="to_b_i">
+						<div>
+							<c:if test="${b_avg_count.A >= 3.0}">
+								<img src="images/b_high.png">
+							</c:if>
+							<c:if test="${b_avg_count.A < 3.0}">
+								<img src="images/b_low.png">
+							</c:if>
+						</div>
+						<p class="to_b_name"><strong>A</strong></p>
+						<p class="to_b_avg">${b_avg_count.A}</p>
+					</li>
+				</ul>
+			</div>
+			<div class="to_b_div">
+				<ul>
+					<li class="to_b_i">
+						<div>
+							<c:if test="${b_avg_count.B >= 3.0}">
+								<img src="images/b_high.png">
+							</c:if>
+							<c:if test="${b_avg_count.B < 3.0}">
+								<img src="images/b_low.png">
+							</c:if>
+						</div>
+						<p class="to_b_name"><strong>B</strong></p>
+						<p class="to_b_avg">${b_avg_count.B}</p>
+					</li>
+					<li class="to_b_i">
+						<div>
+							<c:if test="${b_avg_count.AB >= 3.0}">
+								<img src="images/b_high.png">
+							</c:if>
+							<c:if test="${b_avg_count.AB < 3.0}">
+								<img src="images/b_low.png">
+							</c:if>
+						</div>
+						<p class="to_b_name"><strong>AB</strong></p>
+						<p class="to_b_avg">${b_avg_count.AB}</p>
+					</li>
+				</ul>
+			</div>
 		</div>
 		<div id="slide">
     		<div class="slidebanner">

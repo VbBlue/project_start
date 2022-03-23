@@ -35,4 +35,6 @@ public interface EmpDao {
 	
 	List<boardDto> emp_boardList(Map<String, Object> map);
 	int emp_board_count(String bhname);
+	
+	Map<String, Object> main_b_all();
 }

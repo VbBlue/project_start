@@ -111,4 +111,19 @@
 	<select id="emp_board_count" resultType="int" parameterType="String">
 		select count(*) from board where bhname=#{bhname}
 	</select>
+	
+	<select id="main_b_all" resultType="map">
+		select round((sum(A)/138),2) as A,
+    		round((sum(O)/138),2) as O,
+    		round((sum(B)/138),2) as B,
+    		round((sum(AB)/138),2) as AB
+    	from (
+    		select bhname,
+        		count(case when userbtype='A' then 1 end) as A,
+        		count(case when userbtype='O' then 1 end) as O,
+        		count(case when userbtype='B' then 1 end) as B,
+        		count(case when userbtype='AB' then 1 end) as AB
+    		from bloodown GROUP BY bhname
+		)
+	</select>
 </mapper>

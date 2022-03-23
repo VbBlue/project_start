@@ -141,7 +141,7 @@
 			if (dateElement.value <= dateString) {
 				alert('당일예약은 불가능 합니다.');
 				dateElement.value = dateString;
-				dateElement.value =null;
+				/* dateElement.value =null; */
 			}
 		}
 		$(function() {

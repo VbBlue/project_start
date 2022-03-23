@@ -21,6 +21,34 @@ File: Layout CSS
 	src: url("/font/MjMJGothic.ttf") format("truetype");;
 }
 
+.to_b_avg{
+	font-size: 29px;
+}
+.to_b_name{
+	font-size: 28px;
+}
+
+.to_b_div{
+	color: #bb2e3e;
+}
+
+.to_b_i{
+	text-align: center;
+    float: left;
+    width: 50%;
+    list-style-type: none;
+}
+
+.main_b_left{
+    width: 50%;
+    padding-right: 10px;
+    background-color: #fdf2ea;
+    margin-top: 15px;
+    margin-right: 15px;
+    border-radius: 1em;
+    padding-left: 15px;
+    padding-right: 50px;
+}
 
 /* usersignup, empsignup == 가운데정렬 */
 #signup_menu{
@@ -388,7 +416,7 @@ File: Layout CSS
 /* index 이미지 슬라이드 부분
 --------------------------------------------------------------------------------------------------------------- */
 .slide { width: 1200px; margin: 0 auto; }
-div#slide div.slidebanner { width: 1200px; height: 640px; overflow: hidden; }
+div#slide div.slidebanner { width: 600px; height: 640px; overflow: hidden; }
 div#slide div.slidebanner ul { width: 1200px; height: 900px; position: relative;}
 div#slide div.slidebanner ul li { width: 1200px; height: 640px; float: right; }
 

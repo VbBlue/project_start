@@ -56,7 +56,9 @@ public class MainController {
 	BoardService board_service;
 
 	@GetMapping("/")
-	public String indexform() {
+	public String indexform(Model m) {
+		Map<String, Object> map = e_servcie.main_b_all();
+		m.addAttribute("b_avg_count", map);
 		return "index";
 	}
 

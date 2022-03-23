@@ -106,4 +106,8 @@ public class EmpService {
 	public int emp_board_count(String bhname) {
 		return dao.emp_board_count(bhname);
 	}
+	
+	public Map<String, Object> main_b_all(){
+		return dao.main_b_all();
+	}
 }
