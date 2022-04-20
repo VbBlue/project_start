@@ -56,10 +56,10 @@
 
     <img src="images/1008104646.jpeg" style=" margin-bottom:15px; height:40px; width:40px;">
       <c:if test="${emp.empid == null}">
-      	<a id="logoname" href="/">헌혈해주세요</a>
+      	<a id="logoname" href="/">헌혈의 집</a>
       </c:if>
       <c:if test="${emp.empid != null}">
-      	<a id="logoname" href="emp">헌혈해주세요</a>
+      	<a id="logoname" href="emp">헌혈의 집</a>
       </c:if>
       <!-- ################################################################################################ -->
     </div>

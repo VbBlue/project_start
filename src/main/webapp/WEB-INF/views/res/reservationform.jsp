@@ -54,10 +54,7 @@
 									<input type="text" value="${buser.userbtype }" name="userbtype" id="userbtype">
 									<small id="userbtype_error" style="color: red;"> </small>
 								</div>
-								<div class="resform_left">
-									<label for="point">포인트</label>
-									<input type="text" value="0" name="point" id="point" readonly >
-								</div>
+								
 							</div>
 						</div>
 						<div id="reservation_main_info">
@@ -141,7 +138,7 @@
 			if (dateElement.value <= dateString) {
 				alert('당일예약은 불가능 합니다.');
 				dateElement.value = dateString;
-				/* dateElement.value =null; */
+				dateElement.value =null;
 			}
 		}
 		$(function() {

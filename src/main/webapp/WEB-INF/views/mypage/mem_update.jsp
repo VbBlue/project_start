@@ -263,7 +263,7 @@ $(function(){
 			}
 		}
 		
-		if(useraddr1 || useraddr2){
+		if(!useraddr1 || !useraddr2){
 			$("#error_addr").append("주소를 입력 해주세요.");
 			return false;
 		}

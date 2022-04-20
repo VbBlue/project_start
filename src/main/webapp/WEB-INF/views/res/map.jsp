@@ -35,7 +35,26 @@
 						<th>전화번호</th>
 						<th>혈액원</th>
 					</tr>
+					<c:forEach items="${bh_page_list}" var="bh">
+						<tr>
+							<td><input type="button" id="${bh.bhname}" value="${bh.bhname}" onclick="bh_map_focus('${bh.bhlocation}')" style="border: none; background-color: transparent; border-bottom: groove;"></td>
+							<td>${bh.bhlocation}</td>
+							<td>${bh.bhphone}</td>
+							<td>${bh.bhone}</td>
+						</tr>
+					</c:forEach>
 				</table>
+					<div id="page">
+						<c:if test="${begin > pageNum}">
+							<a href="mapform?p=${begin-1}">[이전]</a>
+						</c:if>
+						<c:forEach begin="${begin}" end="${end}" var="i">
+							<a href="mapform?p=${i}">${i}</a>
+						</c:forEach>
+						<c:if test="${end < totalpages}">
+							<a href="mapform?p=${end+1}">[다음]</a>
+						</c:if>
+					</div>
 			<div style="display: flex; margin-bottom: 10px;">
 				<div style="margin-right: 15px;">
 					<select id="info_select">
@@ -175,6 +194,18 @@ function displayPlaces(positions) {
 	})
 }
 
+function bh_map_focus(position){
+	var geocoder = new kakao.maps.services.Geocoder();
+	geocoder.addressSearch(position, function(result, status){
+		if(status === kakao.maps.services.Status.OK){
+			var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+			
+			map.setCenter(coords);
+			document.getElementById('search_info').scrollIntoView();
+		}
+	})
+}
+
 function displayPlaceInfo (content,position) {
 	overlay.setContent(content);
 	overlay.setPosition(position);
@@ -190,7 +221,6 @@ function closeOverlay() {
 </script>
 <script>
 function search() {
-	$("#map_bh_tr").nextAll().remove();
 	let info = $("#search_info").val();
 	let sel = $("#info_select").val();
 	if (!sel){
@@ -200,19 +230,22 @@ function search() {
 		$("#search_info").focus();
 	}
 	else{
+		$("#map_bh_tr").nextAll().remove();
+		$("#page").empty();
 		$.ajax({url:"/bh_search", data:{"info":info,"select":sel} , dataType:"json"}
 		).done(function(data){
-			if (data.length <1){
+			let bh_list = data;
+			if (bh_list.length <1){
 				$("table#map_bh_table").append(
 						"<tr><td colspan='4'>다시 검색해주세요</td></tr>")
 			}else{
-				for(var i = 0; i<data.length; i++){
+				for(var i = 0; i<bh_list.length; i++){
 					$("table#map_bh_table").append(
 						"<tr id='map_bh_sel'>"+
-						"<td id='bhname'>"+data[i].bhname+"</td>"+
-						"<td id='bhlocation'>"+data[i].bhlocation+"</td>"+
-						"<td id='bhphone'>"+data[i].bhphone+"</td>"+
-						"<td id='bhone'>"+data[i].bhone+"</td>"+
+						"<td id='bhname'>"+"<input type='button' id='"+bh_list[i].bhname+"' value='"+bh_list[i].bhname+"' onclick='bh_map_focus(`"+bh_list[i].bhlocation+"`)' style='border: none; background-color: transparent; border-bottom: groove;'>"+"</td>"+
+						"<td id='bhlocation'>"+bh_list[i].bhlocation+"</td>"+
+						"<td id='bhphone'>"+bh_list[i].bhphone+"</td>"+
+						"<td id='bhone'>"+bh_list[i].bhone+"</td>"+
 						"</tr>"	
 					)
 				}

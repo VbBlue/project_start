@@ -7,7 +7,7 @@
       <h6 class="heading">2조</h6>
       <ul class="nospace linklist contact btmspace-30">
         <li style="padding: 5px;"> 조원 이름</li>
-        <li style="padding: 7px;"> 윤준형 // 문규리 // 변정식 // 우병열</li>
+        <li style="padding: 7px;"> 윤준형 , 문규리 , 변정식 , 우병열</li>
       </ul>
 
     </div>

@@ -25,8 +25,8 @@
 								<th>기념품</th>
 								<th>헌혈종류</th>
 								<th>예약상태</th>
-								<th>예약확정</th>
-								<th>예약취소</th>
+								<th>헌혈완료</th>
+								<th>헌혈취소</th>
 							</tr>
 						</table>
 						<div id="pages"><input type='button' id='page' style="display:none"></div>

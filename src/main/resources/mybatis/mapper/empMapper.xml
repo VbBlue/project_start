@@ -5,11 +5,11 @@
 <mapper namespace="first.project.dao.EmpDao">
 	
 	<insert id="blist_insert" parameterType="first.project.dto.bloodlist">
-		insert into bloodlist values (bhname = #{bhname}, userid = #{userid}, bhdate = sysdate, bhlistnum = bloodlist_seq.nextval, empid = #{empid}, bhselect = #{bhselect})
+		insert into bloodlist values (#{bhname},#{userid},sysdate,#{bhselect},bloodlist_seq.nextval, #{empid})
 	</insert>
 	
 	<insert id="bown_insert" parameterType="first.project.dto.bloodownDto">
-		insert into bloodown values (bloodownnum = bloodown_seq.nextval, bhname = #{bhname}, userbtype = #{userbtype}, bhselect = #{bhselect})
+		insert into bloodown values (bloodown_seq.nextval,#{bhname}, #{userbtype},#{bhselect})
 	</insert>
 	
 	<update id="b_complete" parameterType="int">
@@ -66,13 +66,13 @@
 		<![CDATA[
 		select * from(
 		select rownum r, bhname, userid, resdate, restime, goods, bhselect, resnum, resstate 
-		from (select * from reservation where bhname = #{bhname} and resstate = '예약완료' and resdate = (select to_char(SYSDATE) FROM DUAL) order by restime) 
+		from (select * from reservation where bhname = #{bhname} and resstate = '예약완료' and to_char(resdate) = (select to_char(SYSDATE) FROM DUAL) order by restime) 
 		)where r >= #{startRow} and r <= #{endRow}
 		]]>
 	</select>
 	
 	<select id="emp_today_list_count" parameterType="String" resultType="int">
-		select count(*) from reservation where bhname = #{bhname} and resstate = '예약완료' and resdate = (select to_char(SYSDATE) FROM DUAL)
+		select count(*) from reservation where bhname = #{bhname} and resstate = '예약완료' and to_char(resdate) = (select to_char(SYSDATE) FROM DUAL)
 	</select>
 	
 	<select id="btype" parameterType="String" resultType="String">
