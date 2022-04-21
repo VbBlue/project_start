@@ -187,6 +187,9 @@ public class MainController {
 				String today = sdf.format(now);
 				Date format1 = new SimpleDateFormat("yyyyMMdd").parse(today);
 				Long Dday = (format1.getTime() - date.getTime())/(1000*60*60*24);
+				if(Dday > 0) {
+					Dday = 0l;
+				}
 				String bhselect = list.getBhselect();
 				Date bhdate = list.getBhdate();
 				cal.setTime(bhdate);
